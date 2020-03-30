@@ -1,0 +1,283 @@
+/*=============================================
+=            Root            =
+=============================================*/
+:root {
+  --darkb: #1d1919;
+  --gold: #f8b739;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'ElMessiri';
+  src: url('../fonts/ElMessiri-Regular.ttf') format('ttf');
+}
+
+/*=============================================
+=            Login Form Page         =
+=============================================*/
+#form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    direction:rtl;
+}
+
+/*=============================================
+=            Sidebar            =
+=============================================*/
+#sidebar {
+  width: 25vw;
+  max-width: 25%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 999;
+  background: var(--darkb);
+  color: #fff;
+  -webkit-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s;
+  font-size: 3vh;
+}
+
+#sidebar.hide {
+  margin-right: -600px;
+}
+
+#username {
+  color: #c6e2ff;
+  animation: neon .08s ease-in-out infinite;
+}
+
+@keyframes neon {
+  from {
+    text-shadow:
+      0 0 6px rgba(202, 228, 225, 0.92),
+      0 0 30px rgba(202, 228, 225, 0.34),
+      0 0 12px rgba(30, 132, 242, 0.52),
+      0 0 21px rgba(30, 132, 242, 0.92),
+      0 0 34px rgba(30, 132, 242, 0.78),
+      0 0 54px rgba(30, 132, 242, 0.92);
+  }
+
+  to {
+    text-shadow:
+      0 0 6px rgba(202, 228, 225, 0.98),
+      0 0 30px rgba(202, 228, 225, 0.42),
+      0 0 12px rgba(30, 132, 242, 0.58),
+      0 0 22px rgba(30, 132, 242, 0.84),
+      0 0 38px rgba(30, 132, 242, 0.88),
+      0 0 60px rgba(30, 132, 242, 1);
+  }
+}
+
+#sidebar ul li>a {
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#sidebar ul li>a:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+/*=============================================
+=            Navbar            =
+=============================================*/
+
+#navbar {
+  direction: rtl;
+}
+/*
+#users-block{ 
+     background: #222;
+     background-image: repeating-linear-gradient(
+            to bottom,
+            transparent 7px,
+            rgba(0, 0, 0, 0.8) 9px,
+            rgba(0, 0, 0, 0.8) 13px,
+            transparent 13px
+        );
+}
+*/
+
+#users{
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+               0 0 40px #ffa500, 0 0 60px #ff0000,
+               0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  animation: bing 12s infinite;
+  -webkit-animation: bing 12s infinite;
+}
+
+
+@-webkit-keyframes bing {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+@keyframes bing {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+=            Container            =
+=============================================*/
+#content {
+  -webkit-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+
+/*----------  Switch - The box around the slider  ----------*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  float: right;
+}
+
+/*----------  Hide default HTML checkbox  ----------*/
+.switch input {
+  display: none;
+}
+
+/*----------  The slider  ----------*/
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input.success:checked+.slider {
+  background-color: #8bc34a;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/*----------  Rounded sliders  ----------*/
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*=============================================
+=            Cards            =
+=============================================*/
+#spinnerc{
+    width:6rem;
+    height:6rem;
+}
+
+.card-body {
+    direction: rtl;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+
+.card-header.collapsed .fa {
+  transform: rotate(90deg);
+}
+
+#pyear-info-header {
+  background-color: yellowgreen;
+}
+
+@keyframes blink {
+  50% {
+    border-color: #ff0000;
+    background-color: tomato;
+  }
+}
+
+.blanking {
+  /*or other element you want*/
+  animation: blink .5s step-end infinite alternate;
+}

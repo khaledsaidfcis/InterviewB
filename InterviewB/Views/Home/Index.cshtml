@@ -1,0 +1,38 @@
+﻿@using InterviewB.Models
+@Html.Partial("_Sidebar")
+<!-- Content -->
+<div id="content" class="p-4 p-md-5 container-fluid">
+    @Html.Partial("_Navbar")
+    <!-- Master For Web Site -->
+    <div id="master" class="d-flex flex-nowrap flex-column  col-9 pt-5 ">
+        <label class="switch">
+            <input type="checkbox" class="success" id="switch-order" />
+            <span class="slider round"></span>
+        </label>
+        <!-- Student Info Cards -->
+        <ul class="nested_with_switch vertical text-center" id="student-cards">
+            <li id="spinnerc" class="spinner-border text-warning mt-5" role="status">
+                <span class="sr-only">Loading...</span>
+            </li>
+            <!-- Basic Info -->
+            @*@Html.Partial("_BasicInfo" , new ViewDataDictionary { {"order" , "1" } })*@
+            <!--End Of Basic Info -->
+        </ul>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        var _ServerHub = $.connection.serverHub;
+
+        $(window).on('load', function () {
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                console.log(_ServerHub.connection.id);
+                    // Call the Send method on the hub.
+                _ServerHub.server.updateConnectionId("@((Session["user"] as USER).USERNAME)");                   
+            });
+        });
+    </script>
+}

@@ -1,0 +1,46 @@
+﻿@using InterviewB.Models
+<!-- Sidebar -->
+<nav id="sidebar" class="bg-dark">
+    <div id="sidebarContent" class="p-4 pt-5">
+        <!-- User Logo & name Get from Session -->
+        <div id="user" class="mx-auto">
+            @*<img src="~/Content/images/@((Session["user"] as USER).USERNAME).png"
+                alt="@((Session["user"] as USER).DESCRIPTION)" height="120" width="120"
+                class="img logo rounded-circle mb-5 rounded mx-auto d-block" />*@
+            @{
+                var profileImg = "/Content/images/" + (Session["user"] as USER).USERNAME + ".png";
+                var absolutePath = HttpContext.Current.Server.MapPath(profileImg);
+                if (System.IO.File.Exists(absolutePath))
+                {
+                    <img src="@(profileImg)"
+                         alt="@((Session["user"] as USER).DESCRIPTION)" height="120" width="120"
+                         class="img logo rounded-circle mb-5 rounded mx-auto d-block" />
+                }
+                else
+                {
+                    <img src="~/Content/images/user.png"
+                         alt="@((Session["user"] as USER).DESCRIPTION)" height="120" width="120"
+                         class="img logo rounded-circle mb-5 rounded mx-auto d-block" />
+                }
+
+            }
+            <p id="username" class="h5 text-center">
+                @((Session["user"] as USER).DESCRIPTION)
+            </p>
+        </div>
+        <ul class="list-unstyled  text-center mx-auto pt-5">
+            <li class="p-2">
+                <a href="#map">الخريطة</a>
+            </li>
+            <li class="p-2">
+                <a href="#">الحروف</a>
+            </li>
+            <li class="p-2">
+                <a href="#">الكارت العائلي</a>
+            </li>
+            <li class="p-2">
+                @Html.ActionLink("تسجيل الخروج", "Logout", "Auth")
+            </li>
+        </ul>
+    </div>
+</nav>
