@@ -4,16 +4,17 @@
 <div id="content" class="p-4 p-md-5 container-fluid">
     @Html.Partial("_Navbar")
     <!-- Master For Web Site -->
-    <div id="master" class="d-flex flex-nowrap flex-column  col-9 pt-5 ">
-        <label class="switch">
+    <div id="master" class="d-flex flex-nowrap flex-column  col-9 pt-5 px-0">
+        <label class="switch d-none">
             <input type="checkbox" class="success" id="switch-order" />
             <span class="slider round"></span>
         </label>
+        <div id="spinnerc" class="spinner-border text-warning mx-auto mt-5" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
         <!-- Student Info Cards -->
-        <ul class="nested_with_switch vertical text-center" id="student-cards">
-            <li id="spinnerc" class="spinner-border text-warning mt-5" role="status">
-                <span class="sr-only">Loading...</span>
-            </li>
+        <ul class="nested_with_switch vertical text-center list-unstyled" id="student-cards">
+
             <!-- Basic Info -->
             @*@Html.Partial("_BasicInfo" , new ViewDataDictionary { {"order" , "1" } })*@
             <!--End Of Basic Info -->

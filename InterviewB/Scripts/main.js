@@ -7,7 +7,9 @@
   //Sidebar Collpase
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('hide');
-    $('#master').toggleClass('col-9');
+      $('#master').toggleClass('col-9');
+      $('.card-body').toggleClass('d-flex justify-content-center');
+
     // $( '#navbar' ).toggleClass( 'col-9' );
   });
 
@@ -23,6 +25,7 @@
         alert($("input[name=student_no]").val());
         alert($('select[name=' + "student_kind" + ']').val());
 
+        //$("#spinnerc").toggleClass("d-none");
       
         var data = $("#Admin_Form").serialize();
 
@@ -32,6 +35,7 @@
             data: data,
             success: function (response) {
                 alert(response);
+                $("#student-cards").empty();
                 $("#student-cards").append(response);
             },
             error: function (e) {

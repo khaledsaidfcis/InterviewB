@@ -43,8 +43,7 @@ namespace InterviewB.Controllers
             ViewBag.basic_info = basic_info;
 
 
-            return PartialView("_BasicInfo");
-            //return Content("Done");
+            return PartialView("_StudentCards");
         }
 
 
