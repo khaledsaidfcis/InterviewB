@@ -20,7 +20,7 @@ namespace InterviewB.App_Start
         }
 
         
-        public void  updateConnectionId(string username)
+        public void  UpdateConnectionId(string username)
         {
             var _connectionId = Context.ConnectionId;
 
@@ -32,6 +32,11 @@ namespace InterviewB.App_Start
             db.SaveChanges();
         }
         
+
+        public void  SendStdnoToClients(string std_no , string std_kind)
+        {
+            Clients.All.getAllDataFromSrever(std_no, std_kind);
+        }
 
        
 

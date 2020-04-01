@@ -26,9 +26,9 @@ namespace InterviewB.Controllers
            
         }
 
-
+       
         [HttpPost]
-        public ActionResult getAllData(FormCollection data)
+        public ActionResult GetAllData(FormCollection data)
         {
             //Get Form Parameters
             int _student_no = int.Parse(data["student_no"]);
@@ -39,33 +39,16 @@ namespace InterviewB.Controllers
                                      && b.STD_KIND_CODE == _student_kind
                                ).FirstOrDefault();
 
+            if(basic_info == null)
+            {
+                return Content("هذا الرقم غير صحيح");
+            }
             //Pass it to view
             ViewBag.basic_info = basic_info;
 
 
             return PartialView("_StudentCards");
         }
-
-
-       [HttpPost]
-        public ActionResult getBasicInfo(FormCollection data)
-        {
-
-            int _student_no =  int.Parse(data["student_no"]);
-            int _student_kind = int.Parse(data["student_kind"]);
-
-            var basic_info = db.BASIC_INFO.Where(b => b.STD_NO == _student_no
-                                     && b.STD_KIND_CODE == _student_kind
-                               ).FirstOrDefault();
-
-
-            return Json(new { basic_info = basic_info});
-            //return PartialView("_Navbar");
-            //return Content(basic_info.ToString());
-        }
-
-
-
 
         public ActionResult Chat()
         {
