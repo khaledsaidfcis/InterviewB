@@ -47,9 +47,55 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRADE_CODE" Type="number" Precision="38" Scale="0" />
           <Property Name="GRADE" Type="varchar2" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table MEDICAL_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table MEDICAL_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column LAGNA_CODE on table MEDICAL_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="MEDICAL_DETAILS">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="LAGNA_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="LAGNA_CODE" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="LAGNA" Type="varchar2" MaxLength="50" />
+          <Property Name="LAGNA_STATUS_CODE" Type="number" Precision="2" Scale="0" />
+          <Property Name="LAGNA_STATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table MEDICAL_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table MEDICAL_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="MEDICAL_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="MEDICAL_STATUS_CODE" Type="number" Precision="2" Scale="0" />
+          <Property Name="MEDICAL_STATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="LENGTH" Type="number" Precision="5" Scale="2" />
+          <Property Name="WEIGHT" Type="number" Precision="5" Scale="2" />
+          <Property Name="VISION_CODE" Type="number" Precision="3" Scale="0" />
+          <Property Name="VISION" Type="varchar2" MaxLength="50" />
+          <Property Name="VISION_DEGREE" Type="number" Precision="6" Scale="2" />
+          <Property Name="GLASSES_CODE" Type="number" Precision="1" Scale="0" />
+          <Property Name="GLASSES" Type="varchar2" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="InterviewOStoreContainer">
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="INTERVIEW" store:Type="Tables" />
           <EntitySet Name="BASIC_INFO" EntityType="Self.BASIC_INFO" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="MEDICAL_DETAILS" EntityType="Self.MEDICAL_DETAILS" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="MEDICAL_INFO" EntityType="Self.MEDICAL_INFO" Schema="INTERVIEW" store:Type="Views" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -58,6 +104,8 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
         <EntityContainer Name="InterviewContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="USERS" EntityType="InterviewO.USER" />
           <EntitySet Name="BASIC_INFO" EntityType="InterviewO.BASIC_INFO" />
+          <EntitySet Name="MEDICAL_DETAILS" EntityType="InterviewO.MEDICAL_DETAILS" />
+          <EntitySet Name="MEDICAL_INFO" EntityType="InterviewO.MEDICAL_INFO" />
         </EntityContainer>
         <EntityType Name="USER">
           <Key>
@@ -98,6 +146,43 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRADE_CODE" Type="Decimal" Precision="38" Scale="0" />
           <Property Name="GRADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="MEDICAL_DETAILS">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="LAGNA_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LAGNA_CODE" Type="Int16" Nullable="false" />
+          <Property Name="LAGNA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAGNA_STATUS_CODE" Type="Int16" />
+          <Property Name="LAGNA_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MEDICAL_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MEDICAL_STATUS_CODE" Type="Int16" />
+          <Property Name="MEDICAL_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LENGTH" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="WEIGHT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VISION_CODE" Type="Int16" />
+          <Property Name="VISION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VISION_DEGREE" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GLASSES_CODE" Type="Int16" />
+          <Property Name="GLASSES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -136,6 +221,42 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
                 <ScalarProperty Name="PLACE_CODE" ColumnName="PLACE_CODE" />
                 <ScalarProperty Name="CALCDATE" ColumnName="CALCDATE" />
                 <ScalarProperty Name="BIRTH_DATE" ColumnName="BIRTH_DATE" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICAL_DETAILS">
+            <EntityTypeMapping TypeName="InterviewO.MEDICAL_DETAILS">
+              <MappingFragment StoreEntitySet="MEDICAL_DETAILS">
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="LAGNA_STATUS" ColumnName="LAGNA_STATUS" />
+                <ScalarProperty Name="LAGNA_STATUS_CODE" ColumnName="LAGNA_STATUS_CODE" />
+                <ScalarProperty Name="LAGNA" ColumnName="LAGNA" />
+                <ScalarProperty Name="LAGNA_CODE" ColumnName="LAGNA_CODE" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICAL_INFO">
+            <EntityTypeMapping TypeName="InterviewO.MEDICAL_INFO">
+              <MappingFragment StoreEntitySet="MEDICAL_INFO">
+                <ScalarProperty Name="GLASSES" ColumnName="GLASSES" />
+                <ScalarProperty Name="GLASSES_CODE" ColumnName="GLASSES_CODE" />
+                <ScalarProperty Name="VISION_DEGREE" ColumnName="VISION_DEGREE" />
+                <ScalarProperty Name="VISION" ColumnName="VISION" />
+                <ScalarProperty Name="VISION_CODE" ColumnName="VISION_CODE" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="MEDICAL_STATUS" ColumnName="MEDICAL_STATUS" />
+                <ScalarProperty Name="MEDICAL_STATUS_CODE" ColumnName="MEDICAL_STATUS_CODE" />
                 <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
                 <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
                 <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />

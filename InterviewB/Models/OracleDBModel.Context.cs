@@ -27,5 +27,7 @@ namespace InterviewB.Models
     
         public DbSet<USER> USERS { get; set; }
         public DbSet<BASIC_INFO> BASIC_INFO { get; set; }
+        public DbSet<MEDICAL_DETAILS> MEDICAL_DETAILS { get; set; }
+        public DbSet<MEDICAL_INFO> MEDICAL_INFO { get; set; }
     }
 }

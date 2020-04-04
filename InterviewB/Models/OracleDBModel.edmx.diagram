@@ -5,8 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="75d7ecb8d48f462f97527269cb9651fb" Name="Diagram1" ShowGrid="true" DisplayType="true">
-        <EntityTypeShape EntityType="InterviewO.USER" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="InterviewO.BASIC_INFO" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InterviewO.USER" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="InterviewO.BASIC_INFO" Width="1.5" PointX="2.75" PointY="0.5" />
+        <EntityTypeShape EntityType="InterviewO.MEDICAL_DETAILS" Width="2" PointX="4.75" PointY="0.5" />
+        <EntityTypeShape EntityType="InterviewO.MEDICAL_INFO" Width="2" PointX="4.75" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

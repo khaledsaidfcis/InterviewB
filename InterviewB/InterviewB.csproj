@@ -196,6 +196,12 @@
     <Compile Include="Models\BASIC_INFO.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MEDICAL_DETAILS.cs">
+      <DependentUpon>OracleDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEDICAL_INFO.cs">
+      <DependentUpon>OracleDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OracleDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,6 +229,9 @@
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\OracleDBModel.Context.tt">
@@ -250,6 +259,18 @@
     <Content Include="Models\OracleDBModel.edmx.diagram">
       <DependentUpon>OracleDBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -293,6 +314,7 @@
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Home\_StudentCards.cshtml" />
     <Content Include="Views\Home\_BasicInfo - Copy.cshtml" />
+    <Content Include="Views\Home\_MedicalInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
