@@ -58,7 +58,7 @@ namespace InterviewB.Controllers
                 //Medical-Details
                 medical_details = db.MEDICAL_DETAILS.Where(md => md.STD_NO == medical_info.STD_NO
                                                              && md.STD_KIND_CODE == medical_info.STD_KIND_CODE
-                                                         ).ToList<MEDICAL_DETAILS>();
+                                                         ).ToList();
             }
 
 

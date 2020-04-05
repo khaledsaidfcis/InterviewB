@@ -49,24 +49,38 @@
                     @Model.WEIGHT
                 </p>
             </div>
-            @{
-                if (@Model.MEDICAL_STATUS_CODE != 1)
-                {
-                    <div class="clearfix"></div>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">اللجنة</th>
-                                <th scope="col">الحالة</th>
-                                <th scope="col">الملحوظة الطبية</th>
-                            </tr>
-                        </thead>
-                    </table>
-                }
-            } 
-           @* @((ViewBag.medical_detailsO[1] as MEDICAL_DETAILS).REMARK)*@
+
         </div>
+
+        @if (@Model.MEDICAL_STATUS_CODE != 1)
+        {
+            <div class="medical-table">
+                <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">اللجنة</th>
+                            <th scope="col">الحالة</th>
+                            <th scope="col">الملحوظة الطبية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var med in ViewBag.medical_detailsO)
+                        {
+                        <tr>
+                            <!--LAGNA NAME-->
+                            <td>@((med as MEDICAL_DETAILS).LAGNA)</td>
+                            <!--LAGNA STATUS-->
+                            <td>@((med as MEDICAL_DETAILS).LAGNA_STATUS)</td>
+                            <!--MEDICAL REMARK-->
+                            <td>@((med as MEDICAL_DETAILS).REMARK)</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+           
+
+        }
     </div>
 </li>
 

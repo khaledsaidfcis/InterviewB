@@ -6,6 +6,7 @@
   --gold: #f8b739;
 }
 
+
 @font-face {
   font-family: 'Cairo';
   src: url('../fonts/Cairo-Regular.ttf') format('ttf');
@@ -266,8 +267,9 @@ input:checked+.slider:before {
   transform: rotate(90deg);
 }
 
+
 #pyear-info-header {
-  background-color: yellowgreen;
+    background-color: yellowgreen;
 }
 
 @keyframes blink {
@@ -280,4 +282,12 @@ input:checked+.slider:before {
 .blanking {
   /*or other element you want*/
   animation: blink .5s step-end infinite alternate;
+}
+
+
+/*medical table*/
+.medical-table{
+    direction:rtl;
+    padding-left:1rem;
+    padding-right:1rem
 }
