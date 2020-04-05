@@ -38,14 +38,34 @@ namespace InterviewB.Controllers
             var basic_info = db.BASIC_INFO.Where(b => b.STD_NO == _student_no
                                      && b.STD_KIND_CODE == _student_kind
                                ).FirstOrDefault();
+          
 
             if(basic_info == null)
             {
                 return Content("هذا الرقم غير صحيح");
             }
-            //Pass it to view
-            ViewBag.basic_info = basic_info;
 
+            //Medical-Info
+            var medical_info = db.MEDICAL_INFO.Where(m => m.STD_NO == basic_info.STD_NO
+                                        && m.STD_KIND_CODE == basic_info.STD_KIND_CODE
+                                        ).FirstOrDefault();
+
+
+            List<MEDICAL_DETAILS> medical_details = null;
+
+            if (medical_info != null && medical_info.MEDICAL_STATUS_CODE != 1)
+            {
+                //Medical-Details
+                medical_details = db.MEDICAL_DETAILS.Where(md => md.STD_NO == medical_info.STD_NO
+                                                             && md.STD_KIND_CODE == medical_info.STD_KIND_CODE
+                                                         ).ToList<MEDICAL_DETAILS>();
+            }
+
+
+            //Pass data to view
+            ViewBag.basic_info = basic_info;
+            ViewBag.medical_info = medical_info;
+            ViewBag.medical_details = medical_details;
 
             return PartialView("_StudentCards");
         }

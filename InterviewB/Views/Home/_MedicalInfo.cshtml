@@ -1,29 +1,71 @@
-﻿<li class="card my-2 order-2" id="tby-info" data-order="2">
+﻿@using InterviewB.Models
+@model InterviewB.Models.MEDICAL_INFO
+<li class="card my-2 order-2" id="tby-info" data-order="2">
 
     <h5 class="card-header text-white bg-info text-right" data-toggle="collapse" data-target="#tby-info-body"
         aria-expanded="true" aria-controls="tby-info-body" id="tby-info-header" class="d-block">
         الموقف الطبي
         <i class="fa fa-chevron-down"></i>
+        <!-- MEDICAL_STATUS -->
+        @{
+            if (Model.MEDICAL_STATUS_CODE == 1)
+            {
+                <span class="badge badge-success float-left mx-5 p-2">@Model.MEDICAL_STATUS</span>
+            }
+            else
+            {
+                <span class="badge badge-warning float-left mx-5 p-2">@Model.MEDICAL_STATUS</span>
+            }
+        }
     </h5>
 
     <div id="tby-info-body" class="collapse show" aria-labelledby="tby-info-header">
         <div class="card-body">
 
+            <!-- VISION -->
+            <div class="data-block float-right text-center pl-1 persian d-block">
+                <p class="data-name font-weight-bold mb-0">النظر</p>
+                <p class="data-value form-control  font-weight-bold arabic bg-light border-warning" id="vision">
+                    @Model.VISION_DEGREE
+                    @{
+                        if (Model.GLASSES_CODE == 1)
+                        {
+                            <i class="fas fa-glasses"></i>
+                        }
+                    }
+                </p>
+            </div>
             <!-- LENGHT -->
             <div class="data-block float-right text-center pl-1 persian d-block">
                 <p class="data-name font-weight-bold mb-0">الطول</p>
                 <p class="data-value form-control  font-weight-bold arabic bg-light" id="lenght">
-                    184
+                    @Model.LENGTH
                 </p>
             </div>
             <!-- WEIGHT -->
             <div class="data-block float-right text-center pl-1 persian d-block">
                 <p class="data-name font-weight-bold mb-0">الوزن</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light blanking" id="weight">
-                    86
+                <p class="data-value form-control  font-weight-bold arabic bg-light" id="weight">
+                    @Model.WEIGHT
                 </p>
             </div>
-
+            @{
+                if (@Model.MEDICAL_STATUS_CODE != 1)
+                {
+                    <div class="clearfix"></div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">اللجنة</th>
+                                <th scope="col">الحالة</th>
+                                <th scope="col">الملحوظة الطبية</th>
+                            </tr>
+                        </thead>
+                    </table>
+                }
+            } 
+           @* @((ViewBag.medical_detailsO[1] as MEDICAL_DETAILS).REMARK)*@
         </div>
     </div>
 </li>

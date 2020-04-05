@@ -3,5 +3,5 @@
 @Html.Partial("_BasicInfo", ViewBag.basic_info as BASIC_INFO , new ViewDataDictionary { { "order", "1" } })
 <!--End Of Basic Info -->
 <!-- Tby Info -->
-@Html.Partial("_MedicalInfo")
+@Html.Partial("_MedicalInfo" , ViewBag.medical_info as MEDICAL_INFO , new ViewDataDictionary { { "medical_detailsO", ViewBag.medical_details } })
 <!-- End Of Tby Info-->
