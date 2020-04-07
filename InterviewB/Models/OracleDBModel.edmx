@@ -91,11 +91,144 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GLASSES_CODE" Type="number" Precision="1" Scale="0" />
           <Property Name="GLASSES" Type="varchar2" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table PARENTS_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table PARENTS_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="PARENTS_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="FATHERGRADB" Type="varchar2" MaxLength="150" />
+          <Property Name="FAHERJOBB" Type="varchar2" MaxLength="250" />
+          <Property Name="FATHERGRADN" Type="varchar2" MaxLength="150" />
+          <Property Name="FATHERJOBN" Type="varchar2" MaxLength="250" />
+          <Property Name="MOTHERNAME" Type="varchar2" MaxLength="150" />
+          <Property Name="MOTHERGRADN" Type="varchar2" MaxLength="150" />
+          <Property Name="MOTHERJOBN" Type="varchar2" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="RELATIVES_FOUR">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="REL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="GRAD" Type="varchar2" MaxLength="100" />
+          <Property Name="JOB" Type="varchar2" MaxLength="150" />
+          <Property Name="AGE" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="RELATIVES_ONE">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="REL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="GRAD" Type="varchar2" MaxLength="100" />
+          <Property Name="JOB" Type="varchar2" MaxLength="150" />
+          <Property Name="AGE" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="RELATIVES_THREE">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="REL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="GRAD" Type="varchar2" MaxLength="100" />
+          <Property Name="JOB" Type="varchar2" MaxLength="150" />
+          <Property Name="AGE" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="RELATIVES_TWO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="REL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="GRAD" Type="varchar2" MaxLength="100" />
+          <Property Name="JOB" Type="varchar2" MaxLength="150" />
+          <Property Name="AGE" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table SPORT_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table SPORT_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="SPORT_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="SWIM_CODE" Type="number" Precision="6" Scale="2" />
+          <Property Name="SWIM" Type="varchar2" MaxLength="50" />
+          <Property Name="SWIM_DEG" Type="number" Precision="38" Scale="0" />
+          <Property Name="OKLA" Type="number" Precision="6" Scale="2" />
+          <Property Name="OKLA_DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="PUSH" Type="number" Precision="6" Scale="2" />
+          <Property Name="PUSH_DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="BATN" Type="number" Precision="6" Scale="2" />
+          <Property Name="BATN_DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="RUN_100" Type="number" Precision="6" Scale="2" />
+          <Property Name="RUN_100DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="BALANCE" Type="number" Precision="6" Scale="2" />
+          <Property Name="BALANCE_DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="RUN_1500" Type="number" Precision="6" Scale="2" />
+          <Property Name="RUN_1500DEG" Type="number" Precision="6" Scale="2" />
+          <Property Name="SPORT_TOTAL" Type="number" Precision="10" Scale="2" />
+        </EntityType>
         <EntityContainer Name="InterviewOStoreContainer">
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="INTERVIEW" store:Type="Tables" />
           <EntitySet Name="BASIC_INFO" EntityType="Self.BASIC_INFO" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="MEDICAL_DETAILS" EntityType="Self.MEDICAL_DETAILS" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="MEDICAL_INFO" EntityType="Self.MEDICAL_INFO" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="PARENTS_INFO" EntityType="Self.PARENTS_INFO" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="RELATIVES_FOUR" EntityType="Self.RELATIVES_FOUR" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="RELATIVES_ONE" EntityType="Self.RELATIVES_ONE" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="RELATIVES_THREE" EntityType="Self.RELATIVES_THREE" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="RELATIVES_TWO" EntityType="Self.RELATIVES_TWO" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="SPORT_INFO" EntityType="Self.SPORT_INFO" Schema="INTERVIEW" store:Type="Views" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -106,6 +239,12 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <EntitySet Name="BASIC_INFO" EntityType="InterviewO.BASIC_INFO" />
           <EntitySet Name="MEDICAL_DETAILS" EntityType="InterviewO.MEDICAL_DETAILS" />
           <EntitySet Name="MEDICAL_INFO" EntityType="InterviewO.MEDICAL_INFO" />
+          <EntitySet Name="PARENTS_INFO" EntityType="InterviewO.PARENTS_INFO" />
+          <EntitySet Name="RELATIVES_FOUR" EntityType="InterviewO.RELATIVES_FOUR" />
+          <EntitySet Name="RELATIVES_ONE" EntityType="InterviewO.RELATIVES_ONE" />
+          <EntitySet Name="RELATIVES_THREE" EntityType="InterviewO.RELATIVES_THREE" />
+          <EntitySet Name="RELATIVES_TWO" EntityType="InterviewO.RELATIVES_TWO" />
+          <EntitySet Name="SPORT_INFO" EntityType="InterviewO.SPORT_INFO" />
         </EntityContainer>
         <EntityType Name="USER">
           <Key>
@@ -183,7 +322,116 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GLASSES_CODE" Type="Int16" />
           <Property Name="GLASSES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        <EntityType Name="PARENTS_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FATHERGRADB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FAHERJOBB" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FATHERGRADN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FATHERJOBN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHERNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHERGRADN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHERJOBN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RELATIVES_FOUR">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" />
+        </EntityType>
+        <EntityType Name="RELATIVES_ONE">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" />
+        </EntityType>
+        <EntityType Name="RELATIVES_THREE">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" />
+        </EntityType>
+        <EntityType Name="RELATIVES_TWO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" />
+        </EntityType>
+        <EntityType Name="SPORT_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SWIM_CODE" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SWIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SWIM_DEG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="OKLA" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="OKLA_DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="PUSH" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="PUSH_DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="BATN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="BATN_DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="RUN_100" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="RUN_100DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="BALANCE" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="BALANCE_DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="RUN_1500" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="RUN_1500DEG" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SPORT_TOTAL" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -257,6 +505,115 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
                 <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
                 <ScalarProperty Name="MEDICAL_STATUS" ColumnName="MEDICAL_STATUS" />
                 <ScalarProperty Name="MEDICAL_STATUS_CODE" ColumnName="MEDICAL_STATUS_CODE" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARENTS_INFO">
+            <EntityTypeMapping TypeName="InterviewO.PARENTS_INFO">
+              <MappingFragment StoreEntitySet="PARENTS_INFO">
+                <ScalarProperty Name="MOTHERJOBN" ColumnName="MOTHERJOBN" />
+                <ScalarProperty Name="MOTHERGRADN" ColumnName="MOTHERGRADN" />
+                <ScalarProperty Name="MOTHERNAME" ColumnName="MOTHERNAME" />
+                <ScalarProperty Name="FATHERJOBN" ColumnName="FATHERJOBN" />
+                <ScalarProperty Name="FATHERGRADN" ColumnName="FATHERGRADN" />
+                <ScalarProperty Name="FAHERJOBB" ColumnName="FAHERJOBB" />
+                <ScalarProperty Name="FATHERGRADB" ColumnName="FATHERGRADB" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIVES_FOUR">
+            <EntityTypeMapping TypeName="InterviewO.RELATIVES_FOUR">
+              <MappingFragment StoreEntitySet="RELATIVES_FOUR">
+                <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="JOB" ColumnName="JOB" />
+                <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+                <ScalarProperty Name="REL_NAME" ColumnName="REL_NAME" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIVES_ONE">
+            <EntityTypeMapping TypeName="InterviewO.RELATIVES_ONE">
+              <MappingFragment StoreEntitySet="RELATIVES_ONE">
+                <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="JOB" ColumnName="JOB" />
+                <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+                <ScalarProperty Name="REL_NAME" ColumnName="REL_NAME" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIVES_THREE">
+            <EntityTypeMapping TypeName="InterviewO.RELATIVES_THREE">
+              <MappingFragment StoreEntitySet="RELATIVES_THREE">
+                <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="JOB" ColumnName="JOB" />
+                <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+                <ScalarProperty Name="REL_NAME" ColumnName="REL_NAME" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIVES_TWO">
+            <EntityTypeMapping TypeName="InterviewO.RELATIVES_TWO">
+              <MappingFragment StoreEntitySet="RELATIVES_TWO">
+                <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="JOB" ColumnName="JOB" />
+                <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+                <ScalarProperty Name="REL_NAME" ColumnName="REL_NAME" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPORT_INFO">
+            <EntityTypeMapping TypeName="InterviewO.SPORT_INFO">
+              <MappingFragment StoreEntitySet="SPORT_INFO">
+                <ScalarProperty Name="SPORT_TOTAL" ColumnName="SPORT_TOTAL" />
+                <ScalarProperty Name="RUN_1500DEG" ColumnName="RUN_1500DEG" />
+                <ScalarProperty Name="RUN_1500" ColumnName="RUN_1500" />
+                <ScalarProperty Name="BALANCE_DEG" ColumnName="BALANCE_DEG" />
+                <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+                <ScalarProperty Name="RUN_100DEG" ColumnName="RUN_100DEG" />
+                <ScalarProperty Name="RUN_100" ColumnName="RUN_100" />
+                <ScalarProperty Name="BATN_DEG" ColumnName="BATN_DEG" />
+                <ScalarProperty Name="BATN" ColumnName="BATN" />
+                <ScalarProperty Name="PUSH_DEG" ColumnName="PUSH_DEG" />
+                <ScalarProperty Name="PUSH" ColumnName="PUSH" />
+                <ScalarProperty Name="OKLA_DEG" ColumnName="OKLA_DEG" />
+                <ScalarProperty Name="OKLA" ColumnName="OKLA" />
+                <ScalarProperty Name="SWIM_DEG" ColumnName="SWIM_DEG" />
+                <ScalarProperty Name="SWIM" ColumnName="SWIM" />
+                <ScalarProperty Name="SWIM_CODE" ColumnName="SWIM_CODE" />
                 <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
                 <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
                 <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />

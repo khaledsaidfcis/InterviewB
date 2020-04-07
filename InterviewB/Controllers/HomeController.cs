@@ -61,11 +61,22 @@ namespace InterviewB.Controllers
                                                          ).ToList();
             }
 
+            //Sport-Info
+            var sport_info = db.SPORT_INFO.Where(sp => sp.STD_NO == medical_info.STD_NO
+                                                     && sp.STD_KIND_CODE == medical_info.STD_KIND_CODE
+                                                     ).FirstOrDefault();
+            //Parents-Info
+            var parents_info = db.PARENTS_INFO.Where(p => p.STD_NO == sport_info.STD_NO
+                                                   && p.STD_KIND_CODE == sport_info.STD_KIND_CODE
+                                                     ).FirstOrDefault();
+
 
             //Pass data to view
             ViewBag.basic_info = basic_info;
             ViewBag.medical_info = medical_info;
             ViewBag.medical_details = medical_details;
+            ViewBag.sport_info = sport_info;
+            ViewBag.parents_info = parents_info;
 
             return PartialView("_StudentCards");
         }
