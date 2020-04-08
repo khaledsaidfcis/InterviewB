@@ -1,0 +1,13 @@
+﻿@using InterviewB.Models
+@model IEnumerable<RELATIVES_ONE>
+
+
+<script>
+    console.log(@Model.Count());
+</script>
+
+
+@foreach( var rel in Model)
+{
+    <li>@rel.SERIAL   +  @rel.REL_NAME</li>
+}

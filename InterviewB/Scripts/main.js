@@ -68,6 +68,8 @@
             "student_kind": std_kind
         };
 
+        $("#student-cards").empty();
+
         $.ajax({
             type: "POST",
             url: "/Home/GetAllData",

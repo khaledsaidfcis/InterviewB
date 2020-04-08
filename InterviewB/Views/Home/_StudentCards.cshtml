@@ -11,3 +11,9 @@
 <!-- Sport Info -->
 @Html.Partial("_SportInfo", ViewBag.sport_info as SPORT_INFO)
 <!-- End Of Sport Info -->
+
+@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVES_ONE>)
+@*@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVES_ONE>)*@
+
+
+@*@Html.Partial("_RelativesOne" , new ViewDataDictionary { { "relaives_one", ViewBag.relatives_one} })*@

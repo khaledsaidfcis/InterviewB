@@ -334,6 +334,7 @@
     <Content Include="Views\Home\_MedicalInfo.cshtml" />
     <Content Include="Views\Home\_SportInfo.cshtml" />
     <Content Include="Views\Home\_ParentsInfo.cshtml" />
+    <Content Include="Views\Home\_RelativesOne.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -69,15 +69,49 @@ namespace InterviewB.Controllers
             var parents_info = db.PARENTS_INFO.Where(p => p.STD_NO == sport_info.STD_NO
                                                    && p.STD_KIND_CODE == sport_info.STD_KIND_CODE
                                                      ).FirstOrDefault();
+            //RELATIVES
 
+            //var relatives_one = from r in db.RELATIVES_ONE
+            //                   where r.NATIONAL_ID == sport_info.NATIONAL_ID
+            //                   //orderby  r.SERIAL
+            //                   select r;
 
+            var relatives_one = db.RELATIVES_ONE.Where(r => r.STD_NO == sport_info.STD_NO
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                    .All();
+                                                   //.OrderBy(r => r.SERIAL)
+                                                   // .ToList();
+
+            /*
+            var relatives_two = db.RELATIVES_TWO.Where(r => r.STD_NO == sport_info.STD_NO
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
+                                                    ).OrderBy(r => r.SERIAL
+                                                    ).ToList();
+            var relatives_three = db.RELATIVES_THREE.Where(r => r.STD_NO == sport_info.STD_NO
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
+                                                    ).OrderBy(r => r.SERIAL
+                                                    ).ToList();
+            var relatives_four = db.RELATIVES_FOUR.Where(r => r.STD_NO == sport_info.STD_NO
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
+                                                    ).OrderBy(r => r.SERIAL
+                                                    ).ToList();
+            */
+
+            return Content(relatives_one[0].REL_NAME + "      " + relatives_one[1].REL_NAME);
+
+            //return Content(relatives_one.ToList()[0].REL_NAME + "    " + relatives_one.ToList()[1].REL_NAME );
             //Pass data to view
             ViewBag.basic_info = basic_info;
             ViewBag.medical_info = medical_info;
             ViewBag.medical_details = medical_details;
             ViewBag.sport_info = sport_info;
             ViewBag.parents_info = parents_info;
-
+            /*
+            ViewBag.relatives_one = relatives_one;
+            ViewBag.relatives_two = relatives_two;
+            ViewBag.relatives_three = relatives_three;
+            ViewBag.relatives_four = relatives_four;
+            */
             return PartialView("_StudentCards");
         }
 
