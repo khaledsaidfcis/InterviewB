@@ -47,8 +47,8 @@ namespace InterviewB.Controllers
 
             //Medical-Info
             var medical_info = db.MEDICAL_INFO.Where(m => m.STD_NO == basic_info.STD_NO
-                                        && m.STD_KIND_CODE == basic_info.STD_KIND_CODE
-                                        ).FirstOrDefault();
+                                        && m.STD_KIND_CODE == basic_info.STD_KIND_CODE)
+                                        .FirstOrDefault();
 
 
             List<MEDICAL_DETAILS> medical_details = null;
@@ -57,61 +57,49 @@ namespace InterviewB.Controllers
             {
                 //Medical-Details
                 medical_details = db.MEDICAL_DETAILS.Where(md => md.STD_NO == medical_info.STD_NO
-                                                             && md.STD_KIND_CODE == medical_info.STD_KIND_CODE
-                                                         ).ToList();
+                                                             && md.STD_KIND_CODE == medical_info.STD_KIND_CODE)
+                                                         .ToList();
             }
 
             //Sport-Info
             var sport_info = db.SPORT_INFO.Where(sp => sp.STD_NO == medical_info.STD_NO
-                                                     && sp.STD_KIND_CODE == medical_info.STD_KIND_CODE
-                                                     ).FirstOrDefault();
+                                                     && sp.STD_KIND_CODE == medical_info.STD_KIND_CODE)
+                                                     .FirstOrDefault();
             //Parents-Info
             var parents_info = db.PARENTS_INFO.Where(p => p.STD_NO == sport_info.STD_NO
-                                                   && p.STD_KIND_CODE == sport_info.STD_KIND_CODE
-                                                     ).FirstOrDefault();
+                                                   && p.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                    .FirstOrDefault();
             //RELATIVES
+            var relatives_one = db.RELATIVES_ONE.Where(rel => rel.STD_NO == basic_info.STD_NO
+                                                  && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
+                                                   .OrderBy(r => r.SERIAL)
+                                                    .ToList();
 
-            //var relatives_one = from r in db.RELATIVES_ONE
-            //                   where r.NATIONAL_ID == sport_info.NATIONAL_ID
-            //                   //orderby  r.SERIAL
-            //                   select r;
-
-            var relatives_one = db.RELATIVES_ONE.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
-                                                    .All();
-                                                   //.OrderBy(r => r.SERIAL)
-                                                   // .ToList();
-
-            /*
             var relatives_two = db.RELATIVES_TWO.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
-                                                    ).OrderBy(r => r.SERIAL
-                                                    ).ToList();
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                    .OrderBy(r => r.SERIAL)
+                                                    .ToList();
             var relatives_three = db.RELATIVES_THREE.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
-                                                    ).OrderBy(r => r.SERIAL
-                                                    ).ToList();
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                    .OrderBy(r => r.SERIAL)
+                                                    .ToList();
             var relatives_four = db.RELATIVES_FOUR.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE
-                                                    ).OrderBy(r => r.SERIAL
-                                                    ).ToList();
-            */
-
-            return Content(relatives_one[0].REL_NAME + "      " + relatives_one[1].REL_NAME);
-
-            //return Content(relatives_one.ToList()[0].REL_NAME + "    " + relatives_one.ToList()[1].REL_NAME );
+                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                    .OrderBy(r => r.SERIAL)
+                                                    .ToList();
+       
             //Pass data to view
             ViewBag.basic_info = basic_info;
             ViewBag.medical_info = medical_info;
             ViewBag.medical_details = medical_details;
             ViewBag.sport_info = sport_info;
             ViewBag.parents_info = parents_info;
-            /*
             ViewBag.relatives_one = relatives_one;
             ViewBag.relatives_two = relatives_two;
             ViewBag.relatives_three = relatives_three;
             ViewBag.relatives_four = relatives_four;
-            */
+            
+
             return PartialView("_StudentCards");
         }
 

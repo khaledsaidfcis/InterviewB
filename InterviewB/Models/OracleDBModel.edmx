@@ -114,11 +114,13 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
-warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column SERIAL on table RELATIVES_FOUR to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
         <EntityType Name="RELATIVES_FOUR">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -129,15 +131,17 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="varchar2" MaxLength="100" />
           <Property Name="JOB" Type="varchar2" MaxLength="150" />
           <Property Name="AGE" Type="number" Precision="3" Scale="0" />
-          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
-warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column SERIAL on table RELATIVES_ONE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
         <EntityType Name="RELATIVES_ONE">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -148,15 +152,17 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="varchar2" MaxLength="100" />
           <Property Name="JOB" Type="varchar2" MaxLength="150" />
           <Property Name="AGE" Type="number" Precision="3" Scale="0" />
-          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
-warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column SERIAL on table RELATIVES_THREE to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
         <EntityType Name="RELATIVES_THREE">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -167,15 +173,17 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="varchar2" MaxLength="100" />
           <Property Name="JOB" Type="varchar2" MaxLength="150" />
           <Property Name="AGE" Type="number" Precision="3" Scale="0" />
-          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
-warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column SERIAL on table RELATIVES_TWO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
         <EntityType Name="RELATIVES_TWO">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -186,7 +194,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="varchar2" MaxLength="100" />
           <Property Name="JOB" Type="varchar2" MaxLength="150" />
           <Property Name="AGE" Type="number" Precision="3" Scale="0" />
-          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" />
+          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table SPORT_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
@@ -344,6 +352,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -354,12 +363,13 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int16" />
-          <Property Name="SERIAL" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="RELATIVES_ONE">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -370,12 +380,13 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int16" />
-          <Property Name="SERIAL" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="RELATIVES_THREE">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -386,12 +397,13 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int16" />
-          <Property Name="SERIAL" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="RELATIVES_TWO">
           <Key>
             <PropertyRef Name="STD_NO" />
             <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="SERIAL" />
           </Key>
           <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -402,7 +414,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int16" />
-          <Property Name="SERIAL" Type="Int16" />
+          <Property Name="SERIAL" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="SPORT_INFO">
           <Key>
