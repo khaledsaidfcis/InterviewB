@@ -1,11 +1,11 @@
 ﻿@using InterviewB.Models
-@model IEnumerable<RELATIVES_ONE>
+@model IEnumerable<RELATIVES_FOUR>
 
-<li class="card my-2 order-6" id="relatives-one" data-order="6">
+<li class="card my-2 order-9" id="relatives-four" data-order="9">
 
-    <h5 class="card-header text-white bg-info text-right d-block" data-toggle="collapse" data-target="#relatives-one-body"
-        aria-expanded="true" aria-controls="relatives-one-body" id="relatives-one-header">
-        الأخوة الأشقاء
+    <h5 class="card-header text-white bg-info text-right d-block" data-toggle="collapse" data-target="#relatives-four-body"
+        aria-expanded="true" aria-controls="relatives-four-body" id="relatives-four-header">
+       الأعمام والعمات
         <i class="fa fa-chevron-down"></i>
         <!-- Relatives Count -->
 
@@ -15,11 +15,11 @@
         }
         else
         {
-            <span class="badge badge-light float-left mx-5 p-2">لا يوجد أخوة أشقاء</span>
+            <span class="badge badge-light float-left mx-5 p-2">لا يوجد أعمام أو عمات</span>
         }
     </h5>
 
-    <div id="relatives-one-body" class="collapse show" aria-labelledby="relatives-one-header">
+    <div id="relatives-four-body" class="collapse show" aria-labelledby="relatives-four-header">
         @if (@Model != null && @Model.Count() >= 1)
         {
             <div class="card-body">

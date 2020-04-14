@@ -11,9 +11,15 @@
 <!-- Sport Info -->
 @Html.Partial("_SportInfo", ViewBag.sport_info as SPORT_INFO)
 <!-- End Of Sport Info -->
-
+<!--Relative One-->
 @Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVES_ONE>)
-@*@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVES_ONE>)*@
-
-
-@*@Html.Partial("_RelativesOne" , new ViewDataDictionary { { "relaives_one", ViewBag.relatives_one} })*@
+<!--End Of Relative One-->
+<!--Relative Two-->
+@Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVES_TWO>)
+<!--End Of Relative Two-->
+<!--Relative Three-->
+@Html.Partial("_RelativesThree", (ViewBag.relatives_three) as IEnumerable<RELATIVES_THREE>)
+<!--End Of Relative Three-->
+<!--Relative Four-->
+@Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVES_FOUR>)
+<!--End Of Relative Four-->

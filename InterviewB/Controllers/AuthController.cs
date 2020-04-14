@@ -27,9 +27,10 @@ namespace InterviewB.Controllers
             string _password = form["password"].ToLower();
 
             //Make DB Checking to Match User
+
             var User = db.USERS.Where(u => u.USERNAME.ToLower() == _user
-                                    && u.PASSWORD.ToLower() == _password
-                                  ).FirstOrDefault();
+                                     && u.PASSWORD.ToLower() == _password
+                                   ).FirstOrDefault();
             
             // Null User , Failed to login 
             if (User == null)
@@ -41,7 +42,10 @@ namespace InterviewB.Controllers
             //Store User IN Session 
             Session["user"] = User;
 
+            db.Dispose();
+
             return RedirectToAction("Index", "Home");
+            
         }
 
         [HttpGet]

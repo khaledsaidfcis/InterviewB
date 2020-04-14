@@ -75,19 +75,23 @@ namespace InterviewB.Controllers
                                                    .OrderBy(r => r.SERIAL)
                                                     .ToList();
 
-            var relatives_two = db.RELATIVES_TWO.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
-                                                    .OrderBy(r => r.SERIAL)
+
+            var relatives_two = db.RELATIVES_TWO.Where(rel => rel.STD_NO == basic_info.STD_NO
+                                                  && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
+                                                   .OrderBy(r => r.SERIAL)
                                                     .ToList();
-            var relatives_three = db.RELATIVES_THREE.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
-                                                    .OrderBy(r => r.SERIAL)
+
+            var relatives_three = db.RELATIVES_THREE.Where(rel => rel.STD_NO == basic_info.STD_NO
+                                                  && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
+                                                   .OrderBy(r => r.SERIAL)
                                                     .ToList();
-            var relatives_four = db.RELATIVES_FOUR.Where(r => r.STD_NO == sport_info.STD_NO
-                                                    && r.STD_KIND_CODE == sport_info.STD_KIND_CODE)
-                                                    .OrderBy(r => r.SERIAL)
+
+
+            var relatives_four = db.RELATIVES_FOUR.Where(rel => rel.STD_NO == basic_info.STD_NO
+                                                  && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
+                                                   .OrderBy(r => r.SERIAL)
                                                     .ToList();
-       
+
             //Pass data to view
             ViewBag.basic_info = basic_info;
             ViewBag.medical_info = medical_info;
@@ -98,7 +102,8 @@ namespace InterviewB.Controllers
             ViewBag.relatives_two = relatives_two;
             ViewBag.relatives_three = relatives_three;
             ViewBag.relatives_four = relatives_four;
-            
+
+            db.Dispose();
 
             return PartialView("_StudentCards");
         }
