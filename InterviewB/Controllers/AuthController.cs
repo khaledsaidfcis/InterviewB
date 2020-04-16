@@ -10,7 +10,8 @@ namespace InterviewB.Controllers
     public class AuthController : Controller
     {
         //Iniliaze DB
-        private InterviewContext db = new InterviewContext();
+        //private InterviewContext db = new InterviewContext();
+        private InterviewContext db = DBClass.GetConnection();
 
         [HttpGet]
         public ActionResult Login()
@@ -42,7 +43,8 @@ namespace InterviewB.Controllers
             //Store User IN Session 
             Session["user"] = User;
 
-            db.Dispose();
+            //db.Dispose();
+            DBClass.disconnect();
 
             return RedirectToAction("Index", "Home");
             

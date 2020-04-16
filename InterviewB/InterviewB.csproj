@@ -196,6 +196,7 @@
     <Compile Include="Models\BASIC_INFO.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBClass.cs" />
     <Compile Include="Models\MEDICAL_DETAILS.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>

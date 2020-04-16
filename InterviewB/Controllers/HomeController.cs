@@ -9,7 +9,11 @@ namespace InterviewB.Controllers
 {
     public class HomeController : Controller
     {
-        private InterviewContext db = new InterviewContext();
+        //private InterviewContext db = new InterviewContext();
+
+        private InterviewContext db = DBClass.GetConnection();
+        
+
         public ActionResult Index()
         {
             //Check if Session has a User
@@ -103,7 +107,8 @@ namespace InterviewB.Controllers
             ViewBag.relatives_three = relatives_three;
             ViewBag.relatives_four = relatives_four;
 
-            db.Dispose();
+            // db.Dispose();
+            DBClass.disconnect();
 
             return PartialView("_StudentCards");
         }
