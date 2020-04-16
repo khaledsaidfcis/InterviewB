@@ -29,6 +29,8 @@ namespace InterviewB.Models
         public DbSet<BASIC_INFO> BASIC_INFO { get; set; }
         public DbSet<MEDICAL_DETAILS> MEDICAL_DETAILS { get; set; }
         public DbSet<MEDICAL_INFO> MEDICAL_INFO { get; set; }
+        public DbSet<NAFSI_DETAILS> NAFSI_DETAILS { get; set; }
+        public DbSet<NAFSI_INFO> NAFSI_INFO { get; set; }
         public DbSet<PARENTS_INFO> PARENTS_INFO { get; set; }
         public DbSet<RELATIVES_FOUR> RELATIVES_FOUR { get; set; }
         public DbSet<RELATIVES_ONE> RELATIVES_ONE { get; set; }

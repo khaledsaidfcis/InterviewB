@@ -23,3 +23,6 @@
 <!--Relative Four-->
 @Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVES_FOUR>)
 <!--End Of Relative Four-->
+<!--Nafsi Info-->
+@Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details } })
+<!--End Of Nafsi Info-->

@@ -203,6 +203,12 @@
     <Compile Include="Models\MEDICAL_INFO.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NAFSI_DETAILS.cs">
+      <DependentUpon>OracleDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NAFSI_INFO.cs">
+      <DependentUpon>OracleDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OracleDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -339,6 +345,7 @@
     <Content Include="Views\Home\_RelativesTwo.cshtml" />
     <Content Include="Views\Home\_RelativesThree.cshtml" />
     <Content Include="Views\Home\_RelativesFour.cshtml" />
+    <Content Include="Views\Home\_NafsiInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

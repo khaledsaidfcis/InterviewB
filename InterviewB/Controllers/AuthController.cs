@@ -44,7 +44,7 @@ namespace InterviewB.Controllers
             Session["user"] = User;
 
             //db.Dispose();
-            DBClass.disconnect();
+           //DBClass.disconnect();
 
             return RedirectToAction("Index", "Home");
             

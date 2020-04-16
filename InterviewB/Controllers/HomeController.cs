@@ -69,16 +69,17 @@ namespace InterviewB.Controllers
             var sport_info = db.SPORT_INFO.Where(sp => sp.STD_NO == medical_info.STD_NO
                                                      && sp.STD_KIND_CODE == medical_info.STD_KIND_CODE)
                                                      .FirstOrDefault();
+
             //Parents-Info
             var parents_info = db.PARENTS_INFO.Where(p => p.STD_NO == sport_info.STD_NO
                                                    && p.STD_KIND_CODE == sport_info.STD_KIND_CODE)
                                                     .FirstOrDefault();
             //RELATIVES
+
             var relatives_one = db.RELATIVES_ONE.Where(rel => rel.STD_NO == basic_info.STD_NO
                                                   && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
                                                    .OrderBy(r => r.SERIAL)
                                                     .ToList();
-
 
             var relatives_two = db.RELATIVES_TWO.Where(rel => rel.STD_NO == basic_info.STD_NO
                                                   && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
@@ -90,25 +91,35 @@ namespace InterviewB.Controllers
                                                    .OrderBy(r => r.SERIAL)
                                                     .ToList();
 
-
             var relatives_four = db.RELATIVES_FOUR.Where(rel => rel.STD_NO == basic_info.STD_NO
                                                   && rel.STD_KIND_CODE == basic_info.STD_KIND_CODE)
                                                    .OrderBy(r => r.SERIAL)
                                                     .ToList();
+            //Nafsi-Info
+            var nafsi_info = db.NAFSI_INFO.Where(n => n.STD_NO == sport_info.STD_NO
+                                           && n.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                             .FirstOrDefault();
+            //Nafsi-Details
+            var nafsi_details = db.NAFSI_DETAILS.Where(nd => nd.STD_NO == sport_info.STD_NO
+                                                 && nd.STD_KIND_CODE == sport_info.STD_KIND_CODE)
+                                                 .ToList();
 
             //Pass data to view
-            ViewBag.basic_info = basic_info;
-            ViewBag.medical_info = medical_info;
+            ViewBag.basic_info      = basic_info;
+            ViewBag.medical_info    = medical_info;
             ViewBag.medical_details = medical_details;
-            ViewBag.sport_info = sport_info;
-            ViewBag.parents_info = parents_info;
-            ViewBag.relatives_one = relatives_one;
-            ViewBag.relatives_two = relatives_two;
+            ViewBag.sport_info      = sport_info;
+            ViewBag.parents_info    = parents_info;
+            ViewBag.relatives_one   = relatives_one;
+            ViewBag.relatives_two   = relatives_two;
             ViewBag.relatives_three = relatives_three;
-            ViewBag.relatives_four = relatives_four;
+            ViewBag.relatives_four  = relatives_four;
+            ViewBag.nafsi_info      = nafsi_info;
+            ViewBag.nafsi_details   = nafsi_details;
+
 
             // db.Dispose();
-            DBClass.disconnect();
+            //DBClass.disconnect();
 
             return PartialView("_StudentCards");
         }

@@ -92,6 +92,51 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GLASSES" Type="varchar2" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table NAFSI_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table NAFSI_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column DIM_CODE on table NAFSI_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="NAFSI_DETAILS">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="DIM_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="N1_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="N1" Type="varchar2" MaxLength="50" />
+          <Property Name="DIM_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIM_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="DIM_DEG" Type="number" Precision="38" Scale="0" />
+          <Property Name="DIM_LEVEL" Type="varchar2" MaxLength="30" />
+          <Property Name="DIM_LEVEL_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="TOTAL" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table NAFSI_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
+warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table NAFSI_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
+        <EntityType Name="NAFSI_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STD_KIND" Type="char" MaxLength="5" />
+          <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="N1_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="N1_DATA" Type="varchar2" MaxLength="50" />
+          <Property Name="N2_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="N2_DATA" Type="varchar2" MaxLength="8" />
+          <Property Name="N3_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="N3_DATA" Type="varchar2" MaxLength="16" />
+          <Property Name="N3_NOTE" Type="varchar2" MaxLength="300" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table PARENTS_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
 warning 6047: The Entity Framework provider in use reported the primary key column STD_KIND_CODE on table PARENTS_INFO to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.-->
         <EntityType Name="PARENTS_INFO">
@@ -231,6 +276,8 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <EntitySet Name="BASIC_INFO" EntityType="Self.BASIC_INFO" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="MEDICAL_DETAILS" EntityType="Self.MEDICAL_DETAILS" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="MEDICAL_INFO" EntityType="Self.MEDICAL_INFO" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="NAFSI_DETAILS" EntityType="Self.NAFSI_DETAILS" Schema="INTERVIEW" store:Type="Views" />
+          <EntitySet Name="NAFSI_INFO" EntityType="Self.NAFSI_INFO" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="PARENTS_INFO" EntityType="Self.PARENTS_INFO" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="RELATIVES_FOUR" EntityType="Self.RELATIVES_FOUR" Schema="INTERVIEW" store:Type="Views" />
           <EntitySet Name="RELATIVES_ONE" EntityType="Self.RELATIVES_ONE" Schema="INTERVIEW" store:Type="Views" />
@@ -247,6 +294,8 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <EntitySet Name="BASIC_INFO" EntityType="InterviewO.BASIC_INFO" />
           <EntitySet Name="MEDICAL_DETAILS" EntityType="InterviewO.MEDICAL_DETAILS" />
           <EntitySet Name="MEDICAL_INFO" EntityType="InterviewO.MEDICAL_INFO" />
+          <EntitySet Name="NAFSI_DETAILS" EntityType="InterviewO.NAFSI_DETAILS" />
+          <EntitySet Name="NAFSI_INFO" EntityType="InterviewO.NAFSI_INFO" />
           <EntitySet Name="PARENTS_INFO" EntityType="InterviewO.PARENTS_INFO" />
           <EntitySet Name="RELATIVES_FOUR" EntityType="InterviewO.RELATIVES_FOUR" />
           <EntitySet Name="RELATIVES_ONE" EntityType="InterviewO.RELATIVES_ONE" />
@@ -329,6 +378,44 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="VISION_DEGREE" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="GLASSES_CODE" Type="Int16" />
           <Property Name="GLASSES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAFSI_DETAILS">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+            <PropertyRef Name="DIM_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="N1_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="N1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIM_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DIM_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIM_DEG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DIM_LEVEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DIM_LEVEL_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="NAFSI_INFO">
+          <Key>
+            <PropertyRef Name="STD_NO" />
+            <PropertyRef Name="STD_KIND_CODE" />
+          </Key>
+          <Property Name="STD_NO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="N1_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="N1_DATA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="N2_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="N2_DATA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="N3_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="N3_DATA" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="N3_NOTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PARENTS_INFO">
           <Key>
@@ -517,6 +604,43 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
                 <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
                 <ScalarProperty Name="MEDICAL_STATUS" ColumnName="MEDICAL_STATUS" />
                 <ScalarProperty Name="MEDICAL_STATUS_CODE" ColumnName="MEDICAL_STATUS_CODE" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAFSI_DETAILS">
+            <EntityTypeMapping TypeName="InterviewO.NAFSI_DETAILS">
+              <MappingFragment StoreEntitySet="NAFSI_DETAILS">
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="DIM_LEVEL_CODE" ColumnName="DIM_LEVEL_CODE" />
+                <ScalarProperty Name="DIM_LEVEL" ColumnName="DIM_LEVEL" />
+                <ScalarProperty Name="DIM_DEG" ColumnName="DIM_DEG" />
+                <ScalarProperty Name="DIM_NAME" ColumnName="DIM_NAME" />
+                <ScalarProperty Name="DIM_CODE" ColumnName="DIM_CODE" />
+                <ScalarProperty Name="N1" ColumnName="N1" />
+                <ScalarProperty Name="N1_CODE" ColumnName="N1_CODE" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
+                <ScalarProperty Name="STD_KIND_CODE" ColumnName="STD_KIND_CODE" />
+                <ScalarProperty Name="STD_NO" ColumnName="STD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAFSI_INFO">
+            <EntityTypeMapping TypeName="InterviewO.NAFSI_INFO">
+              <MappingFragment StoreEntitySet="NAFSI_INFO">
+                <ScalarProperty Name="N3_NOTE" ColumnName="N3_NOTE" />
+                <ScalarProperty Name="N3_DATA" ColumnName="N3_DATA" />
+                <ScalarProperty Name="N3_CODE" ColumnName="N3_CODE" />
+                <ScalarProperty Name="N2_DATA" ColumnName="N2_DATA" />
+                <ScalarProperty Name="N2_CODE" ColumnName="N2_CODE" />
+                <ScalarProperty Name="N1_DATA" ColumnName="N1_DATA" />
+                <ScalarProperty Name="N1_CODE" ColumnName="N1_CODE" />
                 <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
                 <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
                 <ScalarProperty Name="STD_KIND" ColumnName="STD_KIND" />
