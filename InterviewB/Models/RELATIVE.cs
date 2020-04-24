@@ -12,21 +12,18 @@ namespace InterviewB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MEDICAL_INFO
+    public partial class RELATIVE
     {
         public decimal STD_NO { get; set; }
         public decimal STD_KIND_CODE { get; set; }
         public string STD_KIND { get; set; }
         public string STD_NAME { get; set; }
         public string NATIONAL_ID { get; set; }
-        public Nullable<short> MEDICAL_STATUS_CODE { get; set; }
-        public string MEDICAL_STATUS { get; set; }
-        public Nullable<decimal> LENGTH { get; set; }
-        public Nullable<decimal> WEIGHT { get; set; }
-        public Nullable<short> VISION_CODE { get; set; }
-        public string VISION { get; set; }
-        public Nullable<decimal> VISION_DEGREE { get; set; }
-        public Nullable<short> GLASSES_CODE { get; set; }
-        public string GLASSES { get; set; }
+        public string REL_NAME { get; set; }
+        public string GRAD { get; set; }
+        public string JOB { get; set; }
+        public Nullable<short> AGE { get; set; }
+        public short SERIAL { get; set; }
+        public Nullable<decimal> RELATION { get; set; }
     }
 }

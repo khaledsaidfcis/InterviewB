@@ -193,14 +193,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BASIC_INFO.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DBClass.cs" />
-    <Compile Include="Models\MEDICAL_DETAILS.cs">
+    <Compile Include="Models\MAIN_INFO.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MEDICAL_INFO.cs">
+    <Compile Include="Models\MEDICAL_DETAILS.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NAFSI_DETAILS.cs">
@@ -224,22 +221,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OracleDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\PARENTS_INFO.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RELATIVES_FOUR.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RELATIVES_ONE.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RELATIVES_THREE.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RELATIVES_TWO.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SPORT_INFO.cs">
+    <Compile Include="Models\RELATIVE.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
@@ -248,6 +230,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TODO.txt" />
     <Content Include="Content\all.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -348,7 +331,6 @@
     <Content Include="Views\Home\_NafsiInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="fonts\" />
   </ItemGroup>

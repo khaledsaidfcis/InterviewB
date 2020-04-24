@@ -1,4 +1,4 @@
-﻿@model InterviewB.Models.PARENTS_INFO
+﻿@model InterviewB.Models.MAIN_INFO
 <li class="card my-2 order-1" id="parents-info" data-order="2">
 
     <h5 class="card-header text-white bg-success text-right d-block" data-toggle="collapse"
@@ -15,19 +15,19 @@
                         <tr>
                             <td rowspan="2" colspan="2">بيانات الأب</td>
                             <td>وقت الميلاد</td>
-                            <td>@Model.FATHERGRADB</td>
-                            <td>@Model.FAHERJOBB</td>
+                            <td>@Model.FATHER_GRAD_BIRTH</td>
+                            <td>@Model.FAHER_JOB_BIRTH</td>
                         </tr>
                         <tr>
                             <td rowspan="2">حاليا</td>
-                            <td>@Model.FATHERGRADN</td>
-                            <td>@Model.FATHERJOBN</td>
+                            <td>@Model.FATHER_GRAD_NOW</td>
+                            <td>@Model.FATHER_JOB_NOW</td>
                         </tr>
                         <tr>
                             <td>بيانات الأم</td>
-                            <td>@Model.MOTHERNAME</td>
-                            <td>@Model.MOTHERGRADN</td>
-                            <td>@Model.MOTHERJOBN</td>
+                            <td>@Model.MOTHER_NAME</td>
+                            <td>@Model.MOTHER_GRAD_NOW</td>
+                            <td>@Model.MOTHER_JOB_NOW</td>
                         </tr>
                     </tbody>
                 </table>

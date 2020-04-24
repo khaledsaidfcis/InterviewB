@@ -4,19 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="75d7ecb8d48f462f97527269cb9651fb" Name="Diagram1" ShowGrid="true" DisplayType="true">
+      <Diagram DiagramId="75d7ecb8d48f462f97527269cb9651fb" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="75">
         <EntityTypeShape EntityType="InterviewO.USER" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="InterviewO.BASIC_INFO" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InterviewO.MAIN_INFO" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="InterviewO.MEDICAL_DETAILS" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="InterviewO.MEDICAL_INFO" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="InterviewO.NAFSI_DETAILS" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="InterviewO.NAFSI_INFO" Width="1.5" PointX="6.75" PointY="5.75" />
-        <EntityTypeShape EntityType="InterviewO.PARENTS_INFO" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="InterviewO.RELATIVES_FOUR" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="InterviewO.RELATIVES_ONE" Width="1.5" PointX="8.75" PointY="4.75" />
-        <EntityTypeShape EntityType="InterviewO.RELATIVES_THREE" Width="1.5" PointX="8.75" PointY="8.75" />
-        <EntityTypeShape EntityType="InterviewO.RELATIVES_TWO" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="InterviewO.SPORT_INFO" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InterviewO.NAFSI_DETAILS" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="InterviewO.NAFSI_INFO" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InterviewO.RELATIVE" Width="1.5" PointX="6.75" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

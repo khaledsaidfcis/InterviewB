@@ -1,27 +1,27 @@
 ﻿@using InterviewB.Models
 <!-- Basic Info -->
-@Html.Partial("_BasicInfo", ViewBag.basic_info as BASIC_INFO, new ViewDataDictionary { { "order", "1" } })
+@Html.Partial("_BasicInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })
 <!--End Of Basic Info -->
 <!-- Parents Info-->
-@Html.Partial("_ParentsInfo", ViewBag.parents_info as PARENTS_INFO)
+@Html.Partial("_ParentsInfo", ViewBag.main_info as MAIN_INFO)
 <!-- End Of Parents Info-->
 <!-- Tby Info -->
-@Html.Partial("_MedicalInfo", ViewBag.medical_info as MEDICAL_INFO, new ViewDataDictionary { { "medical_detailsO", ViewBag.medical_details } })
+@Html.Partial("_MedicalInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "medical_detailsO", ViewBag.medical_details } })
 <!-- End Of Tby Info -->
 <!-- Sport Info -->
-@Html.Partial("_SportInfo", ViewBag.sport_info as SPORT_INFO)
+@Html.Partial("_SportInfo", ViewBag.main_info as MAIN_INFO)
 <!-- End Of Sport Info -->
 <!--Relative One-->
-@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVES_ONE>)
+@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVE>)
 <!--End Of Relative One-->
 <!--Relative Two-->
-@Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVES_TWO>)
+@Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVE>)
 <!--End Of Relative Two-->
 <!--Relative Three-->
-@Html.Partial("_RelativesThree", (ViewBag.relatives_three) as IEnumerable<RELATIVES_THREE>)
+@Html.Partial("_RelativesThree", (ViewBag.relatives_three) as IEnumerable<RELATIVE>)
 <!--End Of Relative Three-->
 <!--Relative Four-->
-@Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVES_FOUR>)
+@Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVE>)
 <!--End Of Relative Four-->
 <!--Nafsi Info-->
 @Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details } })
