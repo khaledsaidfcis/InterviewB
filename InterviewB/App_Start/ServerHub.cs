@@ -11,7 +11,7 @@ namespace InterviewB.App_Start
     public class ServerHub : Hub
     {
         //Iniliaze DB
-        private InterviewContext db = new InterviewContext();
+        private InterviewContext db = DBClass.GetConnection();
 
         public void Send(string name, string message)
         {
@@ -38,7 +38,16 @@ namespace InterviewB.App_Start
             Clients.All.getAllDataFromSrever(std_no, std_kind);
         }
 
-       
+
+        //Get Data From DB
+        public void SendDataToClients(Result StudentData)
+        {
+            
+            Clients.All.broadcastData(StudentData);
+        }
+        
+        
+        
 
     }
 }

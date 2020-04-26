@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using InterviewB.Models;
+using System.Web.Script.Serialization;
 
 namespace InterviewB.Controllers
 {
@@ -151,6 +152,105 @@ namespace InterviewB.Controllers
 
             return PartialView("_StudentCards");
         }
+
+
+        [HttpPost]
+        public ActionResult GetJsonData(FormCollection data)
+        {
+            //Get Form Parameters
+            int _student_no = int.Parse(data["student_no"]);
+            int _student_kind = int.Parse(data["student_kind"]);
+
+            //Querry To Get Basic_info  & Parents_info & Medical_info & Sports_info
+            var main_info = db.MAIN_INFO
+                              .Where(mi => mi.STD_NO == _student_no
+                                  && mi.STD_KIND_CODE == _student_kind)
+                              .FirstOrDefault();
+
+            if (main_info == null)
+            {
+                //TODO: Make It Error View
+                return Content("هذا الرقم غير صحيح");
+                //return Json("");
+            }
+
+            List<MEDICAL_DETAILS> medical_details = null;
+
+            if (main_info != null && main_info.MEDICAL_STATUS_CODE != 1)
+            {
+                //Medical-Details
+                medical_details = db.MEDICAL_DETAILS
+                                    .Where(md => md.STD_NO == _student_no
+                                        && md.STD_KIND_CODE == _student_kind)
+                                    .ToList();
+            }
+
+            //RELATIVES
+            var relatives = db.RELATIVES
+                              .Where(rel => rel.STD_NO == _student_no
+                                  && rel.STD_KIND_CODE == _student_kind)
+                              .ToList();
+
+            var relatives_one = relatives.Where(rel => rel.RELATION == 1).ToList();
+            var relatives_two = relatives.Where(rel => rel.RELATION == 2).ToList();
+            var relatives_three = relatives.Where(rel => rel.RELATION == 3).ToList();
+            var relatives_four = relatives.Where(rel => rel.RELATION == 4).ToList();
+
+            //Nafsi-Info
+            var nafsi_info = db.NAFSI_INFO
+                               .Where(n => n.STD_NO == _student_no
+                                   && n.STD_KIND_CODE == _student_kind)
+                               .FirstOrDefault();
+
+            //Nafsi-Details
+            var nafsi_details = db.NAFSI_DETAILS
+                                  .Where(nd => nd.STD_NO == _student_no
+                                      && nd.STD_KIND_CODE == _student_kind)
+                                  .ToList();
+
+            //Pass data to view
+            /*
+            ViewBag.main_info = main_info;
+            ViewBag.medical_details = medical_details;
+            ViewBag.relatives_one = relatives_one;
+            ViewBag.relatives_two = relatives_two;
+            ViewBag.relatives_three = relatives_three;
+            ViewBag.relatives_four = relatives_four;
+            ViewBag.nafsi_info = nafsi_info;
+            ViewBag.nafsi_details = nafsi_details;
+            ViewBag.relatives = relatives;
+            */
+            Result r = new Result
+            {
+                main_info = main_info,
+                medical_details = medical_details,
+                relatives_one = relatives_one,
+                relatives_two = relatives_two,
+                relatives_three = relatives_three,
+                relatives_four = relatives_four,
+                nafsi_info = nafsi_info,
+                nafsi_details = nafsi_details
+            };
+
+            return Json(r); 
+        }
+
+        [HttpPost]
+        public ActionResult GetStudentView(Result data)
+        {
+            //var result = new JavaScriptSerializer().Deserialize<Object>(data);
+            ViewBag.main_info = data.main_info;
+            ViewBag.medical_details = data.medical_details;
+            ViewBag.relatives_one = data.relatives_one;
+            ViewBag.relatives_two = data.relatives_two;
+            ViewBag.relatives_three = data.relatives_three;
+            ViewBag.relatives_four = data.relatives_four;
+            ViewBag.nafsi_info = data.nafsi_info;
+            ViewBag.nafsi_details = data.nafsi_details;
+
+            return PartialView("_StudentCards");
+        }
+
 
         public ActionResult Chat()
         {

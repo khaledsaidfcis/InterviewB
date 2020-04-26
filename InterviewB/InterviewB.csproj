@@ -224,6 +224,7 @@
     <Compile Include="Models\RELATIVE.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Models\USER.cs">
       <DependentUpon>OracleDBModel.tt</DependentUpon>
     </Compile>

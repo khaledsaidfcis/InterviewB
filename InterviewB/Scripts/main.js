@@ -19,44 +19,6 @@
 
 
     /*
-    //Admin_Form AJAX
-    $("#Admin_Form_btn").on("click", function (e) {
-        e.preventDefault();
-        var student_no   = $("input[name=student_no]").val();
-        var student_kind = $('select[name=' + "student_kind" + ']').val();
-
-        
-
-        //alert($("input[name=student_no]").val());
-        //alert($('select[name=' + "student_kind" + ']').val());
-
-        //$("#spinnerc").toggleClass("d-none");
-      
-        var data = $("#Admin_Form").serialize();
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "/Home/getAllData",
-            data: data,
-            success: function (response) {
-                //alert(response);
-                $("#student-cards").empty();
-                $("#student-cards").append(response);
-            },
-            error: function (e) {
-                alert(e);
-            }
-        });
-
-        
-    });
-    */
-
-
-
-
-
-
     var _Server = $.connection.serverHub;
 
     // Create a function that the hub can call back to display messages.
@@ -102,11 +64,76 @@
         });
     });
 
-   
+   */
+
+    //-------------------------------------------------------------------------------//
+    
+    var _Server = $.connection.serverHub;
+    // Create a function that the hub call in all clients 
+    _Server.client.broadcastData = function (data) {
+        console.log("Data Client" , data);
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetStudentView",
+            //data: JSON.stringify(data),
+            data: data,
+            success: function (response) {
+                console.log(response);
+                $("#student-cards").empty();
+                $("#student-cards").append(response);
+                $('#student-cards').persianNum({ numberType: 'arabic' });
+                $("#spinnerc").addClass("d-none"); //hide
+                
+            },
+            error: function (e) {
+                console.log("error" ,e);
+            }
+        });
+    }
 
 
 
+    $("#Admin_Form_btn").on("click", function (e) {
+        e.preventDefault();
+        //Form Values
+        var student_no = $("input[name=student_no]").val();
+        var student_kind = $('select[name=' + "student_kind" + ']').val();
 
+        let data = {
+            "student_no": student_no,
+            "student_kind": student_kind
+        };
+
+        $("#spinnerc").removeClass("d-none"); //Show Spinner
+        $("#student-cards").empty();    //Empty Cards
+
+        //Make Ajax Request to Server
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetJsonData",
+            data: data,
+            success: function (response) {
+                console.log(response);
+                $("#spinnerc").addClass("d-none"); //hide Spinner
+
+                //IF Error Msg Then Add To Admin Only
+                if (!response.hasOwnProperty('main_info')) {
+                    $("#student-cards").append("<li class='alert alert-danger alert-dismissible fade show' role='alert'>" + response + "</li>");
+                } else {
+                    //if success call server method that pass JSON TO ALL Clients
+                    _Server.server.sendDataToClients(response);
+                }
+                
+            },
+            error: function (e) {
+                console.log("error" + e );
+            }
+        });
+
+
+    });
+
+    
 
 
 
