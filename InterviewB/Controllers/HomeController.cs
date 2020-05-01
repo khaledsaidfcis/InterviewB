@@ -187,14 +187,16 @@ namespace InterviewB.Controllers
 
             //RELATIVES
             var relatives = db.RELATIVES
-                              .Where(rel => rel.STD_NO == _student_no
-                                  && rel.STD_KIND_CODE == _student_kind)
+                              .Where( k => k.STD_NO == _student_no
+                                  && k.STD_KIND_CODE == _student_kind)
                               .ToList();
+           
 
-            var relatives_one = relatives.Where(rel => rel.RELATION == 1).ToList();
-            var relatives_two = relatives.Where(rel => rel.RELATION == 2).ToList();
-            var relatives_three = relatives.Where(rel => rel.RELATION == 3).ToList();
-            var relatives_four = relatives.Where(rel => rel.RELATION == 4).ToList();
+
+            var relatives_one = relatives.Where(re1 => re1.RELATION == 1).OrderBy(r1 => r1.SERIAL).ToList();
+            var relatives_two = relatives.Where(re2 => re2.RELATION == 2).OrderBy(r2 => r2.SERIAL).ToList();
+            var relatives_three = relatives.Where(re3 => re3.RELATION == 3).OrderBy(r3 => r3.SERIAL).ToList();
+            var relatives_four = relatives.Where(re4 => re4.RELATION == 4).OrderBy(r4 => r4.SERIAL).ToList();
 
             //Nafsi-Info
             var nafsi_info = db.NAFSI_INFO
@@ -209,17 +211,7 @@ namespace InterviewB.Controllers
                                   .ToList();
 
             //Pass data to view
-            /*
-            ViewBag.main_info = main_info;
-            ViewBag.medical_details = medical_details;
-            ViewBag.relatives_one = relatives_one;
-            ViewBag.relatives_two = relatives_two;
-            ViewBag.relatives_three = relatives_three;
-            ViewBag.relatives_four = relatives_four;
-            ViewBag.nafsi_info = nafsi_info;
-            ViewBag.nafsi_details = nafsi_details;
-            ViewBag.relatives = relatives;
-            */
+            
             Result r = new Result
             {
                 main_info = main_info,

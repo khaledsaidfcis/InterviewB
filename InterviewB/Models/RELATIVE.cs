@@ -24,6 +24,6 @@ namespace InterviewB.Models
         public string JOB { get; set; }
         public Nullable<short> AGE { get; set; }
         public short SERIAL { get; set; }
-        public Nullable<decimal> RELATION { get; set; }
+        public decimal RELATION { get; set; }
     }
 }
