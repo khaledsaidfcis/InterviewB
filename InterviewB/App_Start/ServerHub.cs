@@ -46,7 +46,11 @@ namespace InterviewB.App_Start
             Clients.All.broadcastData(StudentData);
         }
         
-        
+        //Refresh Page Before Display Data
+        public void RefreshPage()
+        {
+            Clients.All.refreshPageOnClient();
+        }
         
 
     }

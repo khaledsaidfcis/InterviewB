@@ -171,7 +171,6 @@ namespace InterviewB.Controllers
             {
                 //TODO: Make It Error View
                 return Content("هذا الرقم غير صحيح");
-                //return Json("");
             }
 
             List<MEDICAL_DETAILS> medical_details = null;
@@ -230,7 +229,6 @@ namespace InterviewB.Controllers
         [HttpPost]
         public ActionResult GetStudentView(Result data)
         {
-            //var result = new JavaScriptSerializer().Deserialize<Object>(data);
             ViewBag.main_info = data.main_info;
             ViewBag.medical_details = data.medical_details;
             ViewBag.relatives_one = data.relatives_one;
