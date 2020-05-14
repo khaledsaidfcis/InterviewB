@@ -238,6 +238,7 @@
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
@@ -296,6 +297,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\mainx.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\persianNum.jquery-2.min.js" />
     <Content Include="Scripts\popper.min.js" />
@@ -315,7 +317,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\old\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
@@ -330,6 +332,8 @@
     <Content Include="Views\Home\_RelativesThree.cshtml" />
     <Content Include="Views\Home\_RelativesFour.cshtml" />
     <Content Include="Views\Home\_NafsiInfo.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\old\_Navbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />

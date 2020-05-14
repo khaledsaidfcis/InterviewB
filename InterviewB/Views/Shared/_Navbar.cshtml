@@ -1,26 +1,39 @@
 ﻿@using InterviewB.Models
 <!-- Start Of Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark col-9  rounded" id="navbar">
-    <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-light">
-            <i class="fas fa-align-right"></i>
-        </button>
-
-        <button class="btn btn-dark d-inline-block d-lg-none" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <i class="fas fa-align-justify"></i>
-        </button>
-        @{
-            if ((Session["user"] as USER).PRIORITY != 1)
-            {
-                <p class="m-auto text-center" id="users">مجلس  الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</p>
+<nav class="navbar navbar-expand navbar-dark bg-dark rounded pb-2 pb-lg-2 pb-md-2" id="navbar">
+    <div class="container-fluid row">
+        <!-- Logo & Username -->
+        <div class="col-2 text-center navbar-brand mb-0">
+            @{
+                var profileImg = "/Content/images/" + (Session["user"] as USER).USERNAME + ".png";
+                var absolutePath = HttpContext.Current.Server.MapPath(profileImg);
+                if (System.IO.File.Exists(absolutePath))
+                {
+                    <img src="@(profileImg)"
+                         alt="@((Session["user"] as USER).DESCRIPTION)" height="50" width="50"
+                         class="img logo rounded-circle  rounded d-inline-block" />
+                }
+                else
+                {
+                    <img src="~/Content/images/user.png"
+                         alt="@((Session["user"] as USER).DESCRIPTION)" height="50" width="50"
+                         class="img logo rounded-circle  rounded d-inline-block" />
+                }
+                <p id="username" class="text-center mb-0">
+                    @((Session["user"] as USER).DESCRIPTION)
+                </p>
             }
-            else
-            {
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+        <div class="col-7 d-flex justify-content-center">
+            @{
+                if ((Session["user"] as USER).PRIORITY != 1)
+                {
+                    <p class="text-center" id="normal-user">مجلس  الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</p>
+                }
+                else
+                {
                     <form id="Admin_Form" class="form-inline">
-                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد" />
+                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد"  id="student_no"/>
                         <!-- Must Keep the selected Value  -->
                         <select name="student_kind" id="inputState" class="form-control mr-sm-2">
                             <option disabled selected>اختار التخصص</option>
@@ -32,10 +45,47 @@
                             أستعلام
                         </button>
                     </form>
-                    <ul class="nav navbar-nav ml-auto"></ul>
-                </div>
+                }
             }
-        }
+        </div>
+        <div class="col-auto text-center d-flex justify-content-end">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ml-3">
+                    <!-- TODO: Fill with image path after success request -->
+                    <a class="nav-link disabled" href="#">
+                        <i class="fas fa-images fa-2x"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown ml-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="mapDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="mapDropDown">
+                        <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-africa fa-2x"></i></a>
+                        <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-europe fa-2x"></i></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-americas fa-2x"></i></a>
+                        <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-asia fa-2x"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown ml-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="alphaDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-font fa-2x"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="alphaDropDown">
+                        <a class="dropdown-item d-inline" href="#">س</a>
+                        <a class="dropdown-item d-inline" href="#">ر</a>
+                    </div>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link" href="/Auth/Logout">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
     </div>
 </nav>
 <!-- End Of Navbar -->

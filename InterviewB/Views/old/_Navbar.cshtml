@@ -1,0 +1,41 @@
+﻿@using InterviewB.Models
+<!-- Start Of Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark col-9  rounded" id="navbar">
+    <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-light">
+            <i class="fas fa-align-right"></i>
+        </button>
+
+        <button class="btn btn-dark d-inline-block d-lg-none" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+        </button>
+        @{
+            if ((Session["user"] as USER).PRIORITY != 1)
+            {
+                <p class="m-auto text-center" id="users">مجلس  الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</p>
+            }
+            else
+            {
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form id="Admin_Form" class="form-inline">
+                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد" />
+                        <!-- Must Keep the selected Value  -->
+                        <select name="student_kind" id="inputState" class="form-control mr-sm-2">
+                            <option disabled selected>اختار التخصص</option>
+                            <option disabled> ------------- </option>
+                            <option value="1">ثانوي</option>
+                            <option value="2">جامعي</option>
+                        </select>
+                        <button id="Admin_Form_btn" class="btn btn-outline-success mx-2" type="button">
+                            أستعلام
+                        </button>
+                    </form>
+                    <ul class="nav navbar-nav ml-auto"></ul>
+                </div>
+            }
+        }
+    </div>
+</nav>
+<!-- End Of Navbar -->
