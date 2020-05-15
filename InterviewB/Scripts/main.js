@@ -125,24 +125,12 @@
                 } else {
                     //if success call server method that pass JSON TO ALL Clients
                     _Server.server.sendDataToClients(response);
-                }
-                
+                }    
             },
             error: function (e) {
                 console.log("error" + e );
             }
         });
     });
-
-    
-
-
-
-
-
-
-
-
-
 })(jQuery);
 

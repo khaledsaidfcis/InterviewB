@@ -334,6 +334,8 @@
     <Content Include="Views\Home\_NafsiInfo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\old\_Navbar.cshtml" />
+    <Content Include="Views\old\_BasicInfo.cshtml" />
+    <Content Include="Views\old\_StudentCards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />

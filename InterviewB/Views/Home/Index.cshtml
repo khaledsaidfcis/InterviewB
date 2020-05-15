@@ -13,10 +13,24 @@
             <span class="sr-only">Loading...</span>
         </div>
         <!-- Student Info Cards -->
-        <ul class="nested_with_switch vertical text-center list-unstyled" id="student-cards">
-
-
-        </ul>
+        <ul class="nested_with_switch vertical text-center list-unstyled list-inline row" id="student-cards"></ul>
     </div>
 
 </div>
+
+
+
+@section scripts{
+    <script>
+        var _ServerHub = $.connection.serverHub;
+
+        $(window).on('load', function () {
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                console.log(_ServerHub.connection.id);
+                    // Call the Send method on the hub.
+                _ServerHub.server.updateConnectionId("@((Session["user"] as USER).USERNAME)");
+            });
+        });
+    </script>
+}

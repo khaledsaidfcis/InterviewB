@@ -79,6 +79,7 @@
         color: #111;
         text-shadow: none;
     }
+
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
         text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
         color: #fff6a9;
@@ -119,7 +120,7 @@
     transition: .4s;
 }
 
-    .slider:before {
+.slider:before {
         position: absolute;
         content: "";
         height: 26px;
@@ -129,7 +130,7 @@
         background-color: white;
         -webkit-transition: .4s;
         transition: .4s;
-    }
+}
 
 input.success:checked + .slider {
     background-color: #8bc34a;
@@ -150,10 +151,9 @@ input:checked + .slider:before {
     border-radius: 34px;
 }
 
-.slider.round:before {
+    .slider.round:before {
         border-radius: 50%;
-
-}
+    }
 
 /*=============================================
 =            Cards            =
@@ -161,4 +161,23 @@ input:checked + .slider:before {
 #spinnerc {
     width: 6rem;
     height: 6rem;
+}
+
+#student-cards{
+    direction:rtl;
+}
+
+.card-body {
+    direction: rtl;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.card-header .fa {
+    transition: .3s transform ease-in-out;
+}
+
+.card-header.collapsed .fa {
+    transform: rotate(90deg);
 }
