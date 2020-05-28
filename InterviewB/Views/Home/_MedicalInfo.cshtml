@@ -1,86 +1,87 @@
 ﻿@using InterviewB.Models
 @model InterviewB.Models.MAIN_INFO
-<li class="card my-2 order-2" id="tby-info" data-order="2">
-
-    <h5 class="card-header text-white bg-info text-right d-block" data-toggle="collapse" data-target="#tby-info-body"
-        aria-expanded="true" aria-controls="tby-info-body" id="tby-info-header">
-        الموقف الطبي
-        <i class="fa fa-chevron-down"></i>
-        <!-- MEDICAL_STATUS -->
-        @{
-            if (Model.MEDICAL_STATUS_CODE == 1)
-            {
-                <span class="badge badge-success float-left mx-5 p-2">@Model.MEDICAL_STATUS</span>
+<div class="my-2 order-3 col-6" id="tby-info" data-order="3">
+    <div class="card">
+        <h2 class="card-header text-white bg-info text-right d-block" data-toggle="collapse" data-target="#tby-info-body"
+            aria-expanded="true" aria-controls="tby-info-body" id="tby-info-header">
+            الموقف الطبي
+            <i class="fa fa-chevron-down"></i>
+            <!-- MEDICAL_STATUS -->
+            @{
+                if (Model.MEDICAL_STATUS_CODE == 1)
+                {
+                    <span class="badge badge-success float-left ml-5 p-2">@Model.MEDICAL_STATUS</span>
+                }
+                else
+                {
+                    <span class="badge badge-warning float-left ml-5 px-2">@Model.MEDICAL_STATUS</span>
+                }
             }
-            else
-            {
-                <span class="badge badge-warning float-left mx-5 p-2">@Model.MEDICAL_STATUS</span>
-            }
-        }
-    </h5>
+        </h2>
 
-    <div id="tby-info-body" class="collapse show" aria-labelledby="tby-info-header">
-        <div class="card-body">
+        <div id="tby-info-body" class="collapse show" aria-labelledby="tby-info-header">
+            <div class="card-body">
 
-            <!-- VISION -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">النظر</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light border-warning" id="vision">
-                    @Model.VISION_DEGREE
-                    @{
-                        if (Model.GLASSES_CODE == 1)
-                        {
-                            <i class="fas fa-glasses"></i>
+                <!-- VISION -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">النظر</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light border-warning" id="vision">
+                        @Model.VISION_DEGREE
+                        @{
+                            if (Model.GLASSES_CODE == 1)
+                            {
+                                <i class="fas fa-glasses"></i>
+                            }
                         }
-                    }
-                </p>
-            </div>
-            <!-- LENGHT -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">الطول</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="lenght">
-                    @Model.LENGTH
-                </p>
-            </div>
-            <!-- WEIGHT -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">الوزن</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="weight">
-                    @Model.WEIGHT
-                </p>
+                    </p>
+                </div>
+                <!-- LENGHT -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">الطول</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="lenght">
+                        @Model.LENGTH
+                    </p>
+                </div>
+                <!-- WEIGHT -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">الوزن</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="weight">
+                        @Model.WEIGHT
+                    </p>
+                </div>
+
             </div>
 
+            @if (@Model.MEDICAL_STATUS_CODE != 1)
+            {
+                <div class="medical-table">
+                    <table class="table table-striped table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th class="bg-info" scope="col">اللجنة</th>
+                                <th class="bg-info" scope="col">الحالة</th>
+                                <th class="bg-info" scope="col">الملحوظة الطبية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var med in ViewBag.medical_detailsO)
+                            {
+                                <tr>
+                                    <!--LAGNA NAME-->
+                                    <td>@((med as MEDICAL_DETAILS).LAGNA)</td>
+                                    <!--LAGNA STATUS-->
+                                    <td>@((med as MEDICAL_DETAILS).LAGNA_STATUS)</td>
+                                    <!--MEDICAL REMARK-->
+                                    <td>@((med as MEDICAL_DETAILS).REMARK)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
+            }
         </div>
-
-        @if (@Model.MEDICAL_STATUS_CODE != 1)
-        {
-            <div class="medical-table">
-                <table class="table table-striped table-bordered table-sm">
-                    <thead>
-                        <tr>
-                            <th class="bg-info" scope="col">اللجنة</th>
-                            <th class="bg-info" scope="col">الحالة</th>
-                            <th class="bg-info" scope="col">الملحوظة الطبية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var med in ViewBag.medical_detailsO)
-                        {
-                        <tr>
-                            <!--LAGNA NAME-->
-                            <td>@((med as MEDICAL_DETAILS).LAGNA)</td>
-                            <!--LAGNA STATUS-->
-                            <td>@((med as MEDICAL_DETAILS).LAGNA_STATUS)</td>
-                            <!--MEDICAL REMARK-->
-                            <td>@((med as MEDICAL_DETAILS).REMARK)</td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-           
-
-        }
     </div>
-</li>
+</div>
 

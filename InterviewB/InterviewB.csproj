@@ -336,6 +336,9 @@
     <Content Include="Views\old\_Navbar.cshtml" />
     <Content Include="Views\old\_BasicInfo.cshtml" />
     <Content Include="Views\old\_StudentCards.cshtml" />
+    <Content Include="Views\old\_SportInfo.cshtml" />
+    <Content Include="Views\old\_MedicalInfo.cshtml" />
+    <Content Include="Views\old\_NafsiInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />

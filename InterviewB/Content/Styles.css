@@ -163,10 +163,6 @@ input:checked + .slider:before {
     height: 6rem;
 }
 
-#student-cards{
-    direction:rtl;
-}
-
 .card-body {
     direction: rtl;
     -webkit-transition: all 0.8s;
@@ -180,4 +176,8 @@ input:checked + .slider:before {
 
 .card-header.collapsed .fa {
     transform: rotate(90deg);
+}
+
+#nafsi-info-header{
+    background-color: darkseagreen;
 }
