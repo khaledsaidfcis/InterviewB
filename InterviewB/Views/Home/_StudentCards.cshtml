@@ -1,7 +1,12 @@
 ﻿@using InterviewB.Models
 <!-- Basic Info -->
-@Html.Partial("_BasicInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })
+@*@Html.Partial("_BasicInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })*@
 <!--End Of Basic Info -->
+<!-- Sport Info -->
+@Html.Partial("_SportInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })
+<!--End Of Basic Info -->)
+
+<!-- End Of Sport Info -->
 @*
     <!-- Sport Info -->
     @Html.Partial("_SportInfo", ViewBag.main_info as MAIN_INFO)

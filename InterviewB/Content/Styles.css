@@ -163,11 +163,8 @@ input:checked + .slider:before {
     height: 6rem;
 }
 
-.card-body {
-    direction: rtl;
-    -webkit-transition: all 0.8s;
-    -o-transition: all 0.8s;
-    transition: all 0.8s;
+.card, .data-value {
+    box-shadow: 0 10px 10px -5px;
 }
 
 .card-header .fa {
@@ -178,6 +175,41 @@ input:checked + .slider:before {
     transform: rotate(90deg);
 }
 
-#nafsi-info-header{
+#nafsi-info-header {
     background-color: darkseagreen;
+}
+
+.card-body {
+    direction: rtl;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.data-name, .data-value {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Touch Screen*/
+@media ( width: 1920px){
+    #std_no{
+        background-color:red !important;
+    }
+}
+
+/* Tv Screen */
+@media ( min-width: 2500px){
+    #std_no {
+        background-color: green !important;
+    }
 }

@@ -1,9 +1,9 @@
 ﻿@using InterviewB.Models
 <!-- Content -->
-<div id="content" class="p-4 p-md-5 container-fluid">
+<div id="content" class="p-4 container-fluid">
     @Html.Partial("_Navbar")
     <!-- Master For Web Site -->
-    <div id="master" class="d-flex flex-nowrap flex-column  pt-5 px-0">
+    <div id="master" class="d-flex flex-nowrap flex-column  pt-2 px-0">
         <label class="switch d-none">
             <input type="checkbox" class="success" id="switch-order" />
             <span class="slider round"></span>
@@ -13,7 +13,7 @@
             <span class="sr-only">Loading...</span>
         </div>
         <!-- Student Info Cards -->
-        <div class="nested_with_switch vertical text-center list-unstyled list-inline row d-flex flex-row-reverse align-items-lg-stretch" id="student-cards"></div>
+        <div class="nested_with_switch list-unstyled list-inline row d-flex flex-row-reverse align-items-lg-stretch" id="student-cards"></div>
     </div>
 
 </div>

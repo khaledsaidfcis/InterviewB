@@ -1,38 +1,33 @@
 ﻿@model InterviewB.Models.MAIN_INFO
-<div class="my-2  order-1 col-6" id="basic-info" data-order="1">
-    <div class="card">
-        <h2 class="card-header text-white bg-secondary text-right d-block" data-toggle="collapse"
+<div class="my-2 col-6 order-@(ViewBag.order)" id="basic-info" data-order="@(ViewBag.order)">
+    <div class="card border-0">
+        <p class="h1 card-header text-white bg-secondary text-right d-block font-weight-bold" data-toggle="collapse"
             data-target="#basic-info-body" aria-expanded="true" aria-controls="basic-info-body" id="basic-info-header">
             البيانات الأساسية
             <i class="fa fa-chevron-down"></i>
-        </h2>
-
+        </p>
         <div id="basic-info-body" class="collapse show" aria-labelledby="basic-info-header">
-            <div class="card-body">
+            <div class="card-body d-flex justify-content-center flex-wrap">
 
                 <!-- STD_NO -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">رقم القيد</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="std_no">
-                        @*  @((ViewBag.basic_info as BASIC_INFO).STD_NO )*@
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bolder mb-0">رقم القيد</p>
+                    <p class="data-value form-control  font-weight-bolder arabic bg-light" id="std_no">
                         @Model.STD_NO
                     </p>
                 </div>
-
                 <!-- STD_NAME -->
-                <div class="data-block float-right text-center pl-1 d-block">
-                    <p class="data-name font-weight-bold mb-0">أسم الطالب</p>
-                    <p class="data-value form-control  font-weight-bold bg-light px-3" id="std_name">
-                        @*@((ViewBag.baKsic_info as BASIC_INFO).STD_NAME )*@
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">أسم الطالب</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
                         @Model.STD_NAME
                     </p>
                 </div>
 
                 <!-- NATIONAL_ID -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">الرقم القومي</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="national_id">
-                        @*@((ViewBag.basic_info as BASIC_INFO).NATIONAL_ID )*@
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bolder mb-0">الرقم القومي</p>
+                    <p class="data-value form-control  font-weight-bolder arabic bg-light" id="national_id">
                         @Model.NATIONAL_ID
                     </p>
                 </div>
@@ -44,107 +39,135 @@
                     long Days = Convert.ToInt64(diff.TotalDays) - ((Years * 365) + (Months * 30));
 
                 }
-
                 <!-- AGE MON -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">شهر</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="age_mon">
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bolder mb-0">شهر</p>
+                    <p class="data-value form-control  font-weight-bolder arabic bg-light" id="age_mon">
                         @Months
                     </p>
                 </div>
 
                 <!-- AGE YEAR -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">سنة</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="age_year">
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bolder mb-0">سنة</p>
+                    <p class="data-value form-control  font-weight-bolder arabic bg-light" id="age_year">
                         @Years
                     </p>
                 </div>
 
                 <!-- PLACE -->
-                <div class="data-block float-right text-center pl-1 d-block">
+                <div class="data-group float-right text-center pl-1 d-block">
                     <p class="data-name font-weight-bold mb-0">المحافظة</p>
-                    <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="place">
-                        @Model.PLACE
-                    </p>
+                    @if (new int[] { 25, 32, 33, 34, 35, 36 }.Contains(Model.PLACE_CODE.Value))
+                    {
+                        <p class="data-value form-control  font-weight-bold bg-warning px-3 text-light" id="place">
+                            @Model.PLACE
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="place">
+                            @Model.PLACE
+                        </p>
+
+                    }
                 </div>
 
                 <!-- SCN INFO -->
                 @if (Model.STD_KIND_CODE == 1)
                 {
-                    <!-- SCN -->
-                    <div class="data-block float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">الثانوية</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="scn">
-                            @Model.SCN
-                        </p>
-                    </div>
+
+                    <!-- SCN_NAME -->
+                    if (!Model.SCN_NAME.IsEmpty())
+                    {
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bold mb-0">ثانوية أجنبية</p>
+                            <p class="data-value form-control  font-weight-bold bg-dark text-light  px-3" id="scn_name">
+                                @Model.SCN_NAME
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- SCN -->
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bold mb-0">الثانوية</p>
+                            <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="scn">
+                                @Model.SCN
+                            </p>
+                        </div>
+                    }
+
                     <!-- SHOPA -->
-                    <div class="data-block float-right text-center pl-1 d-block">
+                    <div class="data-group float-right text-center pl-1 d-block">
                         <p class="data-name font-weight-bold mb-0">الشعبة</p>
                         <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="shopa">
                             @Model.SHOPA
                         </p>
                     </div>
-                    <!-- SCN_NAME -->
-                    <div class="data-block float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">ثانوية أجنبية</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="scn_name">
-                            @Model.SCN_NAME
+
+                    <!-- PERS -->
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">النسبة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
+                            @Model.PERS
                         </p>
                     </div>
+
                 }
                 <!-- END SCN INFO -->
                 <!-- GAM INFO -->
                 @if (Model.STD_KIND_CODE == 2)
                 {
                     <!-- COLLAGE -->
-                    <div class="data-block float-right text-center pl-1 d-block">
+                    <div class="data-group float-right text-center pl-1 d-block">
                         <p class="data-name font-weight-bold mb-0">الجامعة</p>
                         <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="collage">
                             @Model.COLLEGE
                         </p>
                     </div>
                     <!-- GRADUATION -->
-                    <div class="data-block float-right text-center pl-1 d-block">
+                    <div class="data-group float-right text-center pl-1 d-block">
                         <p class="data-name font-weight-bold mb-0">التخصص</p>
                         <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="graduation">
                             @Model.GRADUATION
                         </p>
                     </div>
                     <!-- POST_GRADUATION -->
-                    <div class="data-block float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">التخصص</p>
+                    <div class="data-group float-right text-center pl-1 d-block">
+                        <p class="data-name font-weight-bold mb-0">الدرجة العلمية</p>
                         <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="post_graduation">
                             @Model.POST_GRADUATION
                         </p>
                     </div>
                     <!-- GRADE -->
-                    <div class="data-block float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">التخصص</p>
+                    <div class="data-group float-right text-center pl-1 d-block">
+                        <p class="data-name font-weight-bold mb-0">التقدير</p>
                         <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="grade">
                             @Model.GRADE
                         </p>
                     </div>
+
+                    <!-- PERS -->
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">النسبة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
+                            @Model.PERS
+                        </p>
+                    </div>
                 }
                 <!-- END GAM INFO -->
-                <!-- PERS -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">النسبة</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
-                        @Model.PERS
-                    </p>
-                </div>
                 @*
-                <!-- SPECIAL WEIGHT -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">الوزن النوعي</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="sweight">
-                        765
-                    </p>
-                </div>
+         <!-- SPECIAL WEIGHT -->
+         <div class="data-group float-right text-center pl-1 persian d-block">
+            <p class="data-name font-weight-bold mb-0">الوزن النوعي</p>
+            <p class="data-value form-control  font-weight-bold arabic bg-light" id="sweight">
+             765
+            </p>
+        </div>
                 *@
             </div>
         </div>
+
     </div>
 </div>

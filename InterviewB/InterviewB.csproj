@@ -334,11 +334,12 @@
     <Content Include="Views\Home\_NafsiInfo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\old\_Navbar.cshtml" />
-    <Content Include="Views\old\_BasicInfo.cshtml" />
+    <Content Include="Views\old\_BasicInfo_2.cshtml" />
     <Content Include="Views\old\_StudentCards.cshtml" />
     <Content Include="Views\old\_SportInfo.cshtml" />
     <Content Include="Views\old\_MedicalInfo.cshtml" />
     <Content Include="Views\old\_NafsiInfo.cshtml" />
+    <Content Include="Views\old\_BasicInfo 28-05.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />
