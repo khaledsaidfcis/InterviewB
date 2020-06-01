@@ -1,84 +1,85 @@
 ﻿@model InterviewB.Models.MAIN_INFO
-<li class="card my-2 order-3" id="basic-info" data-order="3">
-
-    <h5 class="card-header text-white bg-warning text-right d-block persian" data-toggle="collapse"
-        data-target="#sport-info-body" aria-expanded="true" aria-controls="sport-info-body" id="sport-info-header">
+<div class="my-2 order-2 col-6" id="basic-info" data-order="2">
+    <div class="card">
+        <h2 class="card-header  text-white bg-warning text-right d-block persian" data-toggle="collapse"
+            data-target="#sport-info-body" aria-expanded="true" aria-controls="sport-info-body" id="sport-info-header">
             الأختبار الرياضي
-        <i class="fa fa-chevron-down"></i>
-        <span class="badge badge-light float-left mx-5 p-2 arabic px-4">@Model.SPORT_TOTAL</span>
-       
-    </h5>
+            <i class="fa fa-chevron-down"></i>
+            <span class="badge badge-light float-left ml-4 arabic">@Model.SPORT_TOTAL</span>
 
-    <div id="sport-info-body" class="collapse show" aria-labelledby="sport-info-header">
-        <div class="card-body">
+        </h2>
 
-            <!-- SWIM -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">السباحة</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="swim">
-                    @Model.SWIM
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="SWIM_DEG">
-                    @Model.SWIM_DEG
-                </p>
+        <div id="sport-info-body" class="collapse show" aria-labelledby="sport-info-header">
+            <div class="card-body">
+
+                <!-- SWIM -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">السباحة</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="swim">
+                        @Model.SWIM
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="SWIM_DEG">
+                        @Model.SWIM_DEG
+                    </p>
+                </div>
+
+                <!-- OKLA -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">العقلة</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="okla">
+                        @Model.OKLA
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="okla_DEG">
+                        @Model.OKLA_DEG
+                    </p>
+                </div>
+
+                <!-- PUSH -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">الضغط</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="push">
+                        @Model.PUSH
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="push_deg">
+                        @Model.PUSH_DEG
+                    </p>
+                </div>
+
+                <!-- BATN -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">البطن</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="batn">
+                        @Model.BATN
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="batn_DEG">
+                        @Model.BATN_DEG
+                    </p>
+                </div>
+
+                <!-- RUN100 -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">م100</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="run100">
+                        @Model.RUN_100
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="run100_DEG">
+                        @Model.RUN_100DEG
+                    </p>
+                </div>
+
+                <!-- RUN1500 -->
+                <div class="data-block float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">م1500</p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="run1500">
+                        @Model.RUN_1500
+                    </p>
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="run1500_DEG">
+                        @Model.RUN_1500DEG
+                    </p>
+                </div>
+
+
             </div>
-
-            <!-- OKLA -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">العقلة</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="okla">
-                    @Model.OKLA
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="okla_DEG">
-                    @Model.OKLA_DEG
-                </p>
-            </div>
-
-            <!-- PUSH -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">الضغط</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="push">
-                    @Model.PUSH
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="push_deg">
-                    @Model.PUSH_DEG
-                </p>
-            </div>
-
-            <!-- BATN -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">البطن</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="batn">
-                    @Model.BATN
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="batn_DEG">
-                    @Model.BATN_DEG
-                </p>
-            </div>
-
-            <!-- RUN100 -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">م100</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="run100">
-                    @Model.RUN_100
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="run100_DEG">
-                    @Model.RUN_100DEG
-                </p>
-            </div>
-
-            <!-- RUN1500 -->
-            <div class="data-block float-right text-center pl-1 persian d-block">
-                <p class="data-name font-weight-bold mb-0">م1500</p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="run1500">
-                    @Model.RUN_1500
-                </p>
-                <p class="data-value form-control  font-weight-bold arabic bg-light" id="run1500_DEG">
-                    @Model.RUN_1500DEG
-                </p>
-            </div>
-
-
         </div>
     </div>
-</li>
+</div>

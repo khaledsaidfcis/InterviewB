@@ -1,0 +1,41 @@
+﻿@model InterviewB.Models.MAIN_INFO
+<li class="card my-2 order-1" id="parents-info" data-order="2">
+
+    <h5 class="card-header text-white bg-success text-right d-block" data-toggle="collapse"
+        data-target="#parents-info-body" aria-expanded="true" aria-controls="parents-info-body" id="parents-info-header">
+        بيانات الوالدين
+        <i class="fa fa-chevron-down"></i>
+    </h5>
+
+    <div id="parents-info-body" class="collapse show" aria-labelledby="parents-info-header">
+        <div class="card-body">
+            <div class="medical-table">
+                <table class="table  table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" colspan="2">بيانات الأب</td>
+                            <td>وقت الميلاد</td>
+                            <td>@Model.FATHER_GRAD_BIRTH</td>
+                            <td>@Model.FAHER_JOB_BIRTH</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">حاليا</td>
+                            <td>@Model.FATHER_GRAD_NOW</td>
+                            <td>@Model.FATHER_JOB_NOW</td>
+                        </tr>
+                        <tr>
+                            <td>بيانات الأم</td>
+                            <td>@Model.MOTHER_NAME</td>
+                            <td>@Model.MOTHER_GRAD_NOW</td>
+                            <td>@Model.MOTHER_JOB_NOW</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</li>

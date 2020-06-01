@@ -1,15 +1,37 @@
 ﻿@model InterviewB.Models.MAIN_INFO
-<li class="card my-2 order-1" id="parents-info" data-order="2">
+<div class="my-2 col-6 order-@(ViewBag.order)" id="parents-info" data-order="@(ViewBag.order)">
+    <div class="card border-0">
 
-    <h5 class="card-header text-white bg-success text-right d-block" data-toggle="collapse"
-        data-target="#parents-info-body" aria-expanded="true" aria-controls="parents-info-body" id="parents-info-header">
-        بيانات الوالدين
-        <i class="fa fa-chevron-down"></i>
-    </h5>
+        <p class="h3 card-header text-white bg-success text-right d-block" data-toggle="collapse"
+            data-target="#parents-info-body" aria-expanded="true" aria-controls="parents-info-body" id="parents-info-header">
+            بيانات الوالدين
+            <i class="fa fa-chevron-down"></i>
+        </p>
 
-    <div id="parents-info-body" class="collapse show" aria-labelledby="parents-info-header">
-        <div class="card-body">
-            <div class="medical-table">
+        <div id="parents-info-body" class="collapse show" aria-labelledby="parents-info-header">
+            <div class="card-body">
+                <table class=" table  m-auto  table-striped table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <th class="text-center bg-success text-light" rowspan="2" colspan="2">بيانات الأب</th>
+                            <th class="text-center bg-success text-light" >وقت الميلاد</th>
+                            <td class="text-center" >@Model.FATHER_GRAD_BIRTH</td>
+                            <td class="text-center" >@Model.FAHER_JOB_BIRTH</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center bg-success text-light" rowspan="2">حاليا</th>
+                            <td class="text-center" >@Model.FATHER_GRAD_NOW</td>
+                            <td class="text-center" >@Model.FATHER_JOB_NOW</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center bg-success text-light" >بيانات الأم</th>
+                            <td class="text-center" >@Model.MOTHER_NAME</td>
+                            <td class="text-center" >@Model.MOTHER_GRAD_NOW</td>
+                            <td class="text-center" >@Model.MOTHER_JOB_NOW</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    @*<div class="medical-table">
                 <table class="table  table-bordered table-sm">
                     <tbody>
                         <tr>
@@ -31,11 +53,10 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>*@
             </div>
-
-
-
-
         </div>
     </div>
-</li>
+</div>
+
+

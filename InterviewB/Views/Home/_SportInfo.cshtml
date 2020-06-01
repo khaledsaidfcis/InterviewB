@@ -1,19 +1,18 @@
 ﻿@model InterviewB.Models.MAIN_INFO
-<div class="my-2 order-2 col-6" id="basic-info" data-order="2">
-    <div class="card">
-        <h2 class="card-header  text-white bg-warning text-right d-block persian" data-toggle="collapse"
+<div class="my-2 col-6 order-@(ViewBag.order)" id="basic-info" data-order="@(ViewBag.order)">
+    <div class="card border-0">
+        <p class="h3 card-header text-white bg-warning text-right d-block persian" data-toggle="collapse"
             data-target="#sport-info-body" aria-expanded="true" aria-controls="sport-info-body" id="sport-info-header">
             الأختبار الرياضي
             <i class="fa fa-chevron-down"></i>
             <span class="badge badge-light float-left ml-4 arabic">@Model.SPORT_TOTAL</span>
-
-        </h2>
+        </p>
 
         <div id="sport-info-body" class="collapse show" aria-labelledby="sport-info-header">
-            <div class="card-body">
+            <div class="card-body d-flex justify-content-center flex-wrap">
 
                 <!-- SWIM -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
+                <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">السباحة</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="swim">
                         @Model.SWIM
@@ -24,7 +23,7 @@
                 </div>
 
                 <!-- OKLA -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
+                <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">العقلة</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="okla">
                         @Model.OKLA
@@ -35,7 +34,7 @@
                 </div>
 
                 <!-- PUSH -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
+                <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">الضغط</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="push">
                         @Model.PUSH
@@ -46,7 +45,7 @@
                 </div>
 
                 <!-- BATN -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
+                <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">البطن</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="batn">
                         @Model.BATN
@@ -57,8 +56,8 @@
                 </div>
 
                 <!-- RUN100 -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">م100</p>
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">100م</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="run100">
                         @Model.RUN_100
                     </p>
@@ -68,8 +67,8 @@
                 </div>
 
                 <!-- RUN1500 -->
-                <div class="data-block float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">م1500</p>
+                <div class="data-group float-right text-center pl-1 persian d-block">
+                    <p class="data-name font-weight-bold mb-0">1500م</p>
                     <p class="data-value form-control  font-weight-bold arabic bg-light" id="run1500">
                         @Model.RUN_1500
                     </p>
@@ -77,8 +76,6 @@
                         @Model.RUN_1500DEG
                     </p>
                 </div>
-
-
             </div>
         </div>
     </div>
