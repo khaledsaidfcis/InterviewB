@@ -1,15 +1,28 @@
 ﻿@using InterviewB.Models
 @model InterviewB.Models.NAFSI_INFO
 @{
-
-
+    var xlow = 0;
+    foreach (var ndetails in ViewBag.nafsi_detailsO)
+    {
+        if (((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE) == 1) { xlow++; }
+    }
 }
-<div class="my-2  col-8 offset-2 order-@(ViewBag.order)" id="nafsi-info" data-order="@(ViewBag.order)">
+
+<div class="my-2  col-6  order-@(ViewBag.order)" id="nafsi-info" data-order="@(ViewBag.order)">
     <div class="card border-0">
         <p class="h3 card-header text-white text-right d-block" data-toggle="collapse" data-target="#nafsi-info-body"
            aria-expanded="true" aria-controls="nafsi-info-body" id="nafsi-info-header">
             الموقف النفسي
             <i class="fa fa-chevron-down"></i>
+            @if (xlow == 0)
+            {
+                <span class="badge badge-light text-dark float-left ml-5 p-2">لا يوجد أبعاد منخفضة</span>
+            }
+            else
+            {
+                <span class="badge badge-light text-dark float-left ml-5 p-2">@xlow</span>
+            }
+
         </p>
 
         <div id="nafsi-info-body" class="collapse show" aria-labelledby="nafsi-info-header">
@@ -44,7 +57,7 @@
                 </div>
                 <br />
 
-                @if (@Model.N1_CODE != null)
+                @if (@Model.N1_CODE != null && xlow != 0)
                 {
                     <table class="table col-4  m-auto table-striped table-bordered table-sm">
                         <thead>
@@ -56,12 +69,16 @@
                         <tbody>
                             @foreach (var ndetails in ViewBag.nafsi_detailsO)
                             {
-                                <tr>
-                                    <!--LAGNA NAME-->
-                                    <td class="text-center" scope="col" >@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
-                                    <!--LAGNA STATUS-->
-                                    <td class="text-center" scope="col" >@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
-                                </tr>
+                                if (((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE) == 1)
+                                {
+                                    <tr>
+                                        <!--LAGNA NAME-->
+                                        <td class="text-center" scope="col">@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
+                                        <!--LAGNA STATUS-->
+                                        <td class="text-center text-danger" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
+                                    </tr>
+                                }
+
                             }
                         </tbody>
                     </table>
