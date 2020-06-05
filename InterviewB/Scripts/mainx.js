@@ -29,7 +29,8 @@ function submitForm(_Server) {
         //TODO: MAke Ajax Request
         $.ajax({
             type: "POST",
-            url: "/Home/GetJsonData",
+            //url: "/Home/GetJsonData",
+            url: '@Url.Action("GetJsonData" , "Home")',
             data: _data,
             success: function (response) {
                 console.log(response);
