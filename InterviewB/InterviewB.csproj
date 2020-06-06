@@ -236,6 +236,19 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\images\5.jpg" />
+    <Content Include="Content\images\Air.png" />
+    <Content Include="Content\images\AirDef.png" />
+    <Content Include="Content\images\Army.png" />
+    <Content Include="Content\images\Egypt.png" />
+    <Content Include="Content\images\Ins.png" />
+    <Content Include="Content\images\login-bg.jpg" />
+    <Content Include="Content\images\login-title.jpg" />
+    <Content Include="Content\images\Med.png" />
+    <Content Include="Content\images\Mil.png" />
+    <Content Include="Content\images\Sea.png" />
+    <Content Include="Content\images\Tech.png" />
+    <Content Include="Content\images\user.png" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Styles.css" />
@@ -343,10 +356,12 @@
     <Content Include="Views\old\_RelativesOne.cshtml" />
     <Content Include="Views\old\_RelativesThree.cshtml" />
     <Content Include="Views\old\_RelativesTwo.cshtml" />
+    <Content Include="Views\Shared\_Modals.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\images\" />
     <Folder Include="fonts\" />
+    <Folder Include="StudentCards\Gam\" />
+    <Folder Include="StudentCards\Scn\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

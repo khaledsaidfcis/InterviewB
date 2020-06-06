@@ -33,9 +33,9 @@
                 else
                 {
                     <form id="Admin_Form" class="form-inline">
-                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد"  id="student_no"/>
+                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد" id="student_no" />
                         <!-- Must Keep the selected Value  -->
-                        <select name="student_kind" id="inputState" class="form-control mr-sm-2">
+                        <select name="student_kind" id="student_kind" class="form-control mr-sm-2">
                             <option disabled selected>اختار التخصص</option>
                             <option disabled> ------------- </option>
                             <option value="1">ثانوي</option>
@@ -46,20 +46,22 @@
                         </button>
                     </form>
                 }
+                <input type="hidden" id="links" data-link1='@Url.Action("GetJsonData","Home")' data-link2='@Url.Action("GetStudentView","Home")'/>
             }
         </div>
         <div class="col-auto text-center d-flex justify-content-end">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ml-3">
                     <!-- TODO: Fill with image path after success request -->
-                    <a class="nav-link disabled" href="#">
+                    <div class="nav-link disabled" data-toggle="modal" data-target="#image-model" id="image-modal-button">
                         <i class="fas fa-images fa-2x"></i>
-                    </a>
+                    </div>
+
                 </li>
                 <li class="nav-item dropdown ml-3">
-                    <a class="nav-link dropdown-toggle" href="#" id="mapDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="nav-link dropdown-toggle" href="#" id="mapDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-map-marked-alt fa-2x"></i>
-                    </a>
+                    </div>
                     <div class="dropdown-menu" aria-labelledby="mapDropDown">
                         <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-africa fa-2x"></i></a>
                         <a class="dropdown-item d-inline" href="#"><i class="fas fa-globe-europe fa-2x"></i></a>
@@ -69,9 +71,9 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown ml-3">
-                    <a class="nav-link dropdown-toggle" href="#" id="alphaDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="nav-link dropdown-toggle" href="#" id="alphaDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-font fa-2x"></i>
-                    </a>
+                    </div>
                     <div class="dropdown-menu" aria-labelledby="alphaDropDown">
                         <a class="dropdown-item d-inline" href="#">س</a>
                         <a class="dropdown-item d-inline" href="#">ر</a>

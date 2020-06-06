@@ -10,9 +10,10 @@ function makeAjaxRequest(_type, _url, _params, successFunc, failFunc) {
 }
 
 function submitForm(_Server) {
-    //Form Values
+    //Form Values and Make them global
     var student_no = $("input[name=student_no]").val();
     var student_kind = $('select[name=' + "student_kind" + ']').val();
+    
     // If null diplay alert
     if (student_no == null || student_kind == null) {
         alert("برجاء إدخال رقم القيد والتخصص");
@@ -26,11 +27,11 @@ function submitForm(_Server) {
         console.log(_data);
         //Call Server Method That Refresh all Clients
         _Server.server.refreshPage();
-        //TODO: MAke Ajax Request
+        //MAke Ajax Request
         $.ajax({
             type: "POST",
             //url: "/Home/GetJsonData",
-            url: '@Url.Action("GetJsonData" , "Home")',
+            url: $('#links').data('link1'),
             data: _data,
             success: function (response) {
                 console.log(response);
@@ -60,6 +61,7 @@ function submitForm(_Server) {
     _Server.client.refreshPageOnClient = function () {
         $("#spinnerc").removeClass("d-none"); //Show Spinner
         $("#student-cards").empty();    //Empty Cards
+        $("#image-modal-button").addClass('disabled'); //disable imagModal
         console.log('Refresh Done');
     }
 
@@ -67,15 +69,45 @@ function submitForm(_Server) {
         console.log("Data Client", data);
         $.ajax({
             type: "POST",
-            url: "/Home/GetStudentView",
+            //url: "/Home/GetStudentView",
+            url: $('#links').data('link2'),
             data: data,
+            main_std_No: data.main_info.STD_NO,
+            main_std_kind: data.main_info.STD_KIND_CODE,
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 $("#student-cards").empty();
                 $("#student-cards").append(response);
                 $('#student-cards').persianNum({ numberType: 'arabic' }); //Arabic Numbers
                 $("#spinnerc").addClass("d-none"); //hide
 
+
+                //Active Student Photo Card
+                $("#image-modal-button").removeClass('disabled');
+                //Add image path based on std_No & std_kind
+                var imagePath = null;
+                if (this.main_std_kind == 1) {
+                    imagePath = "\\StudentCards\\Scn\\" + this.main_std_No + ".jpg";
+                } else {
+                    imagePath = "\\StudentCards\\Gam\\" + this.main_std_No + ".jpg";
+                    
+                }
+                //Check if image is exist
+                $.ajax({
+                    url: imagePath,
+                    type: 'HEAD',
+                    success: function () {
+                        //image is exists
+                        $('#image-modal').show();
+                        $('#image-modal').attr('src', imagePath);
+                        $('#image-error').hide();
+                    },
+                    error: function () {
+                        //image not exists
+                        $('#image-modal').hide();
+                        $('#image-error').show();
+                    }
+                });
             },
             error: function (e) {
                 console.log("error", e);
@@ -90,7 +122,7 @@ function submitForm(_Server) {
         submitForm(_Server);
     });
     
-    $('body').keydown(function (e) {
+    $('#student_no').keydown(function (e) {
         //e.preventDefault();
         if (e.which == 10 || e.which == 13) {
             e.preventDefault();
