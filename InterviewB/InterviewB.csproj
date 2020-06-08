@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -237,18 +238,42 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\images\5.jpg" />
-    <Content Include="Content\images\Air.png" />
-    <Content Include="Content\images\AirDef.png" />
-    <Content Include="Content\images\Army.png" />
-    <Content Include="Content\images\Egypt.png" />
-    <Content Include="Content\images\Ins.png" />
-    <Content Include="Content\images\login-bg.jpg" />
-    <Content Include="Content\images\login-title.jpg" />
-    <Content Include="Content\images\Med.png" />
-    <Content Include="Content\images\Mil.png" />
-    <Content Include="Content\images\Sea.png" />
-    <Content Include="Content\images\Tech.png" />
-    <Content Include="Content\images\user.png" />
+    <Content Include="Content\images\Air.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\AirDef.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Army.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Egypt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Ins.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\login-bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\login-title.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Med.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Mil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Sea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Tech.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Styles.css" />
@@ -315,6 +340,302 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="StudentCards\Gam\gam.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StudentCards\Scn\100.jpg" />
+    <Content Include="StudentCards\Scn\1000.jpg" />
+    <Content Include="StudentCards\Scn\102.jpg" />
+    <Content Include="StudentCards\Scn\103.jpg" />
+    <Content Include="StudentCards\Scn\11.jpg" />
+    <Content Include="StudentCards\Scn\114.jpg" />
+    <Content Include="StudentCards\Scn\115.jpg" />
+    <Content Include="StudentCards\Scn\116.jpg" />
+    <Content Include="StudentCards\Scn\12.jpg" />
+    <Content Include="StudentCards\Scn\120.jpg" />
+    <Content Include="StudentCards\Scn\121.jpg" />
+    <Content Include="StudentCards\Scn\122.jpg" />
+    <Content Include="StudentCards\Scn\125.jpg" />
+    <Content Include="StudentCards\Scn\127.jpg" />
+    <Content Include="StudentCards\Scn\131.jpg" />
+    <Content Include="StudentCards\Scn\138.jpg" />
+    <Content Include="StudentCards\Scn\142.jpg" />
+    <Content Include="StudentCards\Scn\145.jpg" />
+    <Content Include="StudentCards\Scn\146.jpg" />
+    <Content Include="StudentCards\Scn\151.jpg" />
+    <Content Include="StudentCards\Scn\155.jpg" />
+    <Content Include="StudentCards\Scn\158.jpg" />
+    <Content Include="StudentCards\Scn\160.jpg" />
+    <Content Include="StudentCards\Scn\164.jpg" />
+    <Content Include="StudentCards\Scn\167.jpg" />
+    <Content Include="StudentCards\Scn\168.jpg" />
+    <Content Include="StudentCards\Scn\17.jpg" />
+    <Content Include="StudentCards\Scn\174.jpg" />
+    <Content Include="StudentCards\Scn\176.jpg" />
+    <Content Include="StudentCards\Scn\177.jpg" />
+    <Content Include="StudentCards\Scn\18.jpg" />
+    <Content Include="StudentCards\Scn\181.jpg" />
+    <Content Include="StudentCards\Scn\183.jpg" />
+    <Content Include="StudentCards\Scn\184.jpg" />
+    <Content Include="StudentCards\Scn\186.jpg" />
+    <Content Include="StudentCards\Scn\189.jpg" />
+    <Content Include="StudentCards\Scn\190.jpg" />
+    <Content Include="StudentCards\Scn\192.jpg" />
+    <Content Include="StudentCards\Scn\194.jpg" />
+    <Content Include="StudentCards\Scn\196.jpg" />
+    <Content Include="StudentCards\Scn\198.jpg" />
+    <Content Include="StudentCards\Scn\199.jpg" />
+    <Content Include="StudentCards\Scn\20.jpg" />
+    <Content Include="StudentCards\Scn\200.jpg" />
+    <Content Include="StudentCards\Scn\202.jpg" />
+    <Content Include="StudentCards\Scn\203.jpg" />
+    <Content Include="StudentCards\Scn\204.jpg" />
+    <Content Include="StudentCards\Scn\206.jpg" />
+    <Content Include="StudentCards\Scn\209.jpg" />
+    <Content Include="StudentCards\Scn\212.jpg" />
+    <Content Include="StudentCards\Scn\218.jpg" />
+    <Content Include="StudentCards\Scn\22.jpg" />
+    <Content Include="StudentCards\Scn\222.jpg" />
+    <Content Include="StudentCards\Scn\223.jpg" />
+    <Content Include="StudentCards\Scn\225.jpg" />
+    <Content Include="StudentCards\Scn\226.jpg" />
+    <Content Include="StudentCards\Scn\232.jpg" />
+    <Content Include="StudentCards\Scn\236.jpg" />
+    <Content Include="StudentCards\Scn\238.jpg" />
+    <Content Include="StudentCards\Scn\24.jpg" />
+    <Content Include="StudentCards\Scn\242.jpg" />
+    <Content Include="StudentCards\Scn\244.jpg" />
+    <Content Include="StudentCards\Scn\246.jpg" />
+    <Content Include="StudentCards\Scn\248.jpg" />
+    <Content Include="StudentCards\Scn\251.jpg" />
+    <Content Include="StudentCards\Scn\254.jpg" />
+    <Content Include="StudentCards\Scn\260.jpg" />
+    <Content Include="StudentCards\Scn\262.jpg" />
+    <Content Include="StudentCards\Scn\264.jpg" />
+    <Content Include="StudentCards\Scn\266.jpg" />
+    <Content Include="StudentCards\Scn\267.jpg" />
+    <Content Include="StudentCards\Scn\268.jpg" />
+    <Content Include="StudentCards\Scn\269.jpg" />
+    <Content Include="StudentCards\Scn\271.jpg" />
+    <Content Include="StudentCards\Scn\273.jpg" />
+    <Content Include="StudentCards\Scn\275.jpg" />
+    <Content Include="StudentCards\Scn\277.jpg" />
+    <Content Include="StudentCards\Scn\278.jpg" />
+    <Content Include="StudentCards\Scn\28.jpg" />
+    <Content Include="StudentCards\Scn\285.jpg" />
+    <Content Include="StudentCards\Scn\288.jpg" />
+    <Content Include="StudentCards\Scn\290.jpg" />
+    <Content Include="StudentCards\Scn\297.jpg" />
+    <Content Include="StudentCards\Scn\298.jpg" />
+    <Content Include="StudentCards\Scn\30.jpg" />
+    <Content Include="StudentCards\Scn\300.jpg" />
+    <Content Include="StudentCards\Scn\302.jpg" />
+    <Content Include="StudentCards\Scn\305.jpg" />
+    <Content Include="StudentCards\Scn\31.jpg" />
+    <Content Include="StudentCards\Scn\310.jpg" />
+    <Content Include="StudentCards\Scn\311.jpg" />
+    <Content Include="StudentCards\Scn\315.jpg" />
+    <Content Include="StudentCards\Scn\316.jpg" />
+    <Content Include="StudentCards\Scn\317.jpg" />
+    <Content Include="StudentCards\Scn\329.jpg" />
+    <Content Include="StudentCards\Scn\331.jpg" />
+    <Content Include="StudentCards\Scn\334.jpg" />
+    <Content Include="StudentCards\Scn\337.jpg" />
+    <Content Include="StudentCards\Scn\339.jpg" />
+    <Content Include="StudentCards\Scn\340.jpg" />
+    <Content Include="StudentCards\Scn\35.jpg" />
+    <Content Include="StudentCards\Scn\357.jpg" />
+    <Content Include="StudentCards\Scn\359.jpg" />
+    <Content Include="StudentCards\Scn\362.jpg" />
+    <Content Include="StudentCards\Scn\37.jpg" />
+    <Content Include="StudentCards\Scn\371.jpg" />
+    <Content Include="StudentCards\Scn\374.jpg" />
+    <Content Include="StudentCards\Scn\38.jpg" />
+    <Content Include="StudentCards\Scn\380.jpg" />
+    <Content Include="StudentCards\Scn\384.jpg" />
+    <Content Include="StudentCards\Scn\386.jpg" />
+    <Content Include="StudentCards\Scn\387.jpg" />
+    <Content Include="StudentCards\Scn\390.jpg" />
+    <Content Include="StudentCards\Scn\391.jpg" />
+    <Content Include="StudentCards\Scn\397.jpg" />
+    <Content Include="StudentCards\Scn\398.jpg" />
+    <Content Include="StudentCards\Scn\406.jpg" />
+    <Content Include="StudentCards\Scn\408.jpg" />
+    <Content Include="StudentCards\Scn\409.jpg" />
+    <Content Include="StudentCards\Scn\412.jpg" />
+    <Content Include="StudentCards\Scn\413.jpg" />
+    <Content Include="StudentCards\Scn\419.jpg" />
+    <Content Include="StudentCards\Scn\421.jpg" />
+    <Content Include="StudentCards\Scn\425.jpg" />
+    <Content Include="StudentCards\Scn\426.jpg" />
+    <Content Include="StudentCards\Scn\429.jpg" />
+    <Content Include="StudentCards\Scn\432.jpg" />
+    <Content Include="StudentCards\Scn\433.jpg" />
+    <Content Include="StudentCards\Scn\434.jpg" />
+    <Content Include="StudentCards\Scn\441.jpg" />
+    <Content Include="StudentCards\Scn\447.jpg" />
+    <Content Include="StudentCards\Scn\45.jpg" />
+    <Content Include="StudentCards\Scn\452.jpg" />
+    <Content Include="StudentCards\Scn\453.jpg" />
+    <Content Include="StudentCards\Scn\454.jpg" />
+    <Content Include="StudentCards\Scn\455.jpg" />
+    <Content Include="StudentCards\Scn\458.jpg" />
+    <Content Include="StudentCards\Scn\459.jpg" />
+    <Content Include="StudentCards\Scn\462.jpg" />
+    <Content Include="StudentCards\Scn\463.jpg" />
+    <Content Include="StudentCards\Scn\464.jpg" />
+    <Content Include="StudentCards\Scn\467.jpg" />
+    <Content Include="StudentCards\Scn\47.jpg" />
+    <Content Include="StudentCards\Scn\473.jpg" />
+    <Content Include="StudentCards\Scn\474.jpg" />
+    <Content Include="StudentCards\Scn\478.jpg" />
+    <Content Include="StudentCards\Scn\479.jpg" />
+    <Content Include="StudentCards\Scn\48.jpg" />
+    <Content Include="StudentCards\Scn\483.jpg" />
+    <Content Include="StudentCards\Scn\486.jpg" />
+    <Content Include="StudentCards\Scn\49.jpg" />
+    <Content Include="StudentCards\Scn\494.jpg" />
+    <Content Include="StudentCards\Scn\495.jpg" />
+    <Content Include="StudentCards\Scn\5.jpg" />
+    <Content Include="StudentCards\Scn\505.jpg" />
+    <Content Include="StudentCards\Scn\506.jpg" />
+    <Content Include="StudentCards\Scn\51.jpg" />
+    <Content Include="StudentCards\Scn\518.jpg" />
+    <Content Include="StudentCards\Scn\527.jpg" />
+    <Content Include="StudentCards\Scn\53.jpg" />
+    <Content Include="StudentCards\Scn\530.jpg" />
+    <Content Include="StudentCards\Scn\535.jpg" />
+    <Content Include="StudentCards\Scn\536.jpg" />
+    <Content Include="StudentCards\Scn\540.jpg" />
+    <Content Include="StudentCards\Scn\542.jpg" />
+    <Content Include="StudentCards\Scn\548.jpg" />
+    <Content Include="StudentCards\Scn\553.jpg" />
+    <Content Include="StudentCards\Scn\555.jpg" />
+    <Content Include="StudentCards\Scn\556.jpg" />
+    <Content Include="StudentCards\Scn\557.jpg" />
+    <Content Include="StudentCards\Scn\562.jpg" />
+    <Content Include="StudentCards\Scn\563.jpg" />
+    <Content Include="StudentCards\Scn\565.jpg" />
+    <Content Include="StudentCards\Scn\569.jpg" />
+    <Content Include="StudentCards\Scn\57.jpg" />
+    <Content Include="StudentCards\Scn\576.jpg" />
+    <Content Include="StudentCards\Scn\58.jpg" />
+    <Content Include="StudentCards\Scn\584.jpg" />
+    <Content Include="StudentCards\Scn\586.jpg" />
+    <Content Include="StudentCards\Scn\59.jpg" />
+    <Content Include="StudentCards\Scn\590.jpg" />
+    <Content Include="StudentCards\Scn\591.jpg" />
+    <Content Include="StudentCards\Scn\599.jpg" />
+    <Content Include="StudentCards\Scn\6.jpg" />
+    <Content Include="StudentCards\Scn\602.jpg" />
+    <Content Include="StudentCards\Scn\607.jpg" />
+    <Content Include="StudentCards\Scn\610.jpg" />
+    <Content Include="StudentCards\Scn\617.jpg" />
+    <Content Include="StudentCards\Scn\62.jpg" />
+    <Content Include="StudentCards\Scn\620.jpg" />
+    <Content Include="StudentCards\Scn\621.jpg" />
+    <Content Include="StudentCards\Scn\622.jpg" />
+    <Content Include="StudentCards\Scn\625.jpg" />
+    <Content Include="StudentCards\Scn\626.jpg" />
+    <Content Include="StudentCards\Scn\628.jpg" />
+    <Content Include="StudentCards\Scn\629.jpg" />
+    <Content Include="StudentCards\Scn\631.jpg" />
+    <Content Include="StudentCards\Scn\632.jpg" />
+    <Content Include="StudentCards\Scn\641.jpg" />
+    <Content Include="StudentCards\Scn\642.jpg" />
+    <Content Include="StudentCards\Scn\652.jpg" />
+    <Content Include="StudentCards\Scn\661.jpg" />
+    <Content Include="StudentCards\Scn\667.jpg" />
+    <Content Include="StudentCards\Scn\670.jpg" />
+    <Content Include="StudentCards\Scn\678.jpg" />
+    <Content Include="StudentCards\Scn\68.jpg" />
+    <Content Include="StudentCards\Scn\680.jpg" />
+    <Content Include="StudentCards\Scn\682.jpg" />
+    <Content Include="StudentCards\Scn\69.jpg" />
+    <Content Include="StudentCards\Scn\691.jpg" />
+    <Content Include="StudentCards\Scn\697.jpg" />
+    <Content Include="StudentCards\Scn\699.jpg" />
+    <Content Include="StudentCards\Scn\70.jpg" />
+    <Content Include="StudentCards\Scn\700.jpg" />
+    <Content Include="StudentCards\Scn\703.jpg" />
+    <Content Include="StudentCards\Scn\704.jpg" />
+    <Content Include="StudentCards\Scn\71.jpg" />
+    <Content Include="StudentCards\Scn\711.jpg" />
+    <Content Include="StudentCards\Scn\716.jpg" />
+    <Content Include="StudentCards\Scn\72.jpg" />
+    <Content Include="StudentCards\Scn\722.jpg" />
+    <Content Include="StudentCards\Scn\731.jpg" />
+    <Content Include="StudentCards\Scn\732.jpg" />
+    <Content Include="StudentCards\Scn\733.jpg" />
+    <Content Include="StudentCards\Scn\737.jpg" />
+    <Content Include="StudentCards\Scn\739.jpg" />
+    <Content Include="StudentCards\Scn\740.jpg" />
+    <Content Include="StudentCards\Scn\743.jpg" />
+    <Content Include="StudentCards\Scn\747.jpg" />
+    <Content Include="StudentCards\Scn\75.jpg" />
+    <Content Include="StudentCards\Scn\750.jpg" />
+    <Content Include="StudentCards\Scn\754.jpg" />
+    <Content Include="StudentCards\Scn\758.jpg" />
+    <Content Include="StudentCards\Scn\763.jpg" />
+    <Content Include="StudentCards\Scn\772.jpg" />
+    <Content Include="StudentCards\Scn\774.jpg" />
+    <Content Include="StudentCards\Scn\777.jpg" />
+    <Content Include="StudentCards\Scn\78.jpg" />
+    <Content Include="StudentCards\Scn\781.jpg" />
+    <Content Include="StudentCards\Scn\788.jpg" />
+    <Content Include="StudentCards\Scn\794.jpg" />
+    <Content Include="StudentCards\Scn\795.jpg" />
+    <Content Include="StudentCards\Scn\8.jpg" />
+    <Content Include="StudentCards\Scn\800.jpg" />
+    <Content Include="StudentCards\Scn\809.jpg" />
+    <Content Include="StudentCards\Scn\818.jpg" />
+    <Content Include="StudentCards\Scn\820.jpg" />
+    <Content Include="StudentCards\Scn\821.jpg" />
+    <Content Include="StudentCards\Scn\822.jpg" />
+    <Content Include="StudentCards\Scn\829.jpg" />
+    <Content Include="StudentCards\Scn\83.jpg" />
+    <Content Include="StudentCards\Scn\831.jpg" />
+    <Content Include="StudentCards\Scn\833.jpg" />
+    <Content Include="StudentCards\Scn\840.jpg" />
+    <Content Include="StudentCards\Scn\841.jpg" />
+    <Content Include="StudentCards\Scn\849.jpg" />
+    <Content Include="StudentCards\Scn\858.jpg" />
+    <Content Include="StudentCards\Scn\859.jpg" />
+    <Content Include="StudentCards\Scn\861.jpg" />
+    <Content Include="StudentCards\Scn\863.jpg" />
+    <Content Include="StudentCards\Scn\868.jpg" />
+    <Content Include="StudentCards\Scn\87.jpg" />
+    <Content Include="StudentCards\Scn\875.jpg" />
+    <Content Include="StudentCards\Scn\876.jpg" />
+    <Content Include="StudentCards\Scn\878.jpg" />
+    <Content Include="StudentCards\Scn\88.jpg" />
+    <Content Include="StudentCards\Scn\884.jpg" />
+    <Content Include="StudentCards\Scn\885.jpg" />
+    <Content Include="StudentCards\Scn\892.jpg" />
+    <Content Include="StudentCards\Scn\894.jpg" />
+    <Content Include="StudentCards\Scn\904.jpg" />
+    <Content Include="StudentCards\Scn\913.jpg" />
+    <Content Include="StudentCards\Scn\92.jpg" />
+    <Content Include="StudentCards\Scn\920.jpg" />
+    <Content Include="StudentCards\Scn\925.jpg" />
+    <Content Include="StudentCards\Scn\93.jpg" />
+    <Content Include="StudentCards\Scn\932.jpg" />
+    <Content Include="StudentCards\Scn\938.jpg" />
+    <Content Include="StudentCards\Scn\94.jpg" />
+    <Content Include="StudentCards\Scn\945.jpg" />
+    <Content Include="StudentCards\Scn\946.jpg" />
+    <Content Include="StudentCards\Scn\948.jpg" />
+    <Content Include="StudentCards\Scn\95.jpg" />
+    <Content Include="StudentCards\Scn\96.jpg" />
+    <Content Include="StudentCards\Scn\961.jpg" />
+    <Content Include="StudentCards\Scn\966.jpg" />
+    <Content Include="StudentCards\Scn\972.jpg" />
+    <Content Include="StudentCards\Scn\975.jpg" />
+    <Content Include="StudentCards\Scn\981.jpg" />
+    <Content Include="StudentCards\Scn\982.jpg" />
+    <Content Include="StudentCards\Scn\scn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -360,8 +681,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\" />
-    <Folder Include="StudentCards\Gam\" />
-    <Folder Include="StudentCards\Scn\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -61,8 +61,9 @@ function submitForm(_Server) {
     _Server.client.refreshPageOnClient = function () {
         $("#spinnerc").removeClass("d-none"); //Show Spinner
         $("#student-cards").empty();    //Empty Cards
-        $("#image-modal-button").addClass('disabled'); //disable imagModal
-        console.log('Refresh Done');
+        //disable imagModal
+        $("#image-modal-button").addClass('disabled'); 
+        $("#image-modal-button").children().removeClass('text-blinking');
     }
 
     _Server.client.broadcastData = function (data) {
@@ -84,6 +85,7 @@ function submitForm(_Server) {
 
                 //Active Student Photo Card
                 $("#image-modal-button").removeClass('disabled');
+                $("#image-modal-button").children().addClass('text-blinking');
                 //Add image path based on std_No & std_kind
                 var imagePath = null;
                 if (this.main_std_kind == 1) {
@@ -130,6 +132,12 @@ function submitForm(_Server) {
             submitForm(_Server);
             
         }
+    });
+
+    $('#letters-ul').children().on("click", function (e) {
+        var letterValue = $(this).data('letter'); //Get Letter Value
+        console.log($(this).data('letter'));
+        
     });
 
 

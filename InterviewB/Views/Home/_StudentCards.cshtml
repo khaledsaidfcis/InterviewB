@@ -1,28 +1,37 @@
 ﻿@using InterviewB.Models
-<!-- Basic Info -->
-@Html.Partial("_BasicInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })
-<!--End Of Basic Info -->
-<!-- Sport Info -->
-@Html.Partial("_SportInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "3" } })
-<!-- End Of Sport Info -->
-<!-- Tby Info -->
-@Html.Partial("_MedicalInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "medical_detailsO", ViewBag.medical_details }, { "order", "2" } })
-<!-- End Of Tby Info -->
-<!-- Parents Info-->
-@Html.Partial("_ParentsInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "5" } })
-<!-- End Of Parents Info-->
-<!--Nafsi Info-->
-@Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details }, { "order", "4" } })
-<!--End Of Nafsi Info-->
-<!--Relative One-->
-@Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVE> , new ViewDataDictionary { { "order", "6" } })
-<!--End Of Relative One-->
-<!--Relative Two-->
-@Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVE> , new ViewDataDictionary { { "order", "7" } })
-<!--End Of Relative Two-->
-<!--Relative Three-->
-@Html.Partial("_RelativesThree", (ViewBag.relatives_three) as IEnumerable<RELATIVE> , new ViewDataDictionary { { "order", "8" } })
-<!--End Of Relative Three-->
-<!--Relative Four-->
-@Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVE> , new ViewDataDictionary { { "order", "8" } })
-<!--End Of Relative Four-->
+
+@if ((Session["user"] as USER).PRIORITY != 999)
+{
+    <!-- Basic Info -->
+    @Html.Partial("_BasicInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "1" } })
+    <!--End Of Basic Info -->
+    <!-- Sport Info -->
+    @Html.Partial("_SportInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "3" } })
+    <!-- End Of Sport Info -->
+    <!-- Tby Info -->
+    @Html.Partial("_MedicalInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "medical_detailsO", ViewBag.medical_details }, { "order", "2" } })
+    <!-- End Of Tby Info -->
+    <!-- Parents Info-->
+    @Html.Partial("_ParentsInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "5" } })
+    <!-- End Of Parents Info-->
+    <!--Nafsi Info-->
+    @Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details }, { "order", "4" } })
+    <!--End Of Nafsi Info-->
+}
+
+@if ((Session["user"] as USER).PRIORITY != 998)
+{
+    <!--Relative One-->
+    @Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "6" } })
+    <!--End Of Relative One-->
+    <!--Relative Two-->
+    @Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "7" } })
+    <!--End Of Relative Two-->
+    <!--Relative Three-->
+    @Html.Partial("_RelativesThree", (ViewBag.relatives_three) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "8" } })
+    <!--End Of Relative Three-->
+    <!--Relative Four-->
+    @Html.Partial("_RelativesFour", (ViewBag.relatives_four) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "8" } })
+    <!--End Of Relative Four-->
+}
+

@@ -17,6 +17,7 @@
     src: url('../fonts/ElMessiri-Regular.ttf') format('ttf');
 }
 
+
 /*=============================================
 =            Login Form Page         =
 =============================================*/
@@ -85,6 +86,22 @@
         color: #fff6a9;
     }
 }
+
+
+
+.text-blinking {
+    /*or other element you want*/
+    animation: text-blink .5s step-end infinite alternate;
+}
+
+@keyframes text-blink {
+    50% {
+        /*border-color: #ff0000;
+        background-color: tomato;*/
+        color: yellowgreen;
+    }
+}
+
 
 
 /*=============================================
