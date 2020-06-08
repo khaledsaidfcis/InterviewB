@@ -75,5 +75,12 @@ namespace InterviewB.Models
         public Nullable<decimal> RUN_1500 { get; set; }
         public Nullable<decimal> RUN_1500DEG { get; set; }
         public Nullable<decimal> SPORT_TOTAL { get; set; }
+        public Nullable<decimal> SCN_TEST_A { get; set; }
+        public Nullable<decimal> SCN_TEST_E { get; set; }
+        public Nullable<decimal> LANG_TEST { get; set; }
+        public Nullable<decimal> NOZOM_TEST { get; set; }
+        public Nullable<decimal> GAM_MATH { get; set; }
+        public Nullable<decimal> GAM_PH { get; set; }
+        public string FATHER_NAME { get; set; }
     }
 }
