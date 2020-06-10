@@ -91,6 +91,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GAM_MATH" Type="number" Precision="38" Scale="0" />
           <Property Name="GAM_PH" Type="number" Precision="38" Scale="0" />
           <Property Name="FATHER_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="NOTES" Type="varchar2" MaxLength="500" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6047: The Entity Framework provider in use reported the primary key column STD_NO on table MEDICAL_DETAILS to be nullable. Entity Framework does not allow nullable primary keys, therefore it will assume the column is not nullable and any null values stored in this column may cause errors at runtime.
@@ -107,7 +108,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="STD_KIND" Type="char" MaxLength="5" />
           <Property Name="STD_NAME" Type="varchar2" MaxLength="50" />
           <Property Name="NATIONAL_ID" Type="varchar2" MaxLength="20" />
-          <Property Name="LAGNA_CODE" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="LAGNA_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="LAGNA" Type="varchar2" MaxLength="50" />
           <Property Name="LAGNA_STATUS_CODE" Type="number" Precision="2" Scale="0" />
           <Property Name="LAGNA_STATUS" Type="varchar2" MaxLength="50" />
@@ -179,7 +180,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="varchar2" MaxLength="100" />
           <Property Name="JOB" Type="varchar2" MaxLength="150" />
           <Property Name="AGE" Type="number" Precision="3" Scale="0" />
-          <Property Name="SERIAL" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="SERIAL" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RELATION" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityContainer Name="InterviewOStoreContainer">
@@ -285,6 +286,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GAM_MATH" Type="Decimal" Precision="38" Scale="0" />
           <Property Name="GAM_PH" Type="Decimal" Precision="38" Scale="0" />
           <Property Name="FATHER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOTES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MEDICAL_DETAILS">
           <Key>
@@ -297,7 +299,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="STD_KIND" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="STD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NATIONAL_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="LAGNA_CODE" Type="Int16" Nullable="false" />
+          <Property Name="LAGNA_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="LAGNA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LAGNA_STATUS_CODE" Type="Int16" />
           <Property Name="LAGNA_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -357,7 +359,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <Property Name="GRAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="JOB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int16" />
-          <Property Name="SERIAL" Type="Int16" Nullable="false" />
+          <Property Name="SERIAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="RELATION" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
         </Schema>
@@ -380,6 +382,7 @@ warning 6047: The Entity Framework provider in use reported the primary key colu
           <EntitySetMapping Name="MAIN_INFO">
             <EntityTypeMapping TypeName="InterviewO.MAIN_INFO">
               <MappingFragment StoreEntitySet="MAIN_INFO">
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
                 <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
                 <ScalarProperty Name="GAM_PH" ColumnName="GAM_PH" />
                 <ScalarProperty Name="GAM_MATH" ColumnName="GAM_MATH" />

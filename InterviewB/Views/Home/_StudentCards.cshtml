@@ -14,16 +14,22 @@
     <!-- Parents Info-->
     @Html.Partial("_ParentsInfo", ViewBag.main_info as MAIN_INFO, new ViewDataDictionary { { "order", "5" } })
     <!-- End Of Parents Info-->
-    <!--Nafsi Info-->
-    @Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details }, { "order", "4" } })
-    <!--End Of Nafsi Info-->
+    if (ViewBag.nafsi_details != null)
+    {
+        <!--Nafsi Info-->
+        @Html.Partial("_NafsiInfo", ViewBag.nafsi_info as NAFSI_INFO, new ViewDataDictionary { { "nafsi_detailsO", ViewBag.nafsi_details }, { "order", "4" } })
+        <!--End Of Nafsi Info-->
+    }
+
 }
 
 @if ((Session["user"] as USER).PRIORITY != 998)
 {
+
     <!--Relative One-->
     @Html.Partial("_RelativesOne", (ViewBag.relatives_one) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "6" } })
     <!--End Of Relative One-->
+
     <!--Relative Two-->
     @Html.Partial("_RelativesTwo", (ViewBag.relatives_two) as IEnumerable<RELATIVE>, new ViewDataDictionary { { "order", "7" } })
     <!--End Of Relative Two-->

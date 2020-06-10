@@ -25,15 +25,21 @@
                 <!-- VISION -->
                 <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">النظر</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
-                        @Model.VISION_DEGREE
-                        @{
-                            if (Model.GLASSES_CODE == 1)
-                            {
-                                <i class="fas fa-glasses"></i>
-                            }
+                    @{
+                        if (Model.GLASSES_CODE == 1)
+                        {
+                            <p class="data-value form-control  font-weight-bold arabic border-bottom-0  text-dark bg-danger" id="vision">
+                                @Model.VISION_DEGREE
+                                <i class="fas fa-glasses text-blinking"></i>
+                            </p>
                         }
-                    </p>
+                        else
+                        {
+                            <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
+                                @Model.VISION_DEGREE
+                            </p>
+                        }
+                    }
                 </div>
                 <!-- LENGHT -->
                 <div class="data-group float-right text-center pl-1 persian d-block">

@@ -82,5 +82,6 @@ namespace InterviewB.Models
         public Nullable<decimal> GAM_MATH { get; set; }
         public Nullable<decimal> GAM_PH { get; set; }
         public string FATHER_NAME { get; set; }
+        public string NOTES { get; set; }
     }
 }

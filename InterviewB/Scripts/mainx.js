@@ -140,5 +140,11 @@ function submitForm(_Server) {
         
     });
 
+    //diabled blinking after first click
+    $("#image-modal-button").on("click", function (e) {
+        $("#image-modal-button").children().removeClass('text-blinking');
+    });
+       
+
 
 })(jQuery);

@@ -1,0 +1,238 @@
+CREATE OR REPLACE VIEW RELATIVES_FOUR
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ REL_NAME, GRAD, JOB, AGE, SERIAL)
+AS 
+(
+     --,constraint RELATIVES4_pk primary key(std_no ,std_kind_Code , serial) rely disable novalidate
+SELECT  nvl(sp.std_No,1) std_no , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , scn.RELATIVES1 R
+    WHERE sp.std_kind_code = 1
+    and   sp.std_no  = R.STD_NO
+    and   R.RELATION = 4
+   
+union
+
+SELECT  nvl(sP.std_No,1) , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , gam.RELATIVES R
+    WHERE sp.std_kind_code = 2
+    and   sp.std_no  = R.STD_NO   
+    and   R.RELATION = 4
+)
+--------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW RELATIVES_ONE
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ REL_NAME, GRAD, JOB, AGE, SERIAL)
+AS 
+(
+     --constraint RELATIVES_pk primary key(std_no ,std_kind_Code , serial) rely disable novalidate
+SELECT  nvl(sp.std_No,1) std_no , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , scn.RELATIVES1 R
+    WHERE sp.std_kind_code = 1
+    and   sp.std_no  = R.STD_NO
+    and   R.RELATION = 1
+   
+union
+
+SELECT  nvl(sP.std_No,1) , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , gam.RELATIVES R
+    WHERE sp.std_kind_code = 2
+    and   sp.std_no  = R.STD_NO   
+    and   R.RELATION = 1
+)
+--------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW RELATIVES_THREE
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ REL_NAME, GRAD, JOB, AGE, SERIAL)
+AS 
+(
+     --,constraint RELATIVES3_pk primary key(std_no ,std_kind_Code , serial ) rely disable novalidate
+SELECT  nvl(sp.std_No,1) std_no , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , scn.RELATIVES1 R
+    WHERE sp.std_kind_code = 1
+    and   sp.std_no  = R.STD_NO
+    and   R.RELATION = 3
+   
+union
+
+SELECT  nvl(sP.std_No,1) , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , gam.RELATIVES R
+    WHERE sp.std_kind_code = 2
+    and   sp.std_no  = R.STD_NO   
+    and   R.RELATION = 3
+)
+--------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE VIEW RELATIVES_TWO
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ REL_NAME, GRAD, JOB, AGE, SERIAL)
+AS 
+(
+     --,constraint RELATIVES2_pk primary key(std_no ,std_kind_Code ,serial ) rely disable novalidate
+SELECT  nvl(sp.std_No,1) std_no , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , scn.RELATIVES1 R
+    WHERE sp.std_kind_code = 1
+    and   sp.std_no  = R.STD_NO
+    and   R.RELATION = 2
+   
+union
+
+SELECT  nvl(sP.std_No,1) , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id ,
+        R.REL_NAME , R.GRAD , R.JOB , R.AGE , R.SERIAL
+    from interview.SPORT_INFO SP , gam.RELATIVES R
+    WHERE sp.std_kind_code = 2
+    and   sp.std_no  = R.STD_NO   
+    and   R.RELATION = 2
+)
+--------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW PARENTS_INFO
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ FATHERGRADB, FAHERJOBB, FATHERGRADN, FATHERJOBN, MOTHERNAME, 
+ MOTHERGRADN, MOTHERJOBN)
+AS 
+(
+     --constraint parents_pk primary key(std_no ,std_kind_Code ) rely disable novalidate
+SELECT  nvl(sp.std_No,1) std_no , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id , p.F_GRAD_BIRTH FatherGradB ,
+        p.F_JOB_BIRTH FaherJobB , p.F_GRAD_NOW fathergradN , p.F_JOB_NOW fatherjobN , p.M_NAME MotherName , p.M_GRAD_NOW mothergradn ,
+        p.M_JOB_NOW motherjobn
+    from interview.SPORT_INFO SP , scn.PARENTS1 P
+    WHERE sp.std_kind_code = 1
+    and   sp.std_No = p.std_No
+
+union
+
+SELECT  nvl(sP.std_No,1) , sp.std_kind_code , sp.std_kind ,  sp.std_name , sp.national_id , p.F_GRAD_BIRTH ,
+        p.F_JOB_BIRTH FaherJobB , p.F_GRAD_NOW fathergradN , p.F_JOB_NOW fatherjobN , p.M_NAME MotherName , p.M_GRAD_NOW mothergradn ,
+        p.M_JOB_NOW motherjobn 
+    from interview.SPORT_INFO SP , gam.PARENTS P
+    WHERE sp.std_kind_code = 2
+    and   sp.std_No = p.std_No
+)
+-------------------------------------------------------------------
+CREATE OR REPLACE VIEW BASIC_INFO
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ BIRTH_DATE, CALCDATE, PLACE_CODE, PLACE, SCN_CODE, 
+ SCN, SHOPA_CODE, SHOPA, SCN_NAME, PERS, 
+ COLLEGE_CODE, COLLEGE, GRADUATION_CODE, GRADUATION, POST_GRADUATION_CODE, 
+ POST_GRADUATION, GRADE_CODE, GRADE)
+AS 
+(
+ --constraint basic_pk primary key(std_no ,std_kind_Code ) rely disable novalidate
+select  nvl(m.std_No,1) ,nvl(1,1) std_kind_code , 'ËÇäæí' std_kind , m.std_name , m.national_id , m.birth_date , '01-oct-2019' calcdate , m.place place_code , p1.data place ,
+        m.scn  scn_code , scn1.data scn , m.shopa shopa_code , shopa1.data shopa , mnet.scn_name ,su.pers  ,
+        null COLLEGE_code, null COLLEGE , null GRADUATION_code ,null GRADUATION ,
+        null POST_GRADUATION_code , null POST_GRADUATION , null GRADE_code , null GRADE
+        from scn.main1 m , codes.place p1 , codes.scn scn1,
+             codes.scn shopa1 , scn.SUMMARY1 su , scn.main11_net mnet
+        where m.place  = p1.code
+        and   m.scn    = scn1.code
+        and   m.shopa  = shopa1.code
+        and   m.std_No = su.std_no
+        and   m.national_id = mnet.national_id
+union  
+          
+select nvl(m.std_No,1) ,nvl(2,2) std_kind_code , 'ÌÇãÚí' std_KIND ,  m.std_name , m.national_id , m.birth_date , '01-may-2019' calcdate , m.place place_code , p1.data place ,
+       null , null , null , null , null , m.pers,
+       m.COLLEGE COLLEGE_code  , col.data COLLEGE , m.GRADUATION GRADUATION_code , g.data GRADUATION ,
+       m.POST_GRADUATION POST_GRADUATION_code , pg.data POST_GRADUATION , m.GRADE GRADE_code , gg.data GRADE
+        from gam.main m , codes.place p1 , codes.COLLEGE col ,
+             codes.GRADUATION g , codes.POST_GRADUATION pg , codes.GRADE gg 
+        where m.place = p1.code
+        and   m.COLLEGE = col.code
+        and   m.GRADUATION = g.code
+        and   m.POST_GRADUATION = pg.code
+        and   m.GRADE = gg.code         
+)
+--------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW MEDICAL_INFO
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ MEDICAL_STATUS_CODE, MEDICAL_STATUS, LENGTH, WEIGHT, VISION_CODE, 
+ VISION, VISION_DEGREE, GLASSES_CODE, GLASSES)
+AS 
+(
+    --constraint Medical_pk primary key(std_no ,std_kind_Code ) rely disable novalidate
+
+SELECT  nvl(B.std_No,1) std_no , nvl(1,1) std_kind_code , 'ËÇäæí' std_kind ,  B.std_name , B.national_id , MP.STATUS Medical_STATUS_code ,
+        s1.data Medical_STATUS , F.LENGTH , F.WEIGHT , F.VISION VISION_code , V.data VISION , V.DEGREE VISION_Degree , F.GLASES GLASSES_Code , G.data GLASSES 
+        
+    from INTERVIEW.BASIC_INFO B , scn.MEDICAL_PASS1 MP , codes.STATUS S1 , scn.FITNESS1 F , codes.VISION V , codes.GLASES G
+    WHERE B.std_kind_code = 1
+    and   B.STD_NO = MP.STD_NO
+    and   MP.STATUS = s1.code
+    and   B.STD_NO = F.STD_NO
+    and   F.VISION = V.code
+    and   F.GLASES = G.code
+    and   MP.STATUS IN ( 1 ,2 ,3 ,4 )
+    
+union      
+
+SELECT  nvl(B.std_No,1) , nvl(2,2) std_kind_code , 'ÌÇãÚí' std_kind ,  B.std_name , B.national_id , MP.STATUS Medical_STATUS_code ,
+         s1.data Medical_STATUS , F.LENGTH , F.WEIGHT , F.VISION VISION_code  , V.data VISION , V.DEGREE VISION_Degree , F.GLASES GLASSES_Code  , G.data GLASSES 
+         
+    from INTERVIEW.BASIC_INFO B , gam.MEDICAL_PASS MP , codes.STATUS S1 , gam.FITNESS F , codes.VISION V , codes.GLASES G
+    WHERE B.std_kind_code = 2
+    and   B.STD_NO = MP.STD_NO
+    and   MP.STATUS = s1.code
+    and   B.STD_NO = F.STD_NO
+    and   F.VISION = V.code
+    and   F.GLASES = G.code
+    and   MP.STATUS IN ( 1 ,2 ,3 ,4 )
+)
+--------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE VIEW SPORT_INFO
+(STD_NO, STD_KIND_CODE, STD_KIND, STD_NAME, NATIONAL_ID, 
+ SWIM_CODE, SWIM, SWIM_DEG, OKLA, OKLA_DEG, 
+ PUSH, PUSH_DEG, BATN, BATN_DEG, RUN_100, 
+ RUN_100DEG, BALANCE, BALANCE_DEG, RUN_1500, RUN_1500DEG, 
+ SPORT_TOTAL)
+AS 
+(
+    --constraint Sport_pk primary key(std_no ,std_kind_Code ) rely disable novalidate
+SELECT  nvl(Med.std_No,1) std_no , nvl(1,1) std_kind_code , 'ËÇäæí' std_kind ,  Med.std_name , Med.national_id ,
+        SP.T2 Swim_code  , SW.data Swim , SW.DEGREE SWIM_DEG , SP.T3 OKLA , SP.R3 OKLA_DEG  , SP.T7 Push , SP.R7 Push_deg ,
+        SP.T5 Batn , SP.R5  Batn_Deg ,  SP.T8 Run_100 , SP.R8 Run_100Deg , SP.T9 Balance , SP.R9 Balance_deg ,
+        Sp.T10 Run_1500 , SP.R10 Run_1500Deg , SPP.TOTAL SPORT_TOTAL
+    from INTERVIEW.MEDICAL_INFO Med , scn.SPORT1 SP , codes.SWIM_CODE SW , Scn.SPORT_PASS1 SPP
+    WHERE MED.std_kind_code = 1
+    and   MED.std_No = SP.std_No
+    and   SP.T1 = 1
+    and   SP.T1 = SW.code
+    and   MED.std_No = SPP.std_No
+    
+union      
+
+SELECT  nvl(Med.std_No,1) , nvl(2,2) std_kind_code , 'ÌÇãÚí' std_kind ,  Med.std_name , Med.national_id , 
+        SP.T2 Swim_code  , SW.data Swim ,SW.DEGREE SWIM_DEG , SP.T3 OKLA , SP.R3 OKLA_DEG  , SP.T7 Push , SP.R7 Push_deg ,
+        SP.T5 Batn , SP.R5  Batn_Deg ,  SP.T8 Run_100 , SP.R8 Run_100Deg , SP.T9 Balance , SP.R9 Balance_deg ,
+        Sp.T10 Run_1500 , SP.R10 Run_1500Deg , SPP.TOTAL SPORT_TOTAL
+    from INTERVIEW.MEDICAL_INFO Med , gam.SPORT SP  , codes.SWIM_CODE SW , gam.SPORT_PASS SPP
+    WHERE MED.std_kind_code = 2
+    and   MED.std_No = SP.std_No
+    and   SP.T1 = 1
+    and   SP.T1 = SW.code
+    and   MED.std_No = SPP.std_No
+)
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,12 +25,12 @@
                 </div>
 
                 <!-- NATIONAL_ID -->
-                <div class="data-group float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bolder mb-0">الرقم القومي</p>
-                    <p class="data-value form-control  font-weight-bolder arabic bg-light" id="national_id">
-                        @Model.NATIONAL_ID
-                    </p>
-                </div>
+                @*<div class="data-group float-right text-center pl-1 persian d-block">
+            <p class="data-name font-weight-bolder mb-0">الرقم القومي</p>
+            <p class="data-value form-control  font-weight-bolder arabic bg-light" id="national_id">
+                @Model.NATIONAL_ID
+            </p>
+        </div>*@
 
                 @{
                     TimeSpan diff = DateTime.Parse(@Model.CALCDATE + "").Subtract(DateTime.Parse(@Model.BIRTH_DATE + ""));
@@ -107,10 +107,35 @@
                     </div>
 
                     <!-- PERS -->
-                    <div class="data-group float-right text-center pl-1 persian d-block">
+                    <div class="data-group float-right text-center pl-2 persian d-block">
                         <p class="data-name font-weight-bold mb-0">النسبة</p>
                         <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
                             @Model.PERS
+                        </p>
+                    </div>
+
+                    var test = Model.SCN_TEST_A != null ? Model.SCN_TEST_A : Model.SCN_TEST_E;
+                    <!-- Test -->
+                    <div class="data-group float-right text-center pl-2 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">التفضيلي</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="test">
+                            @test
+                        </p>
+                    </div>
+
+                    <!-- LANG -->
+                    <div class="data-group float-right text-center pl-2 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">اللغة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
+                            @Model.LANG_TEST
+                        </p>
+                    </div>
+
+                    <!-- NOZOM -->
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">النظم</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
+                            @Model.NOZOM_TEST
                         </p>
                     </div>
 
@@ -155,7 +180,56 @@
                             @Model.PERS
                         </p>
                     </div>
+
+                    <!-- MATH -->
+                    <div class="data-group float-right text-center pl-2 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">الرياضة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
+                            @Model.GAM_MATH
+                        </p>
+                    </div>
+
+                    <!-- PH -->
+                    <div class="data-group float-right text-center pl-2 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">الفيزياء/الكيمياء</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
+                            @Model.GAM_PH
+                        </p>
+                    </div>
+
+                    <!-- LANG -->
+                    <div class="data-group float-right text-center pl-2 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">اللغة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
+                            @Model.LANG_TEST
+                        </p>
+                    </div>
+
+                    <!-- NOZOM -->
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">النظم</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
+                            @Model.NOZOM_TEST
+                        </p>
+                    </div>
+
+
                 }
+
+
+                @if (Model.NOTES != null)
+                {
+                    <!-- interview Notes -->
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">ملحوظة المناظرة</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
+                            @Model.NOTES
+                        </p>
+                    </div>
+                }
+
+
+
                 <!-- END GAM INFO -->
                 @*
          <!-- SPECIAL WEIGHT -->

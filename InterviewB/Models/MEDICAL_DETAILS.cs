@@ -19,7 +19,7 @@ namespace InterviewB.Models
         public string STD_KIND { get; set; }
         public string STD_NAME { get; set; }
         public string NATIONAL_ID { get; set; }
-        public short LAGNA_CODE { get; set; }
+        public decimal LAGNA_CODE { get; set; }
         public string LAGNA { get; set; }
         public Nullable<short> LAGNA_STATUS_CODE { get; set; }
         public string LAGNA_STATUS { get; set; }

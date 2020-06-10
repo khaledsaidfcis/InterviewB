@@ -23,7 +23,7 @@ namespace InterviewB.Models
         public string GRAD { get; set; }
         public string JOB { get; set; }
         public Nullable<short> AGE { get; set; }
-        public short SERIAL { get; set; }
+        public decimal SERIAL { get; set; }
         public decimal RELATION { get; set; }
     }
 }

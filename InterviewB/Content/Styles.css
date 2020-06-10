@@ -208,7 +208,24 @@ input:checked + .slider:before {
 }
 
 
+td, th {
+    vertical-align: middle !important;
+}
 
+
+
+.glasses-blinking {
+    /*or other element you want*/
+    animation: glasses-blink .5s step-end infinite alternate;
+}
+
+@keyframes glasses-blink {
+    50% {
+        /*border-color: #ff0000;
+        background-color: tomato;*/
+        color: yellow;
+    }
+}
 
 
 

@@ -13,47 +13,51 @@
                 <table class=" table  m-auto  table-striped table-bordered table-sm">
                     <tbody>
                         <tr>
-                            <th class="text-center bg-success text-light" rowspan="2" colspan="2">بيانات الأب</th>
-                            <th class="text-center bg-success text-light" >وقت الميلاد</th>
-                            <td class="text-center" >@Model.FATHER_GRAD_BIRTH</td>
-                            <td class="text-center" >@Model.FAHER_JOB_BIRTH</td>
+                            <th class="text-center bg-success text-light">----------</th>
+                            <th class="text-center bg-success text-light">الأسم</th>
+                            <th class="text-center bg-success text-light">----------</th>
+                            <th class="text-center bg-success text-light">المؤهل</th>
+                            <th class="text-center bg-success text-light">الوظيفة</th>
                         </tr>
                         <tr>
-                            <th class="text-center bg-success text-light" rowspan="2">حاليا</th>
-                            <td class="text-center" >@Model.FATHER_GRAD_NOW</td>
-                            <td class="text-center" >@Model.FATHER_JOB_NOW</td>
+                            <th class="text-center bg-success text-light" rowspan="2">بيانات الأب</th>
+                            <td class="text-center" rowspan="2">@Model.FATHER_NAME</td>
+                            <th class="text-center bg-success text-light">وقت الميلاد</th>
+                            <td class="text-center">@Model.FATHER_GRAD_BIRTH</td>
+                            <td class="text-center">@Model.FAHER_JOB_BIRTH</td>
                         </tr>
                         <tr>
-                            <th class="text-center bg-success text-light" >بيانات الأم</th>
-                            <td class="text-center" >@Model.MOTHER_NAME</td>
-                            <td class="text-center" >@Model.MOTHER_GRAD_NOW</td>
-                            <td class="text-center" >@Model.MOTHER_JOB_NOW</td>
+                            <th class="text-center bg-success text-light">حاليا</th>
+                            <td class="text-center">@Model.FATHER_GRAD_NOW</td>
+                            <td class="text-center">@Model.FATHER_JOB_NOW</td>
                         </tr>
+                        <tr>
+                            <th class="text-center bg-success text-light">بيانات الأم</th>
+                            <td class="text-center">@Model.MOTHER_NAME</td>
+                            <th class="text-center bg-success text-light">حاليا</th>
+                            <td class="text-center">@Model.MOTHER_GRAD_NOW</td>
+                            <td class="text-center">@Model.MOTHER_JOB_NOW</td>
+                        </tr>
+
+                        @*<tr>
+            <th class="text-center bg-success text-light" rowspan="2" colspan="2">بيانات الأب</th>
+            <th class="text-center bg-success text-light" >وقت الميلاد</th>
+            <td class="text-center" >@Model.FATHER_GRAD_BIRTH</td>
+            <td class="text-center" >@Model.FAHER_JOB_BIRTH</td>
+        </tr>
+        <tr>
+            <th class="text-center bg-success text-light" rowspan="2">حاليا</th>
+            <td class="text-center" >@Model.FATHER_GRAD_NOW</td>
+            <td class="text-center" >@Model.FATHER_JOB_NOW</td>
+        </tr>
+        <tr>
+            <th class="text-center bg-success text-light" >بيانات الأم</th>
+            <td class="text-center" >@Model.MOTHER_NAME</td>
+            <td class="text-center" >@Model.MOTHER_GRAD_NOW</td>
+            <td class="text-center" >@Model.MOTHER_JOB_NOW</td>
+        </tr>*@
                     </tbody>
                 </table>
-                    @*<div class="medical-table">
-                <table class="table  table-bordered table-sm">
-                    <tbody>
-                        <tr>
-                            <td rowspan="2" colspan="2">بيانات الأب</td>
-                            <td>وقت الميلاد</td>
-                            <td>@Model.FATHER_GRAD_BIRTH</td>
-                            <td>@Model.FAHER_JOB_BIRTH</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2">حاليا</td>
-                            <td>@Model.FATHER_GRAD_NOW</td>
-                            <td>@Model.FATHER_JOB_NOW</td>
-                        </tr>
-                        <tr>
-                            <td>بيانات الأم</td>
-                            <td>@Model.MOTHER_NAME</td>
-                            <td>@Model.MOTHER_GRAD_NOW</td>
-                            <td>@Model.MOTHER_JOB_NOW</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>*@
             </div>
         </div>
     </div>
