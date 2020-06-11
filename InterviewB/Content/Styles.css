@@ -6,6 +6,9 @@
     --gold: #f8b739;
 }
 
+.arab{
+    direction:rtl;
+}
 
 @font-face {
     font-family: 'Cairo';
@@ -215,19 +218,20 @@ td, th {
 
 
 .glasses-blinking {
-    /*or other element you want*/
     animation: glasses-blink .5s step-end infinite alternate;
 }
 
 @keyframes glasses-blink {
-    50% {
-        /*border-color: #ff0000;
-        background-color: tomato;*/
-        color: yellow;
-    }
+    50% {color: yellow;}
 }
 
+.nafsi-blinking {
+    animation: nafsi-blink .5s step-end infinite alternate;
+}
 
+@keyframes nafsi-blink {
+    50% {color: transparent;}
+}
 
 
 

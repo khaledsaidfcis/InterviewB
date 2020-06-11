@@ -29,60 +29,79 @@
             <div class="card-body d-flex justify-content-center flex-wrap">
 
                 <!-- n1 -->
-                <div class="data-group float-right text-center pl-1 persian d-block" data-toggle="modal" data-target="#nafsi-model">
+                <div class="data-group float-right text-center pl-1 persian d-block" data-toggle="modal" data-target="#nafsi-model" id="nafsi-con">
                     <p class="data-name font-weight-bold mb-0">النفسي</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
-                        @Model.N1_DATA
-                    </p>
+                    @if (Model.N1_CODE == 1)
+                    {
+                        <p class="data-value form-control  font-weight-bold arabic bg-danger text-warning border-bottom-0 nafsi-blinking" id="n1">
+                            @Model.N1_DATA
+                        </p>
+                    }
+                    else if (Model.N1_CODE == 2)
+                    {
+                        <p class="data-value form-control  font-weight-bold arabic bg-warning text-dark border-bottom-0 nafsi-blinking" id="n1">
+                            @Model.N1_DATA
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="data-value form-control  font-weight-bold arabic bg-success text-dark border-bottom-0 nafsi-blinking" id="n1">
+                            @Model.N1_DATA
+                        </p>
+
+                    }
                 </div>
                 <!-- n2 -->
                 <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">نفسي زايد</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="n2">
                         @Model.N2_DATA
                     </p>
                 </div>
                 <!-- n3 -->
                 <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bold mb-0">نفسي نهائي</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
+                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="n3">
                         @Model.N3_DATA
                     </p>
                 </div>
-                <div class="data-group float-right text-center pl-1 persian d-block">
-                    <p class="data-name font-weight-bold mb-0">ملحوظة النفسي</p>
-                    <p class="data-value form-control  font-weight-bold arabic bg-light" id="vision">
-                        @Model.N3_NOTE
-                    </p>
-                </div>
+                @if (Model.N3_NOTE != null)
+                {
+                    <div class="data-group float-right text-center pl-1 persian d-block">
+                        <p class="data-name font-weight-bold mb-0">ملحوظة النفسي</p>
+                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="n3-note">
+                            @Model.N3_NOTE
+                        </p>
+                    </div>
+                }
                 <br />
 
-                @if (@Model.N1_CODE != null && xlow != 0)
-                {
-                    <table class="table col-4  m-auto table-striped table-bordered table-sm">
-                        <thead>
+                @*@if (@Model.N1_CODE != null && xlow != 0)
+        {
+            <table class="table col-4  m-auto table-striped table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th class="bg-nafsi text-center text-light" scope="col">البعد</th>
+                        <th class="bg-nafsi text-center text-light" scope="col">المستوي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ndetails in ViewBag.nafsi_detailsO)
+                    {
+                        if (((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE) == 1)
+                        {
                             <tr>
-                                <th class="bg-nafsi text-center text-light" scope="col">البعد</th>
-                                <th class="bg-nafsi text-center text-light" scope="col">المستوي</th>
+                                <!--LAGNA NAME-->
+                                <td class="text-center" scope="col">@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
+                                <!--LAGNA STATUS-->
+                                <td class="text-center text-danger" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var ndetails in ViewBag.nafsi_detailsO)
-                            {
-                                if (((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE) == 1)
-                                {
-                                    <tr>
-                                        <!--LAGNA NAME-->
-                                        <td class="text-center" scope="col">@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
-                                        <!--LAGNA STATUS-->
-                                        <td class="text-center text-danger" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
-                                    </tr>
-                                }
+                        }
 
-                            }
-                        </tbody>
-                    </table>
-                }
+                    }
+                </tbody>
+            </table>
+        }*@
 
             </div>
         </div>
@@ -92,7 +111,7 @@
 
 <!-- NAFSI DETAILS Modal -->
 <div class="modal fade" id="nafsi-model" tabindex="-1" role="dialog" aria-labelledby="nafsiModel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title font-weight-bolder mx-auto">ابعاد النفسي</h2>
@@ -100,9 +119,9 @@
                     <i class="fas fa-window-close"></i>
                 </span>
             </div>
-            <div class="modal-body d-flex justify-content-center flex-wrap">
+            <div class="modal-body d-flex justify-content-center flex-wrap arab">
 
-                <table class="table col-4  m-auto table-striped table-bordered table-sm">
+                <table class="table col-6 m-auto table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                             <th class="bg-nafsi text-center text-light" scope="col">البعد</th>
@@ -112,12 +131,20 @@
                     <tbody>
                         @foreach (var ndetails in ViewBag.nafsi_detailsO)
                         {
-                            <tr>
-                                <!--LAGNA NAME-->
-                                <td class="text-center" scope="col">@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
-                                <!--LAGNA STATUS-->
-                                <td class="text-center text-danger" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
-                            </tr>
+                        <tr>
+                            <!--DIM NAME-->
+                            <td class="text-center" scope="col">@((ndetails as NAFSI_DETAILS).DIM_NAME)</td>
+                            @if ((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE == 1)
+                            {
+                            <!--DIM STATUS-->
+                            <td class="text-center text-light bg-danger" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
+                            } else if((ndetails as NAFSI_DETAILS).DIM_LEVEL_CODE == 2){
+                            <td class="text-center text-dark bg-warning" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
+                            } else{
+                            <td class="text-center text-dark bg-success" scope="col">@((ndetails as NAFSI_DETAILS).DIM_LEVEL)</td>
+                            }
+
+                        </tr>
                         }
                     </tbody>
                 </table>

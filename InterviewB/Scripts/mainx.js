@@ -134,6 +134,8 @@ function submitForm(_Server) {
         }
     });
 
+
+
     $('#letters-ul').children().on("click", function (e) {
         var letterValue = $(this).data('letter'); //Get Letter Value
         console.log($(this).data('letter'));
@@ -144,7 +146,13 @@ function submitForm(_Server) {
     $("#image-modal-button").on("click", function (e) {
         $("#image-modal-button").children().removeClass('text-blinking');
     });
-       
+
+     //TODO: NOT Working till copy & paste in browser!!!!
+    //diabled blinking after first click
+    $("#nafsi-con").on("click", function (e) {
+        console.log('clicked');
+        $("#n1").removeClass('nafsi-blinking');
+    });
 
 
 })(jQuery);
