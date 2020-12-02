@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجلس الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</title>
-
+    @*<title>مجلس الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</title>*@
+    @*<title>كشف الهيئة بمعهد نظم المعلومات للقوات المسلحة</title>*@
+<title>كشف اختبارات الهيئة للسكة الحديد - وزارة النقل</title>
     <!-- Boostrap CSS Style -->
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <!--Fontawesome Style-->
@@ -13,6 +14,7 @@
     @*<link rel="stylesheet" href="~/Content/main.css" />*@
     <link rel="stylesheet" href="~/Content/Styles.css" />
 
+    <link rel="icon" href="~/Content/images/isi.jpg">
 
 
     @*@Styles.Render("~/Content/css")
@@ -22,6 +24,10 @@
     <!-- Begin Of WebSite -->
     <div class="wrapper">
         @RenderBody()
+        @if (Session["user"] != null)
+        {
+        <footer>انتاج مركز الحاسب الالي - معهد نظم المعلومات 2020</footer>
+        }
     </div>
 
 

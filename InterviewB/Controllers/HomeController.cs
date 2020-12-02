@@ -12,8 +12,9 @@ namespace InterviewB.Controllers
     {
         //private InterviewContext db = new InterviewContext();
 
-        private InterviewContext db = DBClass.GetConnection();
-        
+        //private InterviewContext db = DBClass.GetConnection();
+        private InterviewContext db = new InterviewContext();
+
 
         public ActionResult Index()
         {
@@ -41,14 +42,14 @@ namespace InterviewB.Controllers
 
 
             //Querry To Get Basic_info  & Parents_info & Medical_info & Sports_info
-            var main_info = db.MAIN_INFO.Where(mi => mi.STD_NO == _student_no
-                                           && mi.STD_KIND_CODE == _student_kind)
-                                            .FirstOrDefault();
-            if( main_info == null)
-            {
-                //TODO: Make It Error View
-                return Content("هذا الرقم غير صحيح");
-            }
+            //var main_info = db.MAIN_INFO.Where(mi => mi.STD_NO == _student_no
+            //                               && mi.STD_KIND_CODE == _student_kind)
+            //                                .FirstOrDefault();
+            //if( main_info == null)
+            //{
+            //    //TODO: Make It Error View
+            //    return Content("هذا الرقم غير صحيح");
+            //}
 
             /*
             //Basic-Info
@@ -68,15 +69,15 @@ namespace InterviewB.Controllers
                                         .FirstOrDefault();
             */
 
-            List<MEDICAL_DETAILS> medical_details = null;
+            //List<MEDICAL_DETAILS> medical_details = null;
 
-            if (main_info != null && main_info.MEDICAL_STATUS_CODE != 1)
-            {
-                //Medical-Details
-                medical_details = db.MEDICAL_DETAILS.Where(md => md.STD_NO == _student_no
-                                                      && md.STD_KIND_CODE == _student_kind)
-                                                       .ToList();
-            }
+            //if (main_info != null && main_info.MEDICAL_STATUS_CODE != 1)
+            //{
+            //    //Medical-Details
+            //    //medical_details = db.MEDICAL_DETAILS.Where(md => md.STD_NO == _student_no
+            //    //                                      && md.STD_KIND_CODE == _student_kind)
+            //    //                                       .ToList();
+            //}
 
             /*
             //Sport-Info
@@ -92,14 +93,14 @@ namespace InterviewB.Controllers
 
 
             //RELATIVES
-            var relatives = db.RELATIVES.Where(rel => rel.STD_NO == _student_no
-                                          && rel.STD_KIND_CODE == _student_kind)
-                                           .ToList();
+            //var relatives = db.RELATIVES.Where(rel => rel.STD_NO == _student_no
+            //                              && rel.STD_KIND_CODE == _student_kind)
+            //                               .ToList();
 
-            var relatives_one = relatives.Where(rel => rel.RELATION == 1).ToList();
-            var relatives_two = relatives.Where(rel => rel.RELATION == 2).ToList();
-            var relatives_three = relatives.Where(rel => rel.RELATION == 3).ToList();
-            var relatives_four = relatives.Where(rel => rel.RELATION == 4).ToList();
+            //var relatives_one = relatives.Where(rel => rel.RELATION == 1).ToList();
+            //var relatives_two = relatives.Where(rel => rel.RELATION == 2).ToList();
+            //var relatives_three = relatives.Where(rel => rel.RELATION == 3).ToList();
+            //var relatives_four = relatives.Where(rel => rel.RELATION == 4).ToList();
 
             /*
             var relatives_one = db.RELATIVES_ONE.Where(rel => rel.STD_NO == basic_info.STD_NO
@@ -123,28 +124,28 @@ namespace InterviewB.Controllers
                                                     .ToList();
             */
             //Nafsi-Info
-            var nafsi_info = db.NAFSI_INFO.Where(n => n.STD_NO == _student_no
-                                           && n.STD_KIND_CODE == _student_kind)
-                                             .FirstOrDefault();
-            //Nafsi-Details
-            var nafsi_details = db.NAFSI_DETAILS.Where(nd => nd.STD_NO == _student_no
-                                                 && nd.STD_KIND_CODE == _student_kind)
-                                                 .ToList();
+            //var nafsi_info = db.NAFSI_INFO.Where(n => n.STD_NO == _student_no
+            //                               && n.STD_KIND_CODE == _student_kind)
+            //                                 .FirstOrDefault();
+            ////Nafsi-Details
+            //var nafsi_details = db.NAFSI_DETAILS.Where(nd => nd.STD_NO == _student_no
+            //                                     && nd.STD_KIND_CODE == _student_kind)
+            //                                     .ToList();
 
-            //Pass data to view
-            ViewBag.main_info = main_info;
-            //ViewBag.basic_info      = basic_info;
-            //ViewBag.medical_info    = medical_info;
-            ViewBag.medical_details = medical_details;
-            //ViewBag.sport_info      = sport_info;
-            //ViewBag.parents_info    = parents_info;
-            ViewBag.relatives_one   = relatives_one;
-            ViewBag.relatives_two   = relatives_two;
-            ViewBag.relatives_three = relatives_three;
-            ViewBag.relatives_four  = relatives_four;
-            ViewBag.nafsi_info      = nafsi_info;
-            ViewBag.nafsi_details   = nafsi_details;
-            ViewBag.relatives       = relatives;
+            ////Pass data to view
+            //ViewBag.main_info = main_info;
+            ////ViewBag.basic_info      = basic_info;
+            ////ViewBag.medical_info    = medical_info;
+            //ViewBag.medical_details = medical_details;
+            ////ViewBag.sport_info      = sport_info;
+            ////ViewBag.parents_info    = parents_info;
+            //ViewBag.relatives_one   = relatives_one;
+            //ViewBag.relatives_two   = relatives_two;
+            //ViewBag.relatives_three = relatives_three;
+            //ViewBag.relatives_four  = relatives_four;
+            //ViewBag.nafsi_info      = nafsi_info;
+            //ViewBag.nafsi_details   = nafsi_details;
+            //ViewBag.relatives       = relatives;
 
 
             // db.Dispose();
@@ -153,6 +154,78 @@ namespace InterviewB.Controllers
             return PartialView("_StudentCards");
         }
 
+        [HttpPost]
+        public ActionResult Rate(FormCollection data)
+        {
+            //Get Form Parameters
+            int ID = int.Parse(data["StudentID"]);
+            string user = data["user"].ToString();
+            
+            Student student = db.Student.Where(s => s.StudentID == ID).FirstOrDefault();
+
+            if (user == "transOpinionSec")
+            {
+                int TransportationOpinion = int.Parse(data["TransportationOpinion"]);
+                student.TransportationOpinion = TransportationOpinion;
+                db.SaveChanges();
+                return Json("تم الحفظ");
+            }
+            else
+            {
+                int CulturalLevel = int.Parse(data["CulturalLevel"]);
+                int GeneralLook = int.Parse(data["GeneralLook"]);
+                int TrainingStaffOpinion = int.Parse(data["TrainingStaffOpinion"]);
+                if (user == "user1OpinionSec")
+                {
+                    student.CulturalLevel = CulturalLevel;
+                    student.GeneralLook = GeneralLook;
+                    student.TrainingStaffOpinion = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+                if (user == "user2OpinionSec")
+                {
+                    student.CulturalLevel2 = CulturalLevel;
+                    student.GeneralLook2 = GeneralLook;
+                    student.TrainingStaffOpinion2 = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+                if (user == "user3OpinionSec")
+                {
+                    student.CulturalLevel3 = CulturalLevel;
+                    student.GeneralLook3 = GeneralLook;
+                    student.TrainingStaffOpinion3 = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+                if (user == "user4OpinionSec")
+                {
+                    student.CulturalLevel4 = CulturalLevel;
+                    student.GeneralLook4 = GeneralLook;
+                    student.TrainingStaffOpinion4 = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+                if (user == "user5OpinionSec")
+                {
+                    student.CulturalLevel5 = CulturalLevel;
+                    student.GeneralLook5 = GeneralLook;
+                    student.TrainingStaffOpinion5 = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+                if (user == "user6OpinionSec")
+                {
+                    student.CulturalLevel6 = CulturalLevel;
+                    student.GeneralLook6 = GeneralLook;
+                    student.TrainingStaffOpinion6 = TrainingStaffOpinion;
+                    db.SaveChanges();
+                    return Json("تم الحفظ");
+                }
+            }
+            return Json("لم يتم الحفظ");           
+        }
 
         [HttpPost]
         public ActionResult GetJsonData(FormCollection data)
@@ -160,85 +233,105 @@ namespace InterviewB.Controllers
             //Get Form Parameters
             int _student_no = int.Parse(data["student_no"]);
             int _student_kind = int.Parse(data["student_kind"]);
+            Student student = db.Student.Where(s => s.StudentID == _student_no && s.Type == _student_kind).FirstOrDefault();
+            
+            if (student == null)
+            {
+                return Json("لا يوجد بيانات لهذا المرشح");
+            }
+            return Json(student);
 
+            //Result r = new Result();
             //Querry To Get Basic_info  & Parents_info & Medical_info & Sports_info
-            var main_info = db.MAIN_INFO
-                              .Where(mi => mi.STD_NO == _student_no
-                                  && mi.STD_KIND_CODE == _student_kind)
-                              .FirstOrDefault();
+            //var main_info = db.MAIN_INFO
+            //                  .Where(mi => mi.STD_NO == _student_no
+            //                      && mi.STD_KIND_CODE == _student_kind)
+            //                  .FirstOrDefault();
 
-            if (main_info == null)
-            {
-                //TODO: Make It Error View
-                return Content("هذا الرقم غير صحيح");
-            }
+            //if (main_info == null)
+            //{
+            //    //TODO: Make It Error View
+            //    return Content("هذا الرقم غير صحيح");
+            //}
 
-            List<MEDICAL_DETAILS> medical_details = null;
+            //List<MEDICAL_DETAILS> medical_details = null;
 
-            if (main_info != null && main_info.MEDICAL_STATUS_CODE != 1)
-            {
-                //Medical-Details
-                medical_details = db.MEDICAL_DETAILS
-                                    .Where(md => md.STD_NO == _student_no
-                                        && md.STD_KIND_CODE == _student_kind)
-                                    .ToList();
-            }
+            //if (main_info != null && main_info.MEDICAL_STATUS_CODE != 1)
+            //{
+            //    //Medical-Details
+            //    medical_details = db.MEDICAL_DETAILS
+            //                        .Where(md => md.STD_NO == _student_no
+            //                            && md.STD_KIND_CODE == _student_kind)
+            //                        .ToList();
+            //}
 
             //RELATIVES
-            var relatives = db.RELATIVES
-                              .Where( k => k.STD_NO == _student_no
-                                  && k.STD_KIND_CODE == _student_kind)
-                              .ToList();
-           
+            //var relatives = db.RELATIVES
+            //                  .Where( k => k.STD_NO == _student_no
+            //                      && k.STD_KIND_CODE == _student_kind)
+            //                  .ToList();
 
 
-            var relatives_one = relatives.Where(re1 => re1.RELATION == 1).OrderBy(r1 => r1.SERIAL).ToList();
-            var relatives_two = relatives.Where(re2 => re2.RELATION == 2).OrderBy(r2 => r2.SERIAL).ToList();
-            var relatives_three = relatives.Where(re3 => re3.RELATION == 3).OrderBy(r3 => r3.SERIAL).ToList();
-            var relatives_four = relatives.Where(re4 => re4.RELATION == 4).OrderBy(r4 => r4.SERIAL).ToList();
+
+            //var relatives_one = relatives.Where(re1 => re1.RELATION == 1).OrderBy(r1 => r1.SERIAL).ToList();
+            //var relatives_two = relatives.Where(re2 => re2.RELATION == 2).OrderBy(r2 => r2.SERIAL).ToList();
+            //var relatives_three = relatives.Where(re3 => re3.RELATION == 3).OrderBy(r3 => r3.SERIAL).ToList();
+            //var relatives_four = relatives.Where(re4 => re4.RELATION == 4).OrderBy(r4 => r4.SERIAL).ToList();
 
             //Nafsi-Info
-            var nafsi_info = db.NAFSI_INFO
-                               .Where(n => n.STD_NO == _student_no
-                                   && n.STD_KIND_CODE == _student_kind)
-                               .FirstOrDefault();
+            //var nafsi_info = db.NAFSI_INFO
+            //                   .Where(n => n.STD_NO == _student_no
+            //                       && n.STD_KIND_CODE == _student_kind)
+            //                   .FirstOrDefault();
 
             //Nafsi-Details
-            var nafsi_details = db.NAFSI_DETAILS
-                                  .Where(nd => nd.STD_NO == _student_no
-                                      && nd.STD_KIND_CODE == _student_kind)
-                                  .ToList();
+            //var nafsi_details = db.NAFSI_DETAILS
+            //                      .Where(nd => nd.STD_NO == _student_no
+            //                          && nd.STD_KIND_CODE == _student_kind)
+            //                      .ToList();
 
             //Pass data to view
-            
-            Result r = new Result
-            {
-                main_info = main_info,
-                medical_details = medical_details,
-                relatives_one = relatives_one,
-                relatives_two = relatives_two,
-                relatives_three = relatives_three,
-                relatives_four = relatives_four,
-                nafsi_info = nafsi_info,
-                nafsi_details = nafsi_details
-            };
 
-            return Json(r); 
+            //Result r = new Result
+            //{
+            //    main_info = main_info,
+            //    medical_details = medical_details,
+            //    relatives_one = relatives_one,
+            //    relatives_two = relatives_two,
+            //    relatives_three = relatives_three,
+            //    relatives_four = relatives_four,
+            //    nafsi_info = nafsi_info,
+            //    nafsi_details = nafsi_details
+            //};
+            //Result r = new Result();
+            //return Json(r); 
         }
 
         [HttpPost]
-        public ActionResult GetStudentView(Result data)
+        public ActionResult GetStudentView(Student data)
         {
-            ViewBag.main_info = data.main_info;
-            ViewBag.medical_details = data.medical_details;
-            ViewBag.relatives_one = data.relatives_one;
-            ViewBag.relatives_two = data.relatives_two;
-            ViewBag.relatives_three = data.relatives_three;
-            ViewBag.relatives_four = data.relatives_four;
-            ViewBag.nafsi_info = data.nafsi_info;
-            ViewBag.nafsi_details = data.nafsi_details;
+            //ViewBag.main_info = data.main_info;
+            //ViewBag.medical_details = data.medical_details;
+            //ViewBag.relatives_one = data.relatives_one;
+            //ViewBag.relatives_two = data.relatives_two;
+            //ViewBag.relatives_three = data.relatives_three;
+            //ViewBag.relatives_four = data.relatives_four;
+            //ViewBag.nafsi_info = data.nafsi_info;
+            //ViewBag.nafsi_details = data.nafsi_details;
 
-            return PartialView("_StudentCards");
+
+            ViewBag.Student = data;
+            ViewBag.NamesOfUsersList = db.USERS.ToList(); ;
+            //ViewBag.medical_details = "2";
+            //ViewBag.relatives_one = "3";
+            //ViewBag.relatives_two = "4";
+            //ViewBag.relatives_three = "5";
+            //ViewBag.relatives_four = "6";
+            //ViewBag.nafsi_info = "7";
+            //ViewBag.nafsi_details = "8";nvalidOperationException: The connection was not closed. The connection's current state is connecting.
+
+            return PartialView("_BasicInfo", data);
+            //return PartialView("_StudentCards", data);
         }
 
 
@@ -261,6 +354,14 @@ namespace InterviewB.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

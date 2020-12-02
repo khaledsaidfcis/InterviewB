@@ -19,8 +19,8 @@ namespace InterviewB.App_Start
             Clients.All.addNewMessageToPage(name, message);
         }
 
-        
-        public void  UpdateConnectionId(string username)
+
+        public void UpdateConnectionId(string username)
         {
             var _connectionId = Context.ConnectionId;
 
@@ -28,30 +28,32 @@ namespace InterviewB.App_Start
                   .Where(u => u.USERNAME == username)
                   .FirstOrDefault();
 
-            _user.CONNECTIONID = Context.ConnectionId;
+            //_user.CONNECTIONID = Context.ConnectionId;
             db.SaveChanges();
         }
-        
 
-        public void  SendStdnoToClients(string std_no , string std_kind)
+
+        public void SendStdnoToClients(string std_no, string std_kind)
         {
             Clients.All.getAllDataFromSrever(std_no, std_kind);
         }
 
 
         //Get Data From DB
-        public void SendDataToClients(Result StudentData)
+        public void SendDataToClients(Result StudentData, string notifiAdmin)
         {
-            
-            Clients.All.broadcastData(StudentData);
+
+            Clients.All.broadcastData(StudentData, notifiAdmin);
         }
-        
+
+
+
         //Refresh Page Before Display Data
         public void RefreshPage()
         {
             Clients.All.refreshPageOnClient();
         }
-        
+
 
     }
 }

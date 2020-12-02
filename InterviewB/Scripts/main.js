@@ -96,6 +96,7 @@
 
 
     $("#Admin_Form_btn").on("click", function (e) {
+        alert("testy");
         e.preventDefault();
         //Form Values
         var student_no = $("input[name=student_no]").val();
@@ -120,15 +121,18 @@
                 $("#spinnerc").addClass("d-none"); //hide Spinner
                 //TODO: Make It a View 
                 //IF Error Msg Then Add To Admin Only
-                if (!response.hasOwnProperty('main_info')) {
+                if (!response.hasOwnProperty('Name')) {
+                    alert('khaled');
                     $("#student-cards").append("<li class='alert alert-danger alert-dismissible fade show' role='alert'>" + response + "</li>");
                 } else {
                     //if success call server method that pass JSON TO ALL Clients
+                    alert('said');
                     _Server.server.sendDataToClients(response);
                 }    
             },
             error: function (e) {
-                console.log("error" + e );
+                console.log("error" + e);
+                alert('badawy');
             }
         });
     });

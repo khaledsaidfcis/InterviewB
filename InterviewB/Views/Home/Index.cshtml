@@ -1,7 +1,8 @@
 ﻿@using InterviewB.Models
 <!-- Content -->
+@Html.Partial("_Navbar")
 <div id="content" class="p-4 container-fluid">
-    @Html.Partial("_Navbar")
+
     <!-- Master For Web Site -->
     <div id="master" class="d-flex flex-nowrap flex-column  pt-2 px-0">
         <label class="switch d-none">
@@ -14,7 +15,16 @@
         </div>
         @Html.Partial("_Modals")
         <!-- Student Info Cards -->
-        <div class="nested_with_switch list-unstyled list-inline row d-flex flex-row-reverse align-items-lg-stretch" id="student-cards"></div>
+        <div class="nested_with_switch list-unstyled list-inline row d-flex flex-row-reverse align-items-lg-stretch" id="student-cards">
+            @*@if ((Session["user"] as USER).PRIORITY == 1)
+                {
+                    <div id="CartsDefaultValue"><h1>من فضلك ادخل رقم القيد و التخصص</h1></div>
+                }
+                else
+                {
+                    <div id="CartsDefaultValue"><h1>لا يوجد بيانات لعرضها</h1></div>
+                }*@
+        </div>
     </div>
 
 </div>
@@ -22,8 +32,13 @@
 
 
 @section scripts{
+    @*<script src="~/Scripts/mainx.js"></script>*@
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         var _ServerHub = $.connection.serverHub;
+
+       
 
         $(window).on('load', function () {
             // Start the connection.
@@ -33,5 +48,109 @@
                 _ServerHub.server.updateConnectionId("@((Session["user"] as USER).USERNAME)");
             });
         });
+
+
+        $(document).on('click', '#userPRIORITY_6', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput").val(),
+                "GeneralLook":$("#GeneralLookInput").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput").val(),
+                "user":"user1OpinionSec"
+            };
+            Rate(_data);
+
+        });
+        
+        $(document).on('click', '#userPRIORITY_7', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput2").val(),
+                "GeneralLook":$("#GeneralLookInput2").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput2").val(),
+                "user":"user2OpinionSec"
+            };
+            Rate(_data);
+
+        });
+
+        $(document).on('click', '#userPRIORITY_8', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput3").val(),
+                "GeneralLook":$("#GeneralLookInput3").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput3").val(),
+                "user":"user3OpinionSec"
+            };
+            Rate(_data);
+
+        });
+     $(document).on('click', '#userPRIORITY_9', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput4").val(),
+                "GeneralLook":$("#GeneralLookInput4").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput4").val(),
+                "user":"user4OpinionSec"
+            };
+            Rate(_data);
+
+     });
+        $(document).on('click', '#userPRIORITY_10', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput5").val(),
+                "GeneralLook":$("#GeneralLookInput5").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput5").val(),
+                "user":"user5OpinionSec"
+            };
+            Rate(_data);
+
+        });
+        $(document).on('click', '#userPRIORITY_11', function () {
+            
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "CulturalLevel":$("#CulturalLevelInput6").val(),
+                "GeneralLook":$("#GeneralLookInput6").val(),
+                "TrainingStaffOpinion":$("#TrainingStaffOpinionInput6").val(),
+                "user":"user6OpinionSec"
+            };
+            Rate(_data);
+
+        });
+        $(document).on('click', '#TransportationOpinionBtn', function () {
+
+            let _data = {
+                "StudentID": $("#StudentID").val(),
+                "TransportationOpinion": $("#TransportationOpinionInput").val(),
+                "user":"transOpinionSec"
+            };
+            
+            Rate(_data);
+        });
+        function Rate(_data) {
+           
+            $.ajax({
+                type: "POST",
+                url: "Home/Rate",
+                data: _data,
+                success: function (response) {
+
+                    $('.toast').toast('show');
+                    _ServerHub.server.sendDataToClients(null, _data.user);
+                },
+                error: function (e) {
+                    console.log("error" + e);
+                    swal("حدث خطأ ما اعد المحاولة", "", "error");
+                }
+            });
+        }
+
     </script>
 }

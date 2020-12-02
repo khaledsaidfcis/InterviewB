@@ -60,7 +60,7 @@ namespace InterviewB.Controllers
                     .Where(u => u.USERNAME == user.USERNAME)
                     .FirstOrDefault();
 
-            user.CONNECTIONID = null;
+            //user.CONNECTIONID = null;
             db.SaveChanges();
 
             //Remove From Session

@@ -10,36 +10,63 @@
                 if (System.IO.File.Exists(absolutePath))
                 {
                     <img src="@(profileImg)"
-                         alt="@((Session["user"] as USER).DESCRIPTION)" height="50" width="50"
+                         alt="@((Session["user"] as USER).USERNAME)" height="50" width="50"
                          class="img logo rounded-circle  rounded d-inline-block" />
                 }
                 else
                 {
                     <img src="~/Content/images/user.png"
-                         alt="@((Session["user"] as USER).DESCRIPTION)" height="50" width="50"
+                         alt="@((Session["user"] as USER).USERNAME)" height="50" width="50"
                          class="img logo rounded-circle  rounded d-inline-block" />
                 }
-                <p id="username" class="text-center mb-0">
-                    @((Session["user"] as USER).DESCRIPTION)
-                </p>
+        <p id="username" class="text-center mb-0">
+            @*@if ((Session["user"] as USER).USERNAME == "trans")
+            {
+                <span>مندوب وزارة النقل</span>
+            }
+            else if ((Session["user"] as USER).USERNAME == "train")
+            {
+                <span>مندوب هيئة التدريب</span>
+            }
+            else if ((Session["user"] as USER).USERNAME == "coord")
+            {
+                <span>مدير مكتب التنسيق</span>
+            }
+            else if ((Session["user"] as USER).USERNAME == "qualify")
+            {
+                <span>رئيس فرع تأهيل ضباط</span>
+            }
+            else if ((Session["user"] as USER).USERNAME == "admin")
+            {
+                <span>الأدمن</span>
+            }
+            else
+            {
+                <span>@((Session["user"] as USER).USERNAME)</span>
+            }*@
+            @if ((Session["user"] as USER).NAME != null)
+            {
+                <span>@((Session["user"] as USER).NAME)</span>
+            }
+        </p>
             }
         </div>
         <div class="col-6 d-flex justify-content-center">
             @{
                 if ((Session["user"] as USER).PRIORITY != 1)
                 {
-                    <p class="text-center" id="normal-user">مجلس  الهيئة للكليات العسكرية والمعهد الفني للقوات المسلحة</p>
+                    <p class="text-center" id="normal-user">كشف اختبارات الهيئة للسكة الحديد - وزارة النقل</p>
                 }
                 else
                 {
                     <form id="Admin_Form" class="form-inline">
-                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد" id="student_no" />
+                        <input name="student_no" class="form-control m-sm-2" type="search" placeholder="رقم القيد" aria-label="إدخل رقم القيد" id="student_no" style="color:#000 !important" />
                         <!-- Must Keep the selected Value  -->
-                        <select name="student_kind" id="student_kind" class="form-control mr-sm-2">
-                            <option disabled selected>اختار التخصص</option>
+                        <select name="student_kind" id="student_kind" class="form-control mr-sm-2" style="color:#000 !important">
+                            <option disabled >اختار التخصص</option>
                             <option disabled> ------------- </option>
-                            <option value="1">ثانوي</option>
-                            <option value="2">جامعي</option>
+                            <option value="1" >مهندس</option>
+                            <option value="2" selected>فني</option>
                         </select>
                         <button id="Admin_Form_btn" class="btn btn-outline-success mx-2" type="button">
                             أستعلام
@@ -51,7 +78,7 @@
         </div>
         <div class="col-auto text-center d-flex justify-content-end">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ml-3">
+                @*<li class="nav-item ml-3">
                     <!-- Fill with image path after success request -->
                    
                     <div class="nav-link disabled" data-toggle="modal" data-target="#image-model" id="image-modal-button">
@@ -72,7 +99,7 @@
                     <div class="nav-link" data-toggle="modal" data-target="#letters-model" id="letters-modal-button">
                         <i class="fas fa-font fa-2x"></i>
                     </div>
-                </li>
+                </li>*@
 
                 @*<li class="nav-item dropdown ml-3">
             <div class="nav-link dropdown-toggle" href="#" id="mapDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

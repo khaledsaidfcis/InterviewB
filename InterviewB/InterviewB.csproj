@@ -46,9 +46,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -114,7 +116,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -191,49 +192,106 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010281124140_CreateDB.cs" />
+    <Compile Include="Migrations\202010281124140_CreateDB.Designer.cs">
+      <DependentUpon>202010281124140_CreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281201112_Add_Type_Attribute_To_Student.cs" />
+    <Compile Include="Migrations\202010281201112_Add_Type_Attribute_To_Student.Designer.cs">
+      <DependentUpon>202010281201112_Add_Type_Attribute_To_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011021211160_Change_Grade_In_Student_To_int.cs" />
+    <Compile Include="Migrations\202011021211160_Change_Grade_In_Student_To_int.Designer.cs">
+      <DependentUpon>202011021211160_Change_Grade_In_Student_To_int.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011111023123_Add_NationalID_To_Student.cs" />
+    <Compile Include="Migrations\202011111023123_Add_NationalID_To_Student.Designer.cs">
+      <DependentUpon>202011111023123_Add_NationalID_To_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011111032420_change_columns_positions_in_student.cs" />
+    <Compile Include="Migrations\202011111032420_change_columns_positions_in_student.Designer.cs">
+      <DependentUpon>202011111032420_change_columns_positions_in_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011111157584_change_type_od_NationalID.cs" />
+    <Compile Include="Migrations\202011111157584_change_type_od_NationalID.Designer.cs">
+      <DependentUpon>202011111157584_change_type_od_NationalID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011180847355_Add-Six-Attributes-For-Each-Rate.cs" />
+    <Compile Include="Migrations\202011180847355_Add-Six-Attributes-For-Each-Rate.Designer.cs">
+      <DependentUpon>202011180847355_Add-Six-Attributes-For-Each-Rate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011210826311_Add-NAME-To-USER.cs" />
+    <Compile Include="Migrations\202011210826311_Add-NAME-To-USER.Designer.cs">
+      <DependentUpon>202011210826311_Add-NAME-To-USER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011230725170_Add-StudentID-To-Student.cs" />
+    <Compile Include="Migrations\202011230725170_Add-StudentID-To-Student.Designer.cs">
+      <DependentUpon>202011230725170_Add-StudentID-To-Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011230747028_change-StudentID-To-Not-Accept-Null-In-Student.cs" />
+    <Compile Include="Migrations\202011230747028_change-StudentID-To-Not-Accept-Null-In-Student.Designer.cs">
+      <DependentUpon>202011230747028_change-StudentID-To-Not-Accept-Null-In-Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011241212022_Add-Cols-to-student.cs" />
+    <Compile Include="Migrations\202011241212022_Add-Cols-to-student.Designer.cs">
+      <DependentUpon>202011241212022_Add-Cols-to-student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011241425238_add-Psychological-to-student.cs" />
+    <Compile Include="Migrations\202011241425238_add-Psychological-to-student.Designer.cs">
+      <DependentUpon>202011241425238_add-Psychological-to-student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261035119_change-int-to-string-in-nationalid.cs" />
+    <Compile Include="Migrations\202011261035119_change-int-to-string-in-nationalid.Designer.cs">
+      <DependentUpon>202011261035119_change-int-to-string-in-nationalid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261303571_change-attributes-accept-default-values.cs" />
+    <Compile Include="Migrations\202011261303571_change-attributes-accept-default-values.Designer.cs">
+      <DependentUpon>202011261303571_change-attributes-accept-default-values.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261305555_change-int-to-string-in-nationalid-student.cs" />
+    <Compile Include="Migrations\202011261305555_change-int-to-string-in-nationalid-student.Designer.cs">
+      <DependentUpon>202011261305555_change-int-to-string-in-nationalid-student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261339137_change-attributes-TO-accept-default-values.cs" />
+    <Compile Include="Migrations\202011261339137_change-attributes-TO-accept-default-values.Designer.cs">
+      <DependentUpon>202011261339137_change-attributes-TO-accept-default-values.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261412559_change-attributes-TO-double.cs" />
+    <Compile Include="Migrations\202011261412559_change-attributes-TO-double.Designer.cs">
+      <DependentUpon>202011261412559_change-attributes-TO-double.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261509581_Convert national id to double.cs" />
+    <Compile Include="Migrations\202011261509581_Convert national id to double.Designer.cs">
+      <DependentUpon>202011261509581_Convert national id to double.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011261514395_Convert national id to nullable double.cs" />
+    <Compile Include="Migrations\202011261514395_Convert national id to nullable double.Designer.cs">
+      <DependentUpon>202011261514395_Convert national id to nullable double.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011280914163_updated-DB.cs" />
+    <Compile Include="Migrations\202011280914163_updated-DB.Designer.cs">
+      <DependentUpon>202011280914163_updated-DB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BASIC_INFO.cs" />
     <Compile Include="Models\DBClass.cs" />
-    <Compile Include="Models\MAIN_INFO.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MEDICAL_DETAILS.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NAFSI_DETAILS.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NAFSI_INFO.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OracleDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OracleDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OracleDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OracleDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OracleDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RELATIVE.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\InterviewContext.cs" />
     <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\USER.cs">
-      <DependentUpon>OracleDBModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TODO.txt" />
     <Content Include="Content\all.css" />
+    <Content Include="Content\images\isi.jpg" />
+    <Content Include="Content\images\train.png" />
+    <Content Include="Content\images\trans.png" />
+    <Content Include="Scripts\bootstrap-input-spinner.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome.min.css" />
@@ -242,9 +300,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\AirDef.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Army.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\Egypt.png">
@@ -282,28 +337,11 @@
     <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Models\OracleDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OracleDBModel.edmx</DependentUpon>
-      <LastGenOutput>OracleDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\OracleDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OracleDBModel.edmx</DependentUpon>
-      <LastGenOutput>OracleDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\all.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\OracleDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OracleDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\OracleDBModel.edmx.diagram">
-      <DependentUpon>OracleDBModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\webfonts\fa-brands-400.eot" />
     <Content Include="Content\webfonts\fa-brands-400.ttf" />
     <Content Include="Content\webfonts\fa-brands-400.woff" />
@@ -689,6 +727,68 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010281124140_CreateDB.resx">
+      <DependentUpon>202010281124140_CreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281201112_Add_Type_Attribute_To_Student.resx">
+      <DependentUpon>202010281201112_Add_Type_Attribute_To_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011021211160_Change_Grade_In_Student_To_int.resx">
+      <DependentUpon>202011021211160_Change_Grade_In_Student_To_int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011111023123_Add_NationalID_To_Student.resx">
+      <DependentUpon>202011111023123_Add_NationalID_To_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011111032420_change_columns_positions_in_student.resx">
+      <DependentUpon>202011111032420_change_columns_positions_in_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011111157584_change_type_od_NationalID.resx">
+      <DependentUpon>202011111157584_change_type_od_NationalID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011180847355_Add-Six-Attributes-For-Each-Rate.resx">
+      <DependentUpon>202011180847355_Add-Six-Attributes-For-Each-Rate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011210826311_Add-NAME-To-USER.resx">
+      <DependentUpon>202011210826311_Add-NAME-To-USER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011230725170_Add-StudentID-To-Student.resx">
+      <DependentUpon>202011230725170_Add-StudentID-To-Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011230747028_change-StudentID-To-Not-Accept-Null-In-Student.resx">
+      <DependentUpon>202011230747028_change-StudentID-To-Not-Accept-Null-In-Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241212022_Add-Cols-to-student.resx">
+      <DependentUpon>202011241212022_Add-Cols-to-student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241425238_add-Psychological-to-student.resx">
+      <DependentUpon>202011241425238_add-Psychological-to-student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261035119_change-int-to-string-in-nationalid.resx">
+      <DependentUpon>202011261035119_change-int-to-string-in-nationalid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261303571_change-attributes-accept-default-values.resx">
+      <DependentUpon>202011261303571_change-attributes-accept-default-values.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261305555_change-int-to-string-in-nationalid-student.resx">
+      <DependentUpon>202011261305555_change-int-to-string-in-nationalid-student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261339137_change-attributes-TO-accept-default-values.resx">
+      <DependentUpon>202011261339137_change-attributes-TO-accept-default-values.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261412559_change-attributes-TO-double.resx">
+      <DependentUpon>202011261412559_change-attributes-TO-double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261509581_Convert national id to double.resx">
+      <DependentUpon>202011261509581_Convert national id to double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011261514395_Convert national id to nullable double.resx">
+      <DependentUpon>202011261514395_Convert national id to nullable double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011280914163_updated-DB.resx">
+      <DependentUpon>202011280914163_updated-DB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

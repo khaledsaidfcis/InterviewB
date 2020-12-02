@@ -1,8 +1,39 @@
-﻿@model InterviewB.Models.MAIN_INFO
-<div class="my-2 col-6 order-@(ViewBag.order)" id="basic-info" data-order="@(ViewBag.order)">
+﻿@using InterviewB.Models
+@model InterviewB.Models.Student
+
+<style>
+    .RateSection {
+        direction: ltr;
+        padding-bottom: 50px;
+    }
+    .RateSectionSave{
+            margin-top: 33px;
+    }
+    .RateSection .RateSaveBtnP {
+        width: 20%;
+        display: inline-block;
+    }
+
+        .RateSection .RateInputP {
+            width: 70%;
+            display: inline-block;
+        }
+
+    .NotifiSection {
+        margin: 5px 10px;
+        padding-right: 20px;
+        color: #000 !important;
+        font-weight: bold !important;
+    }
+
+    #std_name, #std_no, #age_mon, #age_year {
+        color: #000;
+    }
+</style>
+<div class="my-2 col-12 order-@(ViewBag.order)" id="basic-info" data-order="@(ViewBag.order)">
     <div class="card border-0">
         <p class="h3 card-header text-white bg-secondary text-right d-block font-weight-bold" data-toggle="collapse"
-            data-target="#basic-info-body" aria-expanded="true" aria-controls="basic-info-body" id="basic-info-header">
+           data-target="#basic-info-body" aria-expanded="true" aria-controls="basic-info-body" id="basic-info-header">
             البيانات الأساسية
             <i class="fa fa-chevron-down"></i>
         </p>
@@ -13,27 +44,33 @@
                 <div class="data-group float-right text-center pl-1 persian d-block">
                     <p class="data-name font-weight-bolder mb-0">رقم القيد</p>
                     <p class="data-value form-control  font-weight-bolder arabic bg-light" id="std_no">
-                        @Model.STD_NO
+                        <span>@Model.StudentID</span>
+                        <input type="hidden" id="StudentID" value="@Model.StudentID" />
                     </p>
                 </div>
                 <!-- STD_NAME -->
                 <div class="data-group float-right text-center pl-1 d-block">
                     <p class="data-name font-weight-bolder mb-0">أسم الطالب</p>
                     <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
-                        @Model.STD_NAME
+                        @Model.Name
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">الرقم القومي</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.NationalID
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">تاريخ الميلاد</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.BirthDate.ToShortDateString()
                     </p>
                 </div>
 
-                <!-- NATIONAL_ID -->
-                @*<div class="data-group float-right text-center pl-1 persian d-block">
-            <p class="data-name font-weight-bolder mb-0">الرقم القومي</p>
-            <p class="data-value form-control  font-weight-bolder arabic bg-light" id="national_id">
-                @Model.NATIONAL_ID
-            </p>
-        </div>*@
 
                 @{
-                    TimeSpan diff = DateTime.Parse(@Model.CALCDATE + "").Subtract(DateTime.Parse(@Model.BIRTH_DATE + ""));
+                    TimeSpan diff = DateTime.Parse(DateTime.Now + "").Subtract(DateTime.Parse(@Model.BirthDate + ""));
                     long Years = Convert.ToInt64(diff.TotalDays) / 365;
                     long Months = (Convert.ToInt64(diff.TotalDays) - (Years * 365)) / 30;
                     long Days = Convert.ToInt64(diff.TotalDays) - ((Years * 365) + (Months * 30));
@@ -55,193 +92,571 @@
                     </p>
                 </div>
 
-                <!-- PLACE -->
+
+
                 <div class="data-group float-right text-center pl-1 d-block">
-                    <p class="data-name font-weight-bold mb-0">المحافظة</p>
-                    @if (new int[] { 25, 32, 33, 34, 35, 36 }.Contains(Model.PLACE_CODE.Value))
-                    {
-                        <p class="data-value form-control  font-weight-bold bg-warning px-3 text-light" id="place">
-                            @Model.PLACE
-                        </p>
-                    }
-                    else
-                    {
-                        <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="place">
-                            @Model.PLACE
-                        </p>
+                    <p class="data-name font-weight-bolder mb-0">المؤهل</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Qualification
+                    </p>
+                </div>
+                @*<div class="data-group float-right text-center pl-1 d-block">
+            <p class="data-name font-weight-bolder mb-0">التقدير</p>
+
+
+            @if (Model.Grade == 0)
+            {
+                <p class="data-value form-control  font-weight-bolder  text-white px-3" style="background:#bfbf4d;" id="std_name"><span>مقبول</span></p>
+
+            }
+            else if (Model.Grade == 1)
+            {
+                <p class="data-value form-control  font-weight-bolder   text-white px-3" style="background:#bfbf4d;" id="std_name"><span>جيد</span></p>
+
+            }
+            else if (Model.Grade == 2)
+            {
+                <p class="data-value form-control  font-weight-bolder  text-white px-3" style="background:orange;" id="std_name"><span>جيد جدا</span></p>
+
+            }
+            else if (Model.Grade == 3)
+            {
+                <p class="data-value form-control  font-weight-bolder text-white px-3" style="background:orange;" id="std_name"><span>جيد جدا مع مرتبة الشرف</span></p>
+
+            }
+            else if (Model.Grade == 4)
+            {
+                <p class="data-value form-control  font-weight-bolder text-white px-3" style="background:green;" id="std_name"><span>امتياز</span></p>
+
+            }
+            else if (Model.Grade == 5)
+            {
+                <p class="data-value form-control  font-weight-bolder text-white px-3" style="background:green;" id="std_name"><span>امتياز مع مرتبة الشرف</span></p>
+
+            }
+
+        </div>*@
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">الوظيفة</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Job
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">المنطقة</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Area
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">المحافظة</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Governorate
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">الوزن</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Weight
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">الطول</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Height
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">التناسق</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @(Model.Height - Model.Weight - 100)
+                    </p>
+                </div>
+                @*<div class="data-group float-right text-center pl-1 d-block">
+            <p class="data-name font-weight-bolder mb-0">وظيفة الوالد</p>
+            <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                @Model.FatherJob
+            </p>
+        </div>*@
+
+                @*<div class="data-group float-right text-center pl-1 d-block">
+            <p class="data-name font-weight-bolder mb-0">التخصص</p>
+            <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                @if (Model.Type == 2)
+                {
+                    <span>فني</span>
+                }
+                else if (Model.Type == 1)
+                {
+                    <span>مهندس</span>
+                }
+
+            </p>
+        </div>*@
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">تاريخ الحضور</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.AttendanceDay.ToShortDateString()
+                    </p>
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">النفسي</p>
+                    @{
+                        if (Model.Psychological == "متميز")
+                        {
+                            <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name" style="background:green !important;color:#fff !important;"><span>@Model.Psychological</span></p>
+                        }
+                        else if (Model.Psychological == "متوسط")
+                        {
+                            <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name" style="background:yellow !important;"><span>@Model.Psychological</span></p>
+                        }
 
                     }
                 </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">اللياقة البدنية</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @Model.Fitness
+                </div>
+                <div class="data-group float-right text-center pl-1 d-block">
+                    <p class="data-name font-weight-bolder mb-0">نتيجة الاختبارات السابقة</p>
+                    <p class="data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+                        @{
+                            int Psychological = 0;
+                            if (Model.Psychological == "متميز")
+                            {
+                                Psychological = 80;
+                            }
+                            else if (Model.Psychological == "متوسط")
+                            {
+                                Psychological = 70;
+                            }
 
-                <!-- SCN INFO -->
-                @if (Model.STD_KIND_CODE == 1)
-                {
-
-                    <!-- SCN_NAME -->
-                    if (!Model.SCN_NAME.IsEmpty())
-                    {
-                        <div class="data-group float-right text-center pl-1 d-block">
-                            <p class="data-name font-weight-bold mb-0">ثانوية أجنبية</p>
-                            <p class="data-value form-control  font-weight-bold bg-dark text-light  px-3" id="scn_name">
-                                @Model.SCN_NAME
-                            </p>
-                        </div>
-                    }
-                    else
-                    {
-                        <!-- SCN -->
-                        <div class="data-group float-right text-center pl-1 d-block">
-                            <p class="data-name font-weight-bold mb-0">الثانوية</p>
-                            <p class="data-value form-control  font-weight-bold bg-transparent px-3" id="scn">
-                                @Model.SCN
-                            </p>
-                        </div>
-                    }
-
-                    <!-- SHOPA -->
-                    <div class="data-group float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">الشعبة</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="shopa">
-                            @Model.SHOPA
-                        </p>
-                    </div>
-
-                    <!-- PERS -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">النسبة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
-                            @Model.PERS
-                        </p>
-                    </div>
-
-                    var test = Model.SCN_TEST_A != null ? Model.SCN_TEST_A : Model.SCN_TEST_E;
-                    <!-- Test -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">التفضيلي</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="test">
-                            @test
-                        </p>
-                    </div>
-
-                    <!-- LANG -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">اللغة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
-                            @Model.LANG_TEST
-                        </p>
-                    </div>
-
-                    <!-- NOZOM -->
-                    <div class="data-group float-right text-center pl-1 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">النظم</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
-                            @Model.NOZOM_TEST
-                        </p>
-                    </div>
-
-                }
-                <!-- END SCN INFO -->
-                <!-- GAM INFO -->
-                @if (Model.STD_KIND_CODE == 2)
-                {
-                    <!-- COLLAGE -->
-                    <div class="data-group float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">الجامعة</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="collage">
-                            @Model.COLLEGE
-                        </p>
-                    </div>
-                    <!-- GRADUATION -->
-                    <div class="data-group float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">التخصص</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="graduation">
-                            @Model.GRADUATION
-                        </p>
-                    </div>
-                    <!-- POST_GRADUATION -->
-                    <div class="data-group float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">الدرجة العلمية</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="post_graduation">
-                            @Model.POST_GRADUATION
-                        </p>
-                    </div>
-                    <!-- GRADE -->
-                    <div class="data-group float-right text-center pl-1 d-block">
-                        <p class="data-name font-weight-bold mb-0">التقدير</p>
-                        <p class="data-value form-control  font-weight-bold bg-transparent  px-3" id="grade">
-                            @Model.GRADE
-                        </p>
-                    </div>
-
-                    <!-- PERS -->
-                    <div class="data-group float-right text-center pl-1 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">النسبة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="pers">
-                            @Model.PERS
-                        </p>
-                    </div>
-
-                    <!-- MATH -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">الرياضة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
-                            @Model.GAM_MATH
-                        </p>
-                    </div>
-
-                    <!-- PH -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">الفيزياء/الكيمياء</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
-                            @Model.GAM_PH
-                        </p>
-                    </div>
-
-                    <!-- LANG -->
-                    <div class="data-group float-right text-center pl-2 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">اللغة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="lang">
-                            @Model.LANG_TEST
-                        </p>
-                    </div>
-
-                    <!-- NOZOM -->
-                    <div class="data-group float-right text-center pl-1 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">النظم</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
-                            @Model.NOZOM_TEST
-                        </p>
-                    </div>
-
-
-                }
-
-
-                @if (Model.NOTES != null)
-                {
-                    <!-- interview Notes -->
-                    <div class="data-group float-right text-center pl-1 persian d-block">
-                        <p class="data-name font-weight-bold mb-0">ملحوظة المناظرة</p>
-                        <p class="data-value form-control  font-weight-bold arabic bg-light" id="nozom">
-                            @Model.NOTES
-                        </p>
-                    </div>
-                }
-
-
-
-                <!-- END GAM INFO -->
-                @*
-         <!-- SPECIAL WEIGHT -->
-         <div class="data-group float-right text-center pl-1 persian d-block">
-            <p class="data-name font-weight-bold mb-0">الوزن النوعي</p>
-            <p class="data-value form-control  font-weight-bold arabic bg-light" id="sweight">
-             765
-            </p>
-        </div>
-                *@
+                        }
+                        <span>@(((Psychological + Model.Fitness) / 200) * 100) %</span>
+                </div>
             </div>
         </div>
 
     </div>
 </div>
+
+@if (((Session["user"] as USER).PRIORITY != 1))
+{
+    <div class="my-2 col-12 order-@(ViewBag.order)" id="tby-info" data-order="@(ViewBag.order)">
+        <div class="card border-0">
+            <p class="h3 card-header text-white bg-info text-right d-block font-weight-bold" data-toggle="collapse"
+               data-target="#tby-info-body" aria-expanded="true" aria-controls="tby-info-body" id="tby-info-header">
+                <span>التقييم</span>
+                <i class="fa fa-chevron-down"></i>
+                <div class="toast" style="position: fixed;left: 47%;"><div class="toast-body" >تم الحفظ بنجاح</div></div>
+            </p>
+            <div id="tby-info-body" class="collapse show" aria-labelledby="tby-info-header">
+                <div class="card-body d-flex justify-content-center flex-wrap">
+
+
+
+
+
+                    @if (((Session["user"] as USER).PRIORITY == 6))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput" value="@Model.CulturalLevel" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput" value="@Model.GeneralLook" type="number" min="0" max="10" /></p>
+                                }
+
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">قرار @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput" value="@Model.TrainingStaffOpinion" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_6" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 7))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel2 == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput2" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput2" value="@Model.CulturalLevel2" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook2 == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput2" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput2" value="@Model.GeneralLook2" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion2 == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput2" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput2" value="@Model.TrainingStaffOpinion2" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_7" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 8))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel3 == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput3" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput3" value="@Model.CulturalLevel3" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook3 == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput3" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput3" value="@Model.GeneralLook3" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion3 == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput3" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput3" value="@Model.TrainingStaffOpinion3" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_8" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 9))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel4 == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput4" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput4" value="@Model.CulturalLevel4" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook4 == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput4" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput4" value="@Model.GeneralLook4" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion4 == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput4" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput4" value="@Model.TrainingStaffOpinion4" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_9" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 10))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel5 == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput5" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput5" value="@Model.CulturalLevel5" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook5 == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput5" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput5" value="@Model.GeneralLook5" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion5 == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput5" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput5" value="@Model.TrainingStaffOpinion5" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_10" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 11))
+                    {
+
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المستوي الثقافي</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.CulturalLevel6 == -1)
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput6" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="CulturalLevelInput6" value="@Model.CulturalLevel6" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">المظهر العام</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.GeneralLook6 == -1)
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput6" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="GeneralLookInput6" value="@Model.GeneralLook6" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي @((Session["user"] as USER).NAME)</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                @if (Model.TrainingStaffOpinion6 == -1)
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput6" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TrainingStaffOpinionInput6" value="@Model.TrainingStaffOpinion6" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <div class="RateSection RateSectionSave data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p><input id="userPRIORITY_11" type="button" value="حفظ" /></p>
+
+                            </div>
+                        </div>
+                    }
+                    @if (((Session["user"] as USER).PRIORITY == 2))
+                    {
+                        <div class="data-group float-right text-center pl-1 d-block">
+                            <p class="data-name font-weight-bolder mb-0">رأي وزارة النقل</p>
+                            <div class="RateSection data-value form-control  font-weight-bolder bg-light px-3" id="std_name">
+
+                                <p class="RateSaveBtnP"><input id="TransportationOpinionBtn" type="button" value="حفظ" /></p>
+                                @if (Model.TransportationOpinion == -1)
+                                {
+                                    <p class="RateInputP"><input id="TransportationOpinionInput" value="5" type="number" min="0" max="10" /></p>
+                                }
+                                else
+                                {
+                                    <p class="RateInputP"><input id="TransportationOpinionInput" value="@Model.TransportationOpinion" type="number" min="0" max="10" /></p>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+    @if (((Session["user"] as USER).PRIORITY == 1))
+    {
+        <div class="my-2 col-12 order-@(ViewBag.order)" id="nafsi-info" data-order="@(ViewBag.order)" style="margin-bottom: 60px !important;">
+            <div class="card border-0">
+                <p class="h3 card-header text-white bg-success text-right d-block font-weight-bold" data-toggle="collapse"
+                   data-target="#nafsi-info-body" aria-expanded="true" aria-controls="nafsi-info-body" id="nafsi-info-header">
+                    الاشعارات
+                    <i class="fa fa-chevron-down"></i>
+                </p>
+                <div id="nafsi-info-body" class="collapse show" aria-labelledby="nafsi-info-header">
+                    <div class="card-body d-flex justify-content-center flex-wrap">
+
+
+                        
+
+                        @for (int i = 2; i < ViewBag.NamesOfUsersList.Count; i++)
+                        {
+                            string OpinionSec = "user" + (i - 1).ToString() + "OpinionSec";
+                            <div id="@OpinionSec" class="alert alert-danger alert-dismissible fade show NotifiSection">@ViewBag.NamesOfUsersList[i].NAME</div>
+                        }
+                        <div id="transOpinionSec" class="alert alert-danger alert-dismissible fade show NotifiSection">@ViewBag.NamesOfUsersList[1].NAME</div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <script src="~/Scripts/bootstrap-input-spinner.js"></script>
+
+
+    <script>
+
+
+        $("input[type='number']").inputSpinner();
+
+
+    </script>
